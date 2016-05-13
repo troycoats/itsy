@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><servers>
+  <server baseServerName="server1" hostname="localhost" id="was.base.v8" id-set="true" isAutoConnectionTypeEnabled="true" isHotMethodReplace="true" isOptimiziedForDevelopmentEnv="true" isQuickBatchServerStart="true" isRunServerWithWorkspaceResources="true" isSecurityEnabled="true" isUTCEnabled="true" isZeroBinaryEnabled="true" name="WebSphere Application Server v8.0 at localhost" publish-trigger-type="publish-trigger-type-global" runtime-id="was.base.v8" securityPasswd="scor88pion" securityUserId="troyc@email.utcourts.gov" server-type="com.ibm.ws.ast.st.v8.server.base" server-type-id="com.ibm.ws.ast.st.v8.server.base" serverConnectionType="IPC" serverIPCConnectorPortNum="9633" serverOrbBootstrapPortNum="2809" serverSoapConnectorPortNum="8880" start-timeout="300" stop-timeout="120" timestamp="45" webSphereProfileName="AppSrv1">
+    <list key="modules" value0="itsyEAR::org.eclipse.jst.jee.server:itsyEAR::jst.ear::6.0"/>
+    <list key="connectorTypeList" value0="IPC" value1="JSR160RMI" value2="RMI" value3="SOAP"/>
+  </server>
+</servers>

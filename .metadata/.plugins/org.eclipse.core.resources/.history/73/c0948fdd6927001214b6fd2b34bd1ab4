@@ -1,0 +1,482 @@
+package gov.utcourts.warrant.dataaccess;
+
+import gov.utcourts.common.util.SQLPropertiesUtil;
+import gov.utcourts.common.util.TextUtil;
+import gov.utcourts.warrant.ArrestWarrantInfo;
+import gov.utcourts.warrant.PersonInfo;
+import gov.utcourts.warrant.ResultArrayWrapper;
+import gov.utcourts.warrant.WarrantInfo;
+import gov.utcourts.warrant.util.ServiceConstants;
+import gov.utcourts.warrant.util.ServiceUtil;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import org.apache.log4j.Logger;
+
+public class WarrantDAO extends BaseDAO {
+
+	public static final int CORIS_P_STATUS = 1;
+	public static final int CORIS_P_NCIC_ORI = 2;
+	public static final int CORIS_P_ISSUE_DATE = 3;
+	public static final int CORIS_P_LEA = 4;
+	public static final int CORIS_P_LEA_CASE_NUM = 5;
+	public static final int CORIS_P_FULL_NAME = 6;
+	public static final int CORIS_P_CASE_NUM = 7;
+	public static final int CORIS_P_EXP_DATE = 8;
+	public static final int CORIS_P_RECALL_DATE = 9;
+	public static final int CORIS_P_BAIL_AMT = 10;
+	public static final int CORIS_P_BAIL_FLAG = 11;
+	public static final int CORIS_P_OTN = 12;
+	public static final int CORIS_P_CIT_NUM = 13;
+	public static final int CORIS_P_MUST_APPEAR = 14;
+	public static final int CORIS_P_TRANSPORT_SCOPE = 15;
+	public static final int CORIS_P_OTHER_REASON_TEXT = 16;
+	
+	public static final String STATUS_RECALLED = "4";
+		
+	private static Logger logger = Logger.getLogger(WarrantDAO.class);
+	
+	/**
+	 * returns the warrant from CORIS
+	 * @param int intCaseNum
+	 * @param String caseNumber
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param int partyNum
+	 * @param String warrantNo
+	 * @param int corisUserId
+	 * @return WarrantBO
+	 * @throws Exception
+	 */
+	public WarrantBO getWarrantFromCoris(int intCaseNum, String caseNumber, String courtLocation, String courtType, int partyNum, String warrantNo, int corisUserId) throws Exception {
+		logger.debug(".getWarrantFromCoris(int intCaseNum, String caseNumber, String courtLocation, String courtType, int partyNum, String warrantNo, int corisUserId) start");
+		WarrantBO warrantBO = new WarrantBO();
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.find.warrant.coris"));
+			setPStmtValue(1, getInteger(corisUserId));
+			setPStmtValue(2, getInteger(intCaseNum));
+			setPStmtValue(3, courtLocation);
+			setPStmtValue(4, courtType);
+			setPStmtValue(5, getInteger(partyNum));
+			setPStmtValue(6, warrantNo);
+			
+			executeQuery();
+			
+			if (hasMoreResults()) {
+				warrantBO.setStatus(getRSValueInt(CORIS_P_STATUS));
+				if (warrantBO.getStatus() == ServiceConstants.DATA_FOUND) {
+					warrantBO = createWarrantFromCoris();
+				}
+				warrantBO.setCaseNum(caseNumber);
+			}
+		} catch (Exception e) {
+			logger.error(".getWarrantFromCoris() {Exception]", e);
+			throw e;
+		} finally {
+			close();
+			logger.debug(".getWarrantFromCoris() end");
+		}
+		return warrantBO;
+	}
+	
+	/**
+	 * returns the warrant from CORIS
+	 * @param WarrantInfo warrantInfo
+	 * @return WarrantBO
+	 * @throws Exception
+	 */
+	public WarrantBO getWarrantFromCoris(WarrantInfo warrantInfo) throws Exception {
+		return getWarrantFromCoris(
+				warrantInfo.getIntCaseNum(), 
+				warrantInfo.getWarrantBO().getCaseNum(),
+				warrantInfo.getCourtLocation(),
+				warrantInfo.getCourtType(),
+				warrantInfo.getPartyNum(),
+				warrantInfo.getWarrantNo(),
+				warrantInfo.getCorisUserId()
+		);
+	}
+	
+	/**
+	 * returns the warrant from arrest warrant database
+	 * @param int intCaseNum
+	 * @param String caseNumber
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param String warrantNo
+	 * @param int corisUserId
+	 * @return WarrantInfo
+	 * @throws Exception
+	 */
+	public WarrantInfo getWarrantFromArrestWarrantDB(int intCaseNum, String caseNumber, String courtLocation, String courtType, String warrantNo, String courtOri, int partyNum, int corisUserId) throws Exception {
+		logger.debug(".getWarrantFromArrestWarrantDB(int intCaseNum, String caseNumber, String courtLocation, String courtType, String warrantNo, Strring courtOri, int partyNum, int corisUserId) start");
+		WarrantInfo warrantInfo = null;
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.find.warrant"));
+			setPStmtValue(1, caseNumber);
+			setPStmtValue(2, courtLocation);
+			setPStmtValue(3, courtType);
+			setPStmtValue(4, warrantNo);
+						
+			executeQuery();
+			
+			if (hasMoreResults()) {
+				warrantInfo = createWarrant(intCaseNum, partyNum, corisUserId);
+			}
+		} catch (Exception e) {
+			logger.error(".getWarrantFromArrestWarrantDB() {Exception]", e);
+			throw e;
+		} finally {
+			close();
+			logger.debug(".getWarrantFromArrestWarrantDB() end");
+		}
+		return warrantInfo;
+	}
+	
+	/**
+	 * finds arrest warrants in the arrest warrant database
+	 * @param String firstName 
+	 * @param String lastName
+	 * @param String otn
+	 * @param String driversLicenseNumber
+	 * @param String ssn
+	 * @param Date dateOfBirth
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param Date startDate
+	 * @param Date endDate
+	 * @param String dateType
+	 * @return Collection<ArrestWarrantInfo>
+	 */
+	public Collection<ArrestWarrantInfo> searchForWarrants(String firstName, String lastName, String otn, String driversLicenseNumber, String ssn, Date dateOfBirth, String courtLocation, String courtType, Date startDate, Date endDate, String dateType) throws Exception {
+		logger.debug(".searchForWarrantsString firstName, String lastName, String otn, String driversLicenseNumber, String ssn, Date dateOfBirth, String courtLocation, String courtType, Date startDate, Date endDate, int status) start");
+		Collection<ArrestWarrantInfo> results = new ArrayList<ArrestWarrantInfo>();
+		
+        StringBuilder fields = new StringBuilder();
+        fields.append("select w.*, pn.first_name, pn.last_name, p.birthdate");
+        
+        ArrayList<String> tables = new ArrayList<String>();
+        ArrayList<String> join = new ArrayList<String>();
+        ArrayList<String> where = new ArrayList<String>();
+        ArrayList<Object> psValues = new ArrayList<Object>();
+	       
+        // add in the base tables and linking fields
+        tables.add("warrant w");
+       
+        join.add("left outer join person p on p.person_id = w.person_id");
+        join.add("left outer join person_name pn on pn.person_id = w.person_id");
+        join.add("left outer join idnumbers i on i.person_id = w.person_id");
+        
+        // first_name
+        if (!TextUtil.isEmpty(firstName)) {
+       	   where.add("lower(pn.first_name) like lower(?)");
+       	   psValues.add((firstName.toLowerCase()) + "%");
+        }
+        
+        // last_name
+        if (!TextUtil.isEmpty(lastName)) {
+    		where.add("lower(pn.last_name) like lower(?)");
+    		psValues.add((lastName.toLowerCase()) + "%");
+        }
+
+        // otn
+        if (!TextUtil.isEmpty(otn)) {
+           where.add("lower(w.otn) like lower(?)");
+           psValues.add((otn.toLowerCase()) + "%");
+        }
+
+        // idnumbers -- drivers license
+        if (!TextUtil.isEmpty(driversLicenseNumber)) {
+           where.add("lower(i.id_number) like lower(?)");
+           psValues.add((driversLicenseNumber.toLowerCase()) + "%");
+        }
+
+        // idnumbers -- ssn
+        if (!TextUtil.isEmpty(ssn)) {
+            where.add("lower(i.id_number) like lower(?)");
+            psValues.add((ssn.toLowerCase()) + "%");
+        }
+
+        // birth_date
+        if (dateOfBirth != null) {
+           where.add("date(p.birth_date) = date(?)");
+           psValues.add(dateOfBirth);
+        }
+        
+        // courtLocation
+        if (!TextUtil.isEmpty(courtLocation)) {
+           where.add("w.court_location = '" + courtLocation + "'");
+        }
+
+        // courtType
+        if (!TextUtil.isEmpty(courtType)) {
+           where.add("w.court_type = '" + courtType + "'");
+        }
+
+        // birth_date
+        if (dateOfBirth != null) {
+           where.add("date(p.birth_date) = date(?)");
+           psValues.add(dateOfBirth);
+        }
+        
+        String sql = buildSQL(fields.toString(), tables, join, where);
+        String countSql = buildSQL("select count(*) ", tables, join, where);
+        logger.debug("dynamic sql [" + sql + "]");
+       
+        try {
+           setPStmt("set isolation to dirty read");
+           execute();
+           doSearch(countSql, sql, psValues);
+           while (hasMoreResults()) {
+        	   results.add(createArrestWarrantInfo());
+           }
+           setPStmt("set isolation to committed read");
+           execute();
+        } catch (Exception e) {
+           logger.error("Exception in search", e);
+           throw e;
+        } finally {
+           close();
+        }    
+       
+        fields = null;
+        tables = null;
+        where = null;
+        psValues = null;
+       
+        return results;
+	}
+	
+	/**
+	 * Insert warrant
+	 * @param WarrantInfo warrantInfo
+	 * @param PersonInfon personInfo
+	 * @return WarrantInfo
+	 * @throws Exception
+	 */
+	public WarrantInfo insertWarrant(WarrantInfo warrantInfo, PersonInfo personInfo) throws Exception {
+		try {
+			WarrantBO warrantBO = warrantInfo.getWarrantBO();
+			
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.insert"));
+	
+			setPStmtValue(1,  warrantBO.getCourtOri());
+			setPStmtValue(2,  warrantInfo.getWarrantNo());
+			setPStmtValue(3,  personInfo.getPersonBO().getPersonId());
+			setPStmtValue(4,  warrantBO.getIssueDate());
+			setPStmtValue(5,  warrantBO.getLea());
+			setPStmtValue(6,  warrantBO.getLeaCaseNum());
+			setPStmtValue(7,  warrantBO.getFullName());
+			setPStmtValue(8,  warrantBO.getCaseNum());
+			setPStmtValue(9,  warrantBO.getExpireDate());
+			setPStmtValue(10, warrantBO.getRecallDate());
+			setPStmtValue(11, "A");
+			setPStmtValue(12, warrantBO.getBailAmount());
+			setPStmtValue(13, ServiceUtil.lookupBailStatus(warrantBO.getBailFlag()));
+			setPStmtValue(14, warrantBO.getOtn());
+			setPStmtValue(15, warrantBO.getCitationNumber());
+			setPStmtValue(16, ServiceUtil.lookupMandatoryAppearance(warrantBO.getMustAppear()));
+			setPStmtValue(17, ServiceUtil.lookupTransportDesignation(warrantBO.getTransportationDesignation()));
+			setPStmtValue(18, warrantInfo.getCourtType());
+			setPStmtValue(19, warrantInfo.getCourtLocation());
+			setPStmtValue(20, ServiceConstants.INSERT_AGENCY);
+			setPStmtValue(21, warrantInfo.getCorisUserId());
+			setPStmtValue(22, new Date());
+			
+			execute();
+
+			warrantBO.setWarrantId(getIdentityValueInt());
+			warrantInfo.setWarrantBO(warrantBO);
+			warrantInfo.setSuccessful(true);
+			
+			warrantBO = null;
+			
+			return warrantInfo;
+		} catch (Exception e) {
+			logger.error("Exception in WarrantInfo insertWarrant(WarrantInfo warrantInfo, PersonInfo personInfo)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+	
+	/**
+	 * Recall warrant
+	 * @param WarrantInfo warrantInfo
+	 * @param Date recallDate
+	 * @return WarrantInfo
+	 * @throws Exception
+	 */
+	public WarrantInfo recallWarrant(WarrantInfo warrantInfo, Date recallDate) throws Exception {
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.recall"));
+			setPStmtValue(1,  recallDate);
+			setPStmtValue(2,  new Date());
+			setPStmtValue(3,  ServiceConstants.MODIFY_AGENCY);
+			setPStmtValue(4,  warrantInfo.getCorisUserId());
+			setPStmtValue(5,  warrantInfo.getWarrantBO().getWarrantId());
+			execute();
+
+			warrantInfo.setSuccessful(true);
+			
+			return warrantInfo;
+		} catch (Exception e) {
+			logger.error("Exception in WarrantInfo recallWarrant(WarrantInfo warrantInfo, Date recallDate)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+	
+   /**
+	 * Update warrant from CORIS
+	 * @param WarrantBO corisWarrantBO
+	 * @param WarrantInfo warrantInfo
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public boolean updateWarrantFromCoris(WarrantBO corisWarrantBO, WarrantInfo warrantInfo) throws Exception {
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.update"));
+			
+			// le_agency=?, orig_agy_case_no=?, judge_lit=?, court_case_no=?, bail_amount=?, bail_status_flag=?, otn=?, citation=?, mandatory_appear=?, transport_designation=?, issue_date=?, expire_date=?, recalled_date=?, modifydatetime=?, modifyagencyid=?, modifyuserid=?  
+			setPStmtValue(1,  corisWarrantBO.getLea());
+			setPStmtValue(2,  corisWarrantBO.getLeaCaseNum());
+			setPStmtValue(3,  corisWarrantBO.getFullName());
+			setPStmtValue(4,  corisWarrantBO.getCaseNum());
+			setPStmtValue(5,  corisWarrantBO.getBailAmount());
+			setPStmtValue(6,  ServiceUtil.lookupBailStatus(corisWarrantBO.getBailFlag()));
+			setPStmtValue(7,  corisWarrantBO.getOtn());
+			setPStmtValue(8,  corisWarrantBO.getCitationNumber());
+			setPStmtValue(9,  corisWarrantBO.getMustAppear());
+			setPStmtValue(10, ServiceUtil.lookupTransportDesignation(corisWarrantBO.getTransportationDesignation()));
+			setPStmtValue(11, corisWarrantBO.getIssueDate());
+			setPStmtValue(12, corisWarrantBO.getExpireDate());
+			setPStmtValue(13, corisWarrantBO.getRecallDate());
+			
+			setPStmtValue(14, new Date());
+			setPStmtValue(15, ServiceConstants.MODIFY_AGENCY);
+			setPStmtValue(16, warrantInfo.getCorisUserId());
+			
+			setPStmtValue(17, warrantInfo.getWarrantBO().getWarrantId());
+			execute();
+
+			return true;
+		} catch (Exception e) {
+			logger.error("Exception in boolean updateWarrantFromCoris(WarrantBO corisWarrantBO, WarrantInfo warrantInfo)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}	
+	}
+		
+	/**
+	 * 
+	 * @return WarrantInfo
+	 * @throws Exception
+	 */
+	private WarrantInfo createWarrant(int intCaseNum, int partyNum, int corisUserId) throws Exception {
+		WarrantInfo warrantInfo = new WarrantInfo(
+			intCaseNum,
+			getRSValueString("court_case_no"), 
+			getRSValueString("court_location"), 
+			getRSValueString("court_type"), 
+			partyNum, 
+			getRSValueString("warrant_no"), 
+			corisUserId
+		);
+		
+		WarrantBO warrantBO = warrantInfo.getWarrantBO();
+		warrantBO.setPersonId(getRSValueInt("person_id"));
+		warrantBO.setWarrantId(getRSValueInt("warrant_id"));
+		warrantBO.setWarrantType(getRSValueString("warrant_type"));
+		warrantBO.setIssueDate(getRSValueDate("issue_date"));
+		warrantBO.setCourtOri("courtori");
+		warrantBO.setLea(getRSValueString("le_agency"));
+		warrantBO.setLeaCaseNum(getRSValueString("orig_agy_case_no"));
+		warrantBO.setFullName(getRSValueString("judge_lit"));
+		warrantBO.setExpireDate(getRSValueDate("expire_date"));
+		warrantBO.setRecallDate(getRSValueDate("recalled_date"));
+		warrantBO.setBailAmount(getRSValueDouble("bail_amount"));
+		warrantBO.setBailFlag(getRSValueString("bail_status_flag"));
+		warrantBO.setOtn(getRSValueString("otn"));
+		warrantBO.setCitationNumber(getRSValueString("citation"));
+		warrantBO.setMustAppear(getRSValueString("mandatory_appear"));
+		warrantBO.setTransportationDesignation(getRSValueString("transport_designation"));
+		warrantBO.setInsertAgencyId(getRSValueString("insertagencyid"));
+		warrantBO.setInsertDateTime(getRSValueDate("insertdatetime"));
+		warrantBO.setInsertUserId(getRSValueString("insertuserid"));
+		warrantBO.setModifyAgencyId(getRSValueString("modifyagencyid"));
+		warrantBO.setModifyDateTime(getRSValueDate("modifydatetime"));
+		warrantBO.setModifyUserId(getRSValueString("modifyuserid"));
+		warrantInfo.setWarrantBO(warrantBO);
+		warrantBO = null;
+		
+		return warrantInfo;
+	}
+	
+	/**
+	 * @return WarrantBO
+	 * @throws Exception
+	 */
+	private WarrantBO createWarrantFromCoris() throws Exception {
+		WarrantBO warrantBO = new WarrantBO();
+		warrantBO.setCourtOri(getRSValueString(CORIS_P_NCIC_ORI));
+		warrantBO.setIssueDate(getRSValueDate(CORIS_P_ISSUE_DATE));
+		warrantBO.setLea(getRSValueString(CORIS_P_LEA));
+		warrantBO.setLeaCaseNum(getRSValueString(CORIS_P_LEA_CASE_NUM));
+		warrantBO.setFullName(getRSValueString(CORIS_P_FULL_NAME));
+		warrantBO.setExpireDate(getRSValueDate(CORIS_P_EXP_DATE));
+		warrantBO.setRecallDate(getRSValueDate(CORIS_P_RECALL_DATE));
+		warrantBO.setBailAmount(getRSValueDouble(CORIS_P_BAIL_AMT));
+		warrantBO.setBailFlag(getRSValueString(CORIS_P_BAIL_FLAG));
+		warrantBO.setOtn(getRSValueString(CORIS_P_OTN));
+		warrantBO.setCitationNumber(getRSValueString(CORIS_P_CIT_NUM));
+		warrantBO.setMustAppear(getRSValueString(CORIS_P_MUST_APPEAR));
+		warrantBO.setTransportationDesignation(getRSValueString(CORIS_P_TRANSPORT_SCOPE));
+		warrantBO.setOtherReasonText(getRSValueString(CORIS_P_OTHER_REASON_TEXT));
+		return warrantBO;
+	}
+	
+	/**
+	 * @return ArrestWarrantInfo
+	 * @throws Exception
+	 */
+	private ArrestWarrantInfo createArrestWarrantInfo() throws Exception {
+		ArrestWarrantInfo arrestWarrantInfo = new ArrestWarrantInfo();
+		arrestWarrantInfo.setFirstName(getRSValueString("first_name"));
+		arrestWarrantInfo.setLastName(getRSValueString("last_name"));
+		arrestWarrantInfo.setWarrantNo(getRSValueString("warrant_no"));
+		arrestWarrantInfo.setCaseNumber(getRSValueString("court_case_no"));
+		arrestWarrantInfo.setCourtOri(getRSValueString("courtori"));
+		arrestWarrantInfo.setOtn(getRSValueString("otn"));
+		arrestWarrantInfo.setBailAmount(getRSValueDouble("bail_amount"));
+		arrestWarrantInfo.setBailFlag(getRSValueString("bail_status_flag"));
+		arrestWarrantInfo.setJudgeName(getRSValueString("judge_lit"));
+		arrestWarrantInfo.setCourtLocation(getRSValueString("court_location"));
+		arrestWarrantInfo.setCourtType(getRSValueString("court_type"));
+		arrestWarrantInfo.setInsertUserId(getRSValueString("insertuserid"));
+		arrestWarrantInfo.setInsertDateTime(getRSValueDate("insertdatetime"));
+		arrestWarrantInfo.setModifyUserId(getRSValueString("modifyuserid"));
+		arrestWarrantInfo.setModifyDateTime(getRSValueDate("modifydatetime"));
+		arrestWarrantInfo.setIssueDate(getRSValueDate("issue_date"));
+		arrestWarrantInfo.setExpireDate(getRSValueDate("expire_date"));
+		arrestWarrantInfo.setRecallDate(getRSValueDate("recalled_date"));
+		return arrestWarrantInfo;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.jst.j2ee.commonarchivecore.looseconfig:LooseApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.eclipse.jst.j2ee.commonarchivecore.looseconfig="commonarchive.looseconfig.xmi" uri="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantWSEAR" binariesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantWSEAR" resourcesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantWSEAR">
+  <looseArchives xsi:type="org.eclipse.jst.j2ee.commonarchivecore.looseconfig:LooseWARFile" uri="ArrestWarrantWS.war" binariesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantWS\WebContent" resourcesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantWS\WebContent"/>
+</org.eclipse.jst.j2ee.commonarchivecore.looseconfig:LooseApplication>

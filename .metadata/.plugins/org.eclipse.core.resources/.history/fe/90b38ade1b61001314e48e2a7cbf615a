@@ -1,0 +1,55 @@
+package gov.utcourts.arrestwarrant.dataaccess;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+public class WarrantRetransmissionBO extends WarrantRetransmissionVO {
+	
+	private static Logger logger = Logger.getLogger(WarrantRetransmissionBO.class);
+	
+	public WarrantRetransmissionBO() {
+		super();
+	}	
+	
+	/**
+	 * Method to return BO
+	 * @param WarrantRetransmissionBO
+	 * @return BO
+	 * @throws Exception
+	 */
+	public static List<WarrantRetransmissionBO> findAll(String courtType) throws Exception {
+		return WarrantRetransmissionFacade.findAll(courtType);		
+	}
+	
+	/**
+	 * inserts new record
+	 * @param bo BO
+	 * @return VO 
+	 * <p>
+	 * @throws Exception
+	 */
+	public static WarrantRetransmissionBO insert(WarrantRetransmissionBO bo) throws Exception {
+		return WarrantRetransmissionFacade.insert(bo);
+	}
+
+	/**
+	 * update record
+	 * @param bo BO
+	 * <p>
+	 * @throws Exception
+	 */
+	public static void update(WarrantRetransmissionBO bo) throws Exception {
+		WarrantRetransmissionFacade.update(bo);
+	}
+
+	/**
+	 * delete record
+	 * @param bo BO
+	 * <p>
+	 * @throws Exception
+	 */
+	public static void delete(WarrantRetransmissionBO bo) throws Exception {
+		WarrantRetransmissionFacade.delete(bo);
+	}
+}

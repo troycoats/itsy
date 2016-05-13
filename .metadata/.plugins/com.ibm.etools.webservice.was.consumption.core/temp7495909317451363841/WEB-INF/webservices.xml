@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><webservices version="1.3" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/javaee_web_services_1_3.xsd">
+    <webservice-description>
+        <webservice-description-name>ServiceUtilService</webservice-description-name>
+        <wsdl-file>WEB-INF/wsdl/ServiceUtil.wsdl</wsdl-file>
+        <jaxrpc-mapping-file>WEB-INF/ServiceUtil_mapping.xml</jaxrpc-mapping-file>
+        <port-component>
+            <port-component-name>ServiceUtil</port-component-name>
+            <wsdl-port xmlns:pfx="http://util.warrant.utcourts.gov">pfx:ServiceUtil</wsdl-port>
+            <mtom-threshold>0</mtom-threshold>
+            <service-endpoint-interface>gov.utcourts.warrant.util.ServiceUtil</service-endpoint-interface>
+            <service-impl-bean>
+                <servlet-link>??SET THIS TO servlet-name ELEMENT OF web.xml??</servlet-link>
+            </service-impl-bean>
+        </port-component>
+    </webservice-description>
+</webservices>

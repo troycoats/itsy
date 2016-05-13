@@ -1,0 +1,4 @@
+#Fri May 18 07:44:34 MDT 2012
+module-start-timeout=300000
+runtimes=<?xml version\="1.0" encoding\="UTF-8"?><runtimes>\r\n  <runtime id\="AJAX Test Server Runtime" id-set\="true" name\="AJAX Test Server Runtime" runtime-type-id\="com.ibm.etools.ajax.server.runtime" timestamp\="0"/>\r\n  <runtime alternate-names\="WebSphere Application Server v8.0 stub" id\="was.base.v8" id-set\="true" location\="C\:/Program Files/IBM/WebSphere/AppServer" locked\="true" name\="WebSphere Application Server v8.0" runtime-type-id\="com.ibm.ws.ast.st.runtime.v80" stub\="false" test-environment\="true" timestamp\="0"/>\r\n</runtimes>
+eclipse.preferences.version=1

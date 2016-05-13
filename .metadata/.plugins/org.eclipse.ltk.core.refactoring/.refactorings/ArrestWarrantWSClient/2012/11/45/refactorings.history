@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ArrestWarrantWSClient/WebContent/sampleArrestWarrantProxy/Input.jsp.svntmp&apos; to &apos;Input.jsp&apos;" description="Rename resource &apos;Input.jsp.svntmp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/sampleArrestWarrantProxy/Input.jsp.svntmp" name="Input.jsp" stamp="1352133171229" updateReferences="true"/>
+</session>

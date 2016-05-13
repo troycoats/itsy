@@ -1,0 +1,65 @@
+/**
+ * ResultWrapper_Deser.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant;
+
+public class ResultWrapper_Deser extends com.ibm.ws.webservices.engine.encoding.ser.BeanDeserializer {
+    /**
+     * Constructor
+     */
+    public ResultWrapper_Deser(
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType, 
+           com.ibm.ws.webservices.engine.description.TypeDesc _typeDesc) {
+        super(_javaType, _xmlType, _typeDesc);
+    }
+    /**
+     * Create instance of java bean
+     */
+    public void createValue() {
+        value = new ResultWrapper();
+    }
+    protected boolean tryElementSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        if (qName==QName_0_0) {
+          ((ResultWrapper)value).setReasonCode(strValue);
+          return true;}
+        else if (qName==QName_0_1) {
+          ((ResultWrapper)value).setReason(strValue);
+          return true;}
+        return false;
+    }
+    protected boolean tryAttributeSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        return false;
+    }
+    protected boolean tryElementSetFromObject(javax.xml.namespace.QName qName, java.lang.Object objValue) {
+        if (qName==QName_0_2) {
+          if (objValue instanceof java.util.List) {
+            java.lang.Object[] array = new java.lang.Object[((java.util.List)objValue).size()];
+            ((java.util.List)objValue).toArray(array);
+            ((ResultWrapper)value).setErrors(array);
+          } else { 
+            ((ResultWrapper)value).setErrors((java.lang.Object[])objValue);}
+          return true;}
+        return false;
+    }
+    protected boolean tryElementSetFromList(javax.xml.namespace.QName qName, java.util.List listValue) {
+        return false;
+    }
+    private final static javax.xml.namespace.QName QName_0_1 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "reason");
+    private final static javax.xml.namespace.QName QName_0_0 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "reasonCode");
+    private final static javax.xml.namespace.QName QName_0_2 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "errors");
+}

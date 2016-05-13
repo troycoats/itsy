@@ -1,0 +1,151 @@
+/**
+ * PersonVehicleVO_Deser.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class PersonVehicleVO_Deser extends gov.utcourts.warrant.dataaccess.BaseVO_Deser {
+    /**
+     * Constructor
+     */
+    public PersonVehicleVO_Deser(
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType, 
+           com.ibm.ws.webservices.engine.description.TypeDesc _typeDesc) {
+        super(_javaType, _xmlType, _typeDesc);
+    }
+    /**
+     * Create instance of java bean
+     */
+    public void createValue() {
+        value = new PersonVehicleVO();
+    }
+    protected boolean tryElementSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        if (qName==QName_0_47) {
+          ((PersonVehicleVO)value).setPersonVehicleId(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseint(strValue));
+          return true;}
+        else if (qName==QName_0_37) {
+          ((PersonVehicleVO)value).setStatus(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseint(strValue));
+          return true;}
+        else if (qName==QName_0_31) {
+          ((PersonVehicleVO)value).setPersonId(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseint(strValue));
+          return true;}
+        else if (qName==QName_0_48) {
+          ((PersonVehicleVO)value).setLicensePlateNumber(strValue);
+          return true;}
+        else if (qName==QName_0_49) {
+          ((PersonVehicleVO)value).setLicensePlateState(strValue);
+          return true;}
+        else if (qName==QName_0_50) {
+          ((PersonVehicleVO)value).setVehicleYear(strValue);
+          return true;}
+        else if (qName==QName_0_51) {
+          ((PersonVehicleVO)value).setVehicleMake(strValue);
+          return true;}
+        else if (qName==QName_0_52) {
+          ((PersonVehicleVO)value).setVehicleModel(strValue);
+          return true;}
+        else if (qName==QName_0_53) {
+          ((PersonVehicleVO)value).setVehicleStyle(strValue);
+          return true;}
+        else if (qName==QName_0_54) {
+          ((PersonVehicleVO)value).setVehicleColor(strValue);
+          return true;}
+        else if (qName==QName_0_39) {
+          ((PersonVehicleVO)value).setInsertAgencyId(strValue);
+          return true;}
+        else if (qName==QName_0_24) {
+          ((PersonVehicleVO)value).setInsertUserId(strValue);
+          return true;}
+        else if (qName==QName_0_25) {
+          ((PersonVehicleVO)value).setInsertDateTime(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_55) {
+          ((PersonVehicleVO)value).setModifyAgencyId(strValue);
+          return true;}
+        else if (qName==QName_0_26) {
+          ((PersonVehicleVO)value).setModifyUserId(strValue);
+          return true;}
+        else if (qName==QName_0_27) {
+          ((PersonVehicleVO)value).setModifyDateTime(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        return super.tryElementSetFromString(qName, strValue);
+    }
+    protected boolean tryAttributeSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        return super.tryAttributeSetFromString(qName, strValue);
+    }
+    protected boolean tryElementSetFromObject(javax.xml.namespace.QName qName, java.lang.Object objValue) {
+        return super.tryElementSetFromObject(qName, objValue);
+    }
+    protected boolean tryElementSetFromList(javax.xml.namespace.QName qName, java.util.List listValue) {
+        return super.tryElementSetFromList(qName, listValue);
+    }
+    private final static javax.xml.namespace.QName QName_0_26 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyUserId");
+    private final static javax.xml.namespace.QName QName_0_39 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertAgencyId");
+    private final static javax.xml.namespace.QName QName_0_54 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleColor");
+    private final static javax.xml.namespace.QName QName_0_55 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyAgencyId");
+    private final static javax.xml.namespace.QName QName_0_51 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleMake");
+    private final static javax.xml.namespace.QName QName_0_24 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertUserId");
+    private final static javax.xml.namespace.QName QName_0_52 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleModel");
+    private final static javax.xml.namespace.QName QName_0_37 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "status");
+    private final static javax.xml.namespace.QName QName_0_47 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personVehicleId");
+    private final static javax.xml.namespace.QName QName_0_49 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "licensePlateState");
+    private final static javax.xml.namespace.QName QName_0_25 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertDateTime");
+    private final static javax.xml.namespace.QName QName_0_48 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "licensePlateNumber");
+    private final static javax.xml.namespace.QName QName_0_53 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleStyle");
+    private final static javax.xml.namespace.QName QName_0_31 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personId");
+    private final static javax.xml.namespace.QName QName_0_50 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleYear");
+    private final static javax.xml.namespace.QName QName_0_27 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyDateTime");
+}

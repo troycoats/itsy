@@ -1,0 +1,250 @@
+/**
+ * ArrestWarrantInfo.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant;
+
+public class ArrestWarrantInfo  {
+    private java.lang.Object[] personNames;
+    private java.lang.Object[] addresses;
+    private java.lang.Object[] vehicles;
+    private java.lang.Object[] charges;
+    private java.lang.String warrantStatus;
+    private java.lang.String firstName;
+    private java.lang.String lastName;
+    private java.lang.String warrantNo;
+    private java.lang.String caseNumber;
+    private java.lang.String courtOri;
+    private java.lang.String otn;
+    private double bailAmount;
+    private java.lang.String bailFlag;
+    private java.lang.String judgeName;
+    private java.lang.String courtLocation;
+    private java.lang.String courtType;
+    private java.lang.String jailCode;
+    private java.lang.String insertUserId;
+    private java.util.Calendar insertDateTime;
+    private java.lang.String modifyUserId;
+    private java.util.Calendar modifyDateTime;
+    private java.util.Calendar issueDate;
+    private java.util.Calendar expireDate;
+    private java.util.Calendar recallDate;
+    private int personId;
+    private int warrantId;
+
+    public ArrestWarrantInfo() {
+    }
+
+    public java.lang.Object[] getPersonNames() {
+        return personNames;
+    }
+
+    public void setPersonNames(java.lang.Object[] personNames) {
+        this.personNames = personNames;
+    }
+
+    public java.lang.Object[] getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(java.lang.Object[] addresses) {
+        this.addresses = addresses;
+    }
+
+    public java.lang.Object[] getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(java.lang.Object[] vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public java.lang.Object[] getCharges() {
+        return charges;
+    }
+
+    public void setCharges(java.lang.Object[] charges) {
+        this.charges = charges;
+    }
+
+    public java.lang.String getWarrantStatus() {
+        return warrantStatus;
+    }
+
+    public void setWarrantStatus(java.lang.String warrantStatus) {
+        this.warrantStatus = warrantStatus;
+    }
+
+    public java.lang.String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(java.lang.String firstName) {
+        this.firstName = firstName;
+    }
+
+    public java.lang.String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(java.lang.String lastName) {
+        this.lastName = lastName;
+    }
+
+    public java.lang.String getWarrantNo() {
+        return warrantNo;
+    }
+
+    public void setWarrantNo(java.lang.String warrantNo) {
+        this.warrantNo = warrantNo;
+    }
+
+    public java.lang.String getCaseNumber() {
+        return caseNumber;
+    }
+
+    public void setCaseNumber(java.lang.String caseNumber) {
+        this.caseNumber = caseNumber;
+    }
+
+    public java.lang.String getCourtOri() {
+        return courtOri;
+    }
+
+    public void setCourtOri(java.lang.String courtOri) {
+        this.courtOri = courtOri;
+    }
+
+    public java.lang.String getOtn() {
+        return otn;
+    }
+
+    public void setOtn(java.lang.String otn) {
+        this.otn = otn;
+    }
+
+    public double getBailAmount() {
+        return bailAmount;
+    }
+
+    public void setBailAmount(double bailAmount) {
+        this.bailAmount = bailAmount;
+    }
+
+    public java.lang.String getBailFlag() {
+        return bailFlag;
+    }
+
+    public void setBailFlag(java.lang.String bailFlag) {
+        this.bailFlag = bailFlag;
+    }
+
+    public java.lang.String getJudgeName() {
+        return judgeName;
+    }
+
+    public void setJudgeName(java.lang.String judgeName) {
+        this.judgeName = judgeName;
+    }
+
+    public java.lang.String getCourtLocation() {
+        return courtLocation;
+    }
+
+    public void setCourtLocation(java.lang.String courtLocation) {
+        this.courtLocation = courtLocation;
+    }
+
+    public java.lang.String getCourtType() {
+        return courtType;
+    }
+
+    public void setCourtType(java.lang.String courtType) {
+        this.courtType = courtType;
+    }
+
+    public java.lang.String getJailCode() {
+        return jailCode;
+    }
+
+    public void setJailCode(java.lang.String jailCode) {
+        this.jailCode = jailCode;
+    }
+
+    public java.lang.String getInsertUserId() {
+        return insertUserId;
+    }
+
+    public void setInsertUserId(java.lang.String insertUserId) {
+        this.insertUserId = insertUserId;
+    }
+
+    public java.util.Calendar getInsertDateTime() {
+        return insertDateTime;
+    }
+
+    public void setInsertDateTime(java.util.Calendar insertDateTime) {
+        this.insertDateTime = insertDateTime;
+    }
+
+    public java.lang.String getModifyUserId() {
+        return modifyUserId;
+    }
+
+    public void setModifyUserId(java.lang.String modifyUserId) {
+        this.modifyUserId = modifyUserId;
+    }
+
+    public java.util.Calendar getModifyDateTime() {
+        return modifyDateTime;
+    }
+
+    public void setModifyDateTime(java.util.Calendar modifyDateTime) {
+        this.modifyDateTime = modifyDateTime;
+    }
+
+    public java.util.Calendar getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(java.util.Calendar issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public java.util.Calendar getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpireDate(java.util.Calendar expireDate) {
+        this.expireDate = expireDate;
+    }
+
+    public java.util.Calendar getRecallDate() {
+        return recallDate;
+    }
+
+    public void setRecallDate(java.util.Calendar recallDate) {
+        this.recallDate = recallDate;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public int getWarrantId() {
+        return warrantId;
+    }
+
+    public void setWarrantId(int warrantId) {
+        this.warrantId = warrantId;
+    }
+
+}

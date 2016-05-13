@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>avoid error caused by inserting null id into idnumbers table</CommitComment>
+	<CommitComment>id number fix to avoid null id_number on insert</CommitComment>
+	<CommitComment>Project compiled to .jar file</CommitComment>
+	<CommitComment>delete id numbers (ssn, dl) when they have been removed from coris but are in the arrest warrant database</CommitComment>
+	<CommitComment>Changes to make sure that there is only one person_name record designated as the PRIMARY when issuing or modifying a warrant</CommitComment>
+	<CommitComment>Shared pool connection fix</CommitComment>
+	<CommitComment>Fixed hair_color mapping issue for CORIS
+
+BLD =&gt; XXX</CommitComment>
+	<CommitComment>fix for mapping issue -- didn&apos;t cause error</CommitComment>
+	<CommitComment>order by date not by id</CommitComment>
+	<CommitComment>Fix mandatory appearance flag</CommitComment>
+</CommitComments>

@@ -1,0 +1,19 @@
+package gov.utcourts.arrestwarrant.dataaccess.common;
+
+/**
+ * Represents a row locked exception.
+ * 
+ * @author Sirius Computer Solutions, Inc.
+ */
+public class RowLockedException extends Exception {
+	
+	
+	/**
+	 * Default constructor.
+	 */
+	public RowLockedException(){
+		super();
+		fillInStackTrace();
+	}
+
+}

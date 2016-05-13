@@ -1,0 +1,135 @@
+package gov.utcourts.warrant.ws;
+
+public class ArrestWarrantProxy implements gov.utcourts.warrant.ws.ArrestWarrant {
+  private boolean _useJNDI = true;
+  private boolean _useJNDIOnly = false;
+  private String _endpoint = null;
+  private gov.utcourts.warrant.ws.ArrestWarrant __arrestWarrant = null;
+  
+  public ArrestWarrantProxy() {
+    _initArrestWarrantProxy();
+  }
+  
+  private void _initArrestWarrantProxy() {
+  
+    if (_useJNDI || _useJNDIOnly) {
+      try {
+        javax.naming.InitialContext ctx = new javax.naming.InitialContext();
+        __arrestWarrant = ((gov.utcourts.warrant.ws.ArrestWarrantService)ctx.lookup("java:comp/env/service/ArrestWarrantService")).getArrestWarrant();
+      }
+      catch (javax.naming.NamingException namingException) {
+        if ("true".equalsIgnoreCase(System.getProperty("DEBUG_PROXY"))) {
+          System.out.println("JNDI lookup failure: javax.naming.NamingException: " + namingException.getMessage());
+          namingException.printStackTrace(System.out);
+        }
+      }
+      catch (javax.xml.rpc.ServiceException serviceException) {
+        if ("true".equalsIgnoreCase(System.getProperty("DEBUG_PROXY"))) {
+          System.out.println("Unable to obtain port: javax.xml.rpc.ServiceException: " + serviceException.getMessage());
+          serviceException.printStackTrace(System.out);
+        }
+      }
+    }
+    if (__arrestWarrant == null && !_useJNDIOnly) {
+      try {
+        __arrestWarrant = (new gov.utcourts.warrant.ws.ArrestWarrantServiceLocator()).getArrestWarrant();
+        
+      }
+      catch (javax.xml.rpc.ServiceException serviceException) {
+        if ("true".equalsIgnoreCase(System.getProperty("DEBUG_PROXY"))) {
+          System.out.println("Unable to obtain port: javax.xml.rpc.ServiceException: " + serviceException.getMessage());
+          serviceException.printStackTrace(System.out);
+        }
+      }
+    }
+    if (__arrestWarrant != null) {
+      if (_endpoint != null)
+        ((javax.xml.rpc.Stub)__arrestWarrant)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+      else
+        _endpoint = (String)((javax.xml.rpc.Stub)__arrestWarrant)._getProperty("javax.xml.rpc.service.endpoint.address");
+    }
+    
+  }
+  
+  
+  public void useJNDI(boolean useJNDI) {
+    _useJNDI = useJNDI;
+    __arrestWarrant = null;
+    
+  }
+  
+  public void useJNDIOnly(boolean useJNDIOnly) {
+    _useJNDIOnly = useJNDIOnly;
+    __arrestWarrant = null;
+    
+  }
+  
+  public String getEndpoint() {
+    return _endpoint;
+  }
+  
+  public void setEndpoint(String endpoint) {
+    _endpoint = endpoint;
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    if (__arrestWarrant != null)
+      ((javax.xml.rpc.Stub)__arrestWarrant)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+    
+  }
+  
+  public gov.utcourts.warrant.ResultWrapper issueMultipleArrestWarrants(java.lang.String courtLocation, java.lang.String courtType, int corisUserId, java.lang.String corisLogName) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.issueMultipleArrestWarrants(courtLocation, courtType, corisUserId, corisLogName);
+  }
+  
+  public gov.utcourts.warrant.ResultWrapper issueArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, int partyNum, int corisUserId, java.lang.String corisLogName) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.issueArrestWarrant(intCaseNum, caseNumber, warrantNo, courtLocation, courtType, partyNum, corisUserId, corisLogName);
+  }
+  
+  public gov.utcourts.warrant.ResultWrapper modifyArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, java.lang.String courtOri, int partyNum, int corisUserId, java.lang.String corisLogName, int modification) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.modifyArrestWarrant(intCaseNum, caseNumber, warrantNo, courtLocation, courtType, courtOri, partyNum, corisUserId, corisLogName, modification);
+  }
+  
+  public gov.utcourts.warrant.ResultArrayWrapper getPublicSafetyArrestWarrantDetail(int warrantId) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.getPublicSafetyArrestWarrantDetail(warrantId);
+  }
+  
+  public gov.utcourts.warrant.ResultWrapper warrantExists(java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.warrantExists(caseNumber, warrantNo, courtLocation, courtType);
+  }
+  
+  public gov.utcourts.warrant.ResultArrayWrapper searchForWarrants(java.lang.String warrantNo, java.lang.String caseNumber, int activeOnly, int bookingReport, java.lang.String firstName, java.lang.String lastName, java.lang.String otn, java.lang.String driversLicenseNumber, java.lang.String driversLicenseState, java.lang.String ssn, java.util.Calendar dateOfBirth, java.lang.String courtLocation, java.lang.String courtType, java.util.Calendar startDate, java.util.Calendar endDate, java.lang.String dateType) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.searchForWarrants(warrantNo, caseNumber, activeOnly, bookingReport, firstName, lastName, otn, driversLicenseNumber, driversLicenseState, ssn, dateOfBirth, courtLocation, courtType, startDate, endDate, dateType);
+  }
+  
+  public gov.utcourts.warrant.ResultWrapper recallArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, java.lang.String courtOri, int partyNum, int corisUserId, java.lang.String corisLogName, java.util.Calendar recallDate) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant.recallArrestWarrant(intCaseNum, caseNumber, warrantNo, courtLocation, courtType, courtOri, partyNum, corisUserId, corisLogName, recallDate);
+  }
+  
+  public void generateSerializationObjectsFor(gov.utcourts.warrant.dataaccess.PersonNameBO personNameBO, gov.utcourts.warrant.dataaccess.AddressBO addressBO, gov.utcourts.warrant.dataaccess.PersonVehicleBO personVehicleBO, gov.utcourts.warrant.dataaccess.ChargeBO chargeBO) throws java.rmi.RemoteException{
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    __arrestWarrant.generateSerializationObjectsFor(personNameBO, addressBO, personVehicleBO, chargeBO);
+  }
+  
+  
+  public gov.utcourts.warrant.ws.ArrestWarrant getArrestWarrant() {
+    if (__arrestWarrant == null)
+      _initArrestWarrantProxy();
+    return __arrestWarrant;
+  }
+  
+}

@@ -1,0 +1,142 @@
+/**
+ * ChargeVO.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class ChargeVO  extends gov.utcourts.warrant.dataaccess.BaseVO  {
+    private int offenseId;
+    private int status;
+    private int warrantId;
+    private int personId;
+    private java.lang.String chargeSeq;
+    private java.lang.String violationCode;
+    private java.lang.String govCode;
+    private java.lang.String severity;
+    private java.lang.String offenseDescription;
+    private java.util.Calendar violationDate;
+    private java.lang.String insertSource;
+    private java.lang.String insertAgencyId;
+    private java.lang.String insertUserId;
+    private java.util.Calendar insertDateTime;
+
+    public ChargeVO() {
+    }
+
+    public int getOffenseId() {
+        return offenseId;
+    }
+
+    public void setOffenseId(int offenseId) {
+        this.offenseId = offenseId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getWarrantId() {
+        return warrantId;
+    }
+
+    public void setWarrantId(int warrantId) {
+        this.warrantId = warrantId;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public java.lang.String getChargeSeq() {
+        return chargeSeq;
+    }
+
+    public void setChargeSeq(java.lang.String chargeSeq) {
+        this.chargeSeq = chargeSeq;
+    }
+
+    public java.lang.String getViolationCode() {
+        return violationCode;
+    }
+
+    public void setViolationCode(java.lang.String violationCode) {
+        this.violationCode = violationCode;
+    }
+
+    public java.lang.String getGovCode() {
+        return govCode;
+    }
+
+    public void setGovCode(java.lang.String govCode) {
+        this.govCode = govCode;
+    }
+
+    public java.lang.String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(java.lang.String severity) {
+        this.severity = severity;
+    }
+
+    public java.lang.String getOffenseDescription() {
+        return offenseDescription;
+    }
+
+    public void setOffenseDescription(java.lang.String offenseDescription) {
+        this.offenseDescription = offenseDescription;
+    }
+
+    public java.util.Calendar getViolationDate() {
+        return violationDate;
+    }
+
+    public void setViolationDate(java.util.Calendar violationDate) {
+        this.violationDate = violationDate;
+    }
+
+    public java.lang.String getInsertSource() {
+        return insertSource;
+    }
+
+    public void setInsertSource(java.lang.String insertSource) {
+        this.insertSource = insertSource;
+    }
+
+    public java.lang.String getInsertAgencyId() {
+        return insertAgencyId;
+    }
+
+    public void setInsertAgencyId(java.lang.String insertAgencyId) {
+        this.insertAgencyId = insertAgencyId;
+    }
+
+    public java.lang.String getInsertUserId() {
+        return insertUserId;
+    }
+
+    public void setInsertUserId(java.lang.String insertUserId) {
+        this.insertUserId = insertUserId;
+    }
+
+    public java.util.Calendar getInsertDateTime() {
+        return insertDateTime;
+    }
+
+    public void setInsertDateTime(java.util.Calendar insertDateTime) {
+        this.insertDateTime = insertDateTime;
+    }
+
+}

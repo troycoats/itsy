@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="http://ws.warrant.utcourts.gov" xmlns:impl="http://ws.warrant.utcourts.gov" xmlns:intf="http://ws.warrant.utcourts.gov" xmlns:tns2="http://warrant.utcourts.gov" xmlns:tns3="http://dataaccess.warrant.utcourts.gov" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.warrant.utcourts.gov" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dataaccess.warrant.utcourts.gov"/>
+   <import namespace="http://warrant.utcourts.gov"/>
+   <element name="issueMultipleArrestWarrantsResponse">
+    <complexType>
+     <sequence>
+      <element name="issueMultipleArrestWarrantsReturn" nillable="true" type="tns2:ResultWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="issueArrestWarrant">
+    <complexType>
+     <sequence>
+      <element name="intCaseNum" type="xsd:int"/>
+      <element name="caseNumber" nillable="true" type="xsd:string"/>
+      <element name="warrantNo" nillable="true" type="xsd:string"/>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+      <element name="partyNum" type="xsd:int"/>
+      <element name="corisUserId" type="xsd:int"/>
+      <element name="corisLogName" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="issueArrestWarrantResponse">
+    <complexType>
+     <sequence>
+      <element name="issueArrestWarrantReturn" nillable="true" type="tns2:ResultWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyArrestWarrant">
+    <complexType>
+     <sequence>
+      <element name="intCaseNum" type="xsd:int"/>
+      <element name="caseNumber" nillable="true" type="xsd:string"/>
+      <element name="warrantNo" nillable="true" type="xsd:string"/>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+      <element name="courtOri" nillable="true" type="xsd:string"/>
+      <element name="partyNum" type="xsd:int"/>
+      <element name="corisUserId" type="xsd:int"/>
+      <element name="corisLogName" nillable="true" type="xsd:string"/>
+      <element name="modification" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyArrestWarrantResponse">
+    <complexType>
+     <sequence>
+      <element name="modifyArrestWarrantReturn" nillable="true" type="tns2:ResultWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPublicSafetyArrestWarrantDetail">
+    <complexType>
+     <sequence>
+      <element name="warrantId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPublicSafetyArrestWarrantDetailResponse">
+    <complexType>
+     <sequence>
+      <element name="getPublicSafetyArrestWarrantDetailReturn" nillable="true" type="tns2:ResultArrayWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="warrantExists">
+    <complexType>
+     <sequence>
+      <element name="caseNumber" nillable="true" type="xsd:string"/>
+      <element name="warrantNo" nillable="true" type="xsd:string"/>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="warrantExistsResponse">
+    <complexType>
+     <sequence>
+      <element name="warrantExistsReturn" nillable="true" type="tns2:ResultWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchForWarrants">
+    <complexType>
+     <sequence>
+      <element name="warrantNo" nillable="true" type="xsd:string"/>
+      <element name="caseNumber" nillable="true" type="xsd:string"/>
+      <element name="activeOnly" type="xsd:int"/>
+      <element name="bookingReport" type="xsd:int"/>
+      <element name="firstName" nillable="true" type="xsd:string"/>
+      <element name="lastName" nillable="true" type="xsd:string"/>
+      <element name="otn" nillable="true" type="xsd:string"/>
+      <element name="driversLicenseNumber" nillable="true" type="xsd:string"/>
+      <element name="driversLicenseState" nillable="true" type="xsd:string"/>
+      <element name="ssn" nillable="true" type="xsd:string"/>
+      <element name="dateOfBirth" nillable="true" type="xsd:dateTime"/>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+      <element name="startDate" nillable="true" type="xsd:dateTime"/>
+      <element name="endDate" nillable="true" type="xsd:dateTime"/>
+      <element name="dateType" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchForWarrantsResponse">
+    <complexType>
+     <sequence>
+      <element name="searchForWarrantsReturn" nillable="true" type="tns2:ResultArrayWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recallArrestWarrant">
+    <complexType>
+     <sequence>
+      <element name="intCaseNum" type="xsd:int"/>
+      <element name="caseNumber" nillable="true" type="xsd:string"/>
+      <element name="warrantNo" nillable="true" type="xsd:string"/>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+      <element name="courtOri" nillable="true" type="xsd:string"/>
+      <element name="partyNum" type="xsd:int"/>
+      <element name="corisUserId" type="xsd:int"/>
+      <element name="corisLogName" nillable="true" type="xsd:string"/>
+      <element name="recallDate" nillable="true" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recallArrestWarrantResponse">
+    <complexType>
+     <sequence>
+      <element name="recallArrestWarrantReturn" nillable="true" type="tns2:ResultWrapper"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="generateSerializationObjectsFor">
+    <complexType>
+     <sequence>
+      <element name="personNameBO" nillable="true" type="tns3:PersonNameBO"/>
+      <element name="addressBO" nillable="true" type="tns3:AddressBO"/>
+      <element name="personVehicleBO" nillable="true" type="tns3:PersonVehicleBO"/>
+      <element name="chargeBO" nillable="true" type="tns3:ChargeBO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="generateSerializationObjectsForResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="issueMultipleArrestWarrants">
+    <complexType>
+     <sequence>
+      <element name="courtLocation" nillable="true" type="xsd:string"/>
+      <element name="courtType" nillable="true" type="xsd:string"/>
+      <element name="corisUserId" type="xsd:int"/>
+      <element name="corisLogName" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://warrant.utcourts.gov" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="ResultWrapper">
+    <sequence>
+     <element name="reasonCode" nillable="true" type="xsd:string"/>
+     <element name="reason" nillable="true" type="xsd:string"/>
+     <element name="errors" nillable="true" type="tns2:ArrayOfXSDAnyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfXSDAnyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="anyType" nillable="true" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="ResultArrayWrapper">
+    <sequence>
+     <element name="reasonCode" nillable="true" type="xsd:string"/>
+     <element name="reason" nillable="true" type="xsd:string"/>
+     <element name="objects" nillable="true" type="tns2:ArrayOfArrestWarrantInfo"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrestWarrantInfo">
+    <sequence>
+     <element name="personNames" nillable="true" type="tns2:ArrayOfXSDAnyType"/>
+     <element name="addresses" nillable="true" type="tns2:ArrayOfXSDAnyType"/>
+     <element name="vehicles" nillable="true" type="tns2:ArrayOfXSDAnyType"/>
+     <element name="charges" nillable="true" type="tns2:ArrayOfXSDAnyType"/>
+     <element name="warrantStatus" nillable="true" type="xsd:string"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="warrantNo" nillable="true" type="xsd:string"/>
+     <element name="caseNumber" nillable="true" type="xsd:string"/>
+     <element name="courtOri" nillable="true" type="xsd:string"/>
+     <element name="otn" nillable="true" type="xsd:string"/>
+     <element name="bailAmount" type="xsd:double"/>
+     <element name="bailFlag" nillable="true" type="xsd:string"/>
+     <element name="judgeName" nillable="true" type="xsd:string"/>
+     <element name="courtLocation" nillable="true" type="xsd:string"/>
+     <element name="courtType" nillable="true" type="xsd:string"/>
+     <element name="jailCode" nillable="true" type="xsd:string"/>
+     <element name="insertUserId" nillable="true" type="xsd:string"/>
+     <element name="insertDateTime" nillable="true" type="xsd:dateTime"/>
+     <element name="modifyUserId" nillable="true" type="xsd:string"/>
+     <element name="modifyDateTime" nillable="true" type="xsd:dateTime"/>
+     <element name="issueDate" nillable="true" type="xsd:dateTime"/>
+     <element name="expireDate" nillable="true" type="xsd:dateTime"/>
+     <element name="recallDate" nillable="true" type="xsd:dateTime"/>
+     <element name="personId" type="xsd:int"/>
+     <element name="warrantId" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfArrestWarrantInfo">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="ArrestWarrantInfo" nillable="true" type="tns2:ArrestWarrantInfo"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://dataaccess.warrant.utcourts.gov" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="PersonNameBO">
+    <complexContent>
+     <extension base="tns3:PersonNameVO">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PersonNameVO">
+    <complexContent>
+     <extension base="tns3:BaseVO">
+      <sequence>
+       <element name="nameId" type="xsd:int"/>
+       <element name="status" type="xsd:int"/>
+       <element name="personId" type="xsd:int"/>
+       <element name="firstName" nillable="true" type="xsd:string"/>
+       <element name="lastName" nillable="true" type="xsd:string"/>
+       <element name="partyCode" nillable="true" type="xsd:string"/>
+       <element name="insertAgencyId" nillable="true" type="xsd:string"/>
+       <element name="insertUserId" nillable="true" type="xsd:string"/>
+       <element name="insertDateTime" nillable="true" type="xsd:dateTime"/>
+       <element name="nameType" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType abstract="true" name="BaseVO">
+    <sequence/>
+   </complexType>
+   <complexType name="AddressBO">
+    <complexContent>
+     <extension base="tns3:AddressVO">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="AddressVO">
+    <complexContent>
+     <extension base="tns3:BaseVO">
+      <sequence>
+       <element name="addressId" type="xsd:int"/>
+       <element name="status" type="xsd:int"/>
+       <element name="personId" type="xsd:int"/>
+       <element name="address1" nillable="true" type="xsd:string"/>
+       <element name="address2" nillable="true" type="xsd:string"/>
+       <element name="city" nillable="true" type="xsd:string"/>
+       <element name="stateCode" nillable="true" type="xsd:string"/>
+       <element name="zipCode" nillable="true" type="xsd:string"/>
+       <element name="insertAgencyId" nillable="true" type="xsd:string"/>
+       <element name="insertUserId" nillable="true" type="xsd:string"/>
+       <element name="insertDateTime" nillable="true" type="xsd:dateTime"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PersonVehicleBO">
+    <complexContent>
+     <extension base="tns3:PersonVehicleVO">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="PersonVehicleVO">
+    <complexContent>
+     <extension base="tns3:BaseVO">
+      <sequence>
+       <element name="personVehicleId" type="xsd:int"/>
+       <element name="status" type="xsd:int"/>
+       <element name="personId" type="xsd:int"/>
+       <element name="licensePlateNumber" nillable="true" type="xsd:string"/>
+       <element name="licensePlateState" nillable="true" type="xsd:string"/>
+       <element name="vehicleYear" nillable="true" type="xsd:string"/>
+       <element name="vehicleMake" nillable="true" type="xsd:string"/>
+       <element name="vehicleModel" nillable="true" type="xsd:string"/>
+       <element name="vehicleStyle" nillable="true" type="xsd:string"/>
+       <element name="vehicleColor" nillable="true" type="xsd:string"/>
+       <element name="insertAgencyId" nillable="true" type="xsd:string"/>
+       <element name="insertUserId" nillable="true" type="xsd:string"/>
+       <element name="insertDateTime" nillable="true" type="xsd:dateTime"/>
+       <element name="modifyAgencyId" nillable="true" type="xsd:string"/>
+       <element name="modifyUserId" nillable="true" type="xsd:string"/>
+       <element name="modifyDateTime" nillable="true" type="xsd:dateTime"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ChargeBO">
+    <complexContent>
+     <extension base="tns3:ChargeVO">
+      <sequence/>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="ChargeVO">
+    <complexContent>
+     <extension base="tns3:BaseVO">
+      <sequence>
+       <element name="offenseId" type="xsd:int"/>
+       <element name="status" type="xsd:int"/>
+       <element name="warrantId" type="xsd:int"/>
+       <element name="personId" type="xsd:int"/>
+       <element name="chargeSeq" nillable="true" type="xsd:string"/>
+       <element name="violationCode" nillable="true" type="xsd:string"/>
+       <element name="govCode" nillable="true" type="xsd:string"/>
+       <element name="severity" nillable="true" type="xsd:string"/>
+       <element name="offenseDescription" nillable="true" type="xsd:string"/>
+       <element name="violationDate" nillable="true" type="xsd:dateTime"/>
+       <element name="insertSource" nillable="true" type="xsd:string"/>
+       <element name="insertAgencyId" nillable="true" type="xsd:string"/>
+       <element name="insertUserId" nillable="true" type="xsd:string"/>
+       <element name="insertDateTime" nillable="true" type="xsd:dateTime"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="searchForWarrantsRequest">
+     <wsdl:part element="impl:searchForWarrants" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="searchForWarrantsResponse">
+     <wsdl:part element="impl:searchForWarrantsResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="getPublicSafetyArrestWarrantDetailResponse">
+     <wsdl:part element="impl:getPublicSafetyArrestWarrantDetailResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="warrantExistsResponse">
+     <wsdl:part element="impl:warrantExistsResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="generateSerializationObjectsForRequest">
+     <wsdl:part element="impl:generateSerializationObjectsFor" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="modifyArrestWarrantResponse">
+     <wsdl:part element="impl:modifyArrestWarrantResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="issueArrestWarrantRequest">
+     <wsdl:part element="impl:issueArrestWarrant" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="generateSerializationObjectsForResponse">
+     <wsdl:part element="impl:generateSerializationObjectsForResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="modifyArrestWarrantRequest">
+     <wsdl:part element="impl:modifyArrestWarrant" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="warrantExistsRequest">
+     <wsdl:part element="impl:warrantExists" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="getPublicSafetyArrestWarrantDetailRequest">
+     <wsdl:part element="impl:getPublicSafetyArrestWarrantDetail" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="recallArrestWarrantResponse">
+     <wsdl:part element="impl:recallArrestWarrantResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="recallArrestWarrantRequest">
+     <wsdl:part element="impl:recallArrestWarrant" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="issueMultipleArrestWarrantsRequest">
+     <wsdl:part element="impl:issueMultipleArrestWarrants" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="issueArrestWarrantResponse">
+     <wsdl:part element="impl:issueArrestWarrantResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:message name="issueMultipleArrestWarrantsResponse">
+     <wsdl:part element="impl:issueMultipleArrestWarrantsResponse" name="parameters">
+    </wsdl:part>
+
+  </wsdl:message>
+
+   <wsdl:portType name="ArrestWarrant">
+     <wsdl:operation name="issueMultipleArrestWarrants">
+       <wsdl:input message="impl:issueMultipleArrestWarrantsRequest" name="issueMultipleArrestWarrantsRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:issueMultipleArrestWarrantsResponse" name="issueMultipleArrestWarrantsResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="issueArrestWarrant">
+       <wsdl:input message="impl:issueArrestWarrantRequest" name="issueArrestWarrantRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:issueArrestWarrantResponse" name="issueArrestWarrantResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="modifyArrestWarrant">
+       <wsdl:input message="impl:modifyArrestWarrantRequest" name="modifyArrestWarrantRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:modifyArrestWarrantResponse" name="modifyArrestWarrantResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="getPublicSafetyArrestWarrantDetail">
+       <wsdl:input message="impl:getPublicSafetyArrestWarrantDetailRequest" name="getPublicSafetyArrestWarrantDetailRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:getPublicSafetyArrestWarrantDetailResponse" name="getPublicSafetyArrestWarrantDetailResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="warrantExists">
+       <wsdl:input message="impl:warrantExistsRequest" name="warrantExistsRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:warrantExistsResponse" name="warrantExistsResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="searchForWarrants">
+       <wsdl:input message="impl:searchForWarrantsRequest" name="searchForWarrantsRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:searchForWarrantsResponse" name="searchForWarrantsResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="recallArrestWarrant">
+       <wsdl:input message="impl:recallArrestWarrantRequest" name="recallArrestWarrantRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:recallArrestWarrantResponse" name="recallArrestWarrantResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="generateSerializationObjectsFor">
+       <wsdl:input message="impl:generateSerializationObjectsForRequest" name="generateSerializationObjectsForRequest">
+    </wsdl:input>
+
+       <wsdl:output message="impl:generateSerializationObjectsForResponse" name="generateSerializationObjectsForResponse">
+    </wsdl:output>
+
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+   <wsdl:binding name="ArrestWarrantSoapBinding" type="impl:ArrestWarrant">
+ <wsaw:UsingAddressing wsdl:required="false" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"/>
+
+     <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+     <wsdl:operation name="issueMultipleArrestWarrants">
+       <wsdlsoap:operation soapAction="issueMultipleArrestWarrants"/>
+
+       <wsdl:input name="issueMultipleArrestWarrantsRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="issueMultipleArrestWarrantsResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="issueArrestWarrant">
+       <wsdlsoap:operation soapAction="issueArrestWarrant"/>
+
+       <wsdl:input name="issueArrestWarrantRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="issueArrestWarrantResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="modifyArrestWarrant">
+       <wsdlsoap:operation soapAction="modifyArrestWarrant"/>
+
+       <wsdl:input name="modifyArrestWarrantRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="modifyArrestWarrantResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="getPublicSafetyArrestWarrantDetail">
+       <wsdlsoap:operation soapAction="getPublicSafetyArrestWarrantDetail"/>
+
+       <wsdl:input name="getPublicSafetyArrestWarrantDetailRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="getPublicSafetyArrestWarrantDetailResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="warrantExists">
+       <wsdlsoap:operation soapAction="warrantExists"/>
+
+       <wsdl:input name="warrantExistsRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="warrantExistsResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="searchForWarrants">
+       <wsdlsoap:operation soapAction="searchForWarrants"/>
+
+       <wsdl:input name="searchForWarrantsRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="searchForWarrantsResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="recallArrestWarrant">
+       <wsdlsoap:operation soapAction="recallArrestWarrant"/>
+
+       <wsdl:input name="recallArrestWarrantRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="recallArrestWarrantResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+     <wsdl:operation name="generateSerializationObjectsFor">
+       <wsdlsoap:operation soapAction="generateSerializationObjectsFor"/>
+
+       <wsdl:input name="generateSerializationObjectsForRequest">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:input>
+
+       <wsdl:output name="generateSerializationObjectsForResponse">
+         <wsdlsoap:body use="literal"/>
+
+      </wsdl:output>
+
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+   <wsdl:service name="ArrestWarrantService">
+     <wsdl:port binding="impl:ArrestWarrantSoapBinding" name="ArrestWarrant">
+       <wsdlsoap:address location="http://localhost:9080/ArrestWarrantWS/services/ArrestWarrant"/>
+
+    </wsdl:port>
+
+  </wsdl:service>
+
+</wsdl:definitions>

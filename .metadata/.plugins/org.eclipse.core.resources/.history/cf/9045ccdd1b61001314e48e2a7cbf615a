@@ -1,0 +1,241 @@
+/**
+ * ArrestWarrantInfo_Deser.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant;
+
+public class ArrestWarrantInfo_Deser extends com.ibm.ws.webservices.engine.encoding.ser.BeanDeserializer {
+    /**
+     * Constructor
+     */
+    public ArrestWarrantInfo_Deser(
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType, 
+           com.ibm.ws.webservices.engine.description.TypeDesc _typeDesc) {
+        super(_javaType, _xmlType, _typeDesc);
+    }
+    /**
+     * Create instance of java bean
+     */
+    public void createValue() {
+        value = new ArrestWarrantInfo();
+    }
+    protected boolean tryElementSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        if (qName==QName_0_11) {
+          ((ArrestWarrantInfo)value).setWarrantStatus(strValue);
+          return true;}
+        else if (qName==QName_0_12) {
+          ((ArrestWarrantInfo)value).setFirstName(strValue);
+          return true;}
+        else if (qName==QName_0_13) {
+          ((ArrestWarrantInfo)value).setLastName(strValue);
+          return true;}
+        else if (qName==QName_0_14) {
+          ((ArrestWarrantInfo)value).setWarrantNo(strValue);
+          return true;}
+        else if (qName==QName_0_15) {
+          ((ArrestWarrantInfo)value).setCaseNumber(strValue);
+          return true;}
+        else if (qName==QName_0_16) {
+          ((ArrestWarrantInfo)value).setCourtOri(strValue);
+          return true;}
+        else if (qName==QName_0_17) {
+          ((ArrestWarrantInfo)value).setOtn(strValue);
+          return true;}
+        else if (qName==QName_0_18) {
+          ((ArrestWarrantInfo)value).setBailAmount(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parsedouble(strValue));
+          return true;}
+        else if (qName==QName_0_19) {
+          ((ArrestWarrantInfo)value).setBailFlag(strValue);
+          return true;}
+        else if (qName==QName_0_20) {
+          ((ArrestWarrantInfo)value).setJudgeName(strValue);
+          return true;}
+        else if (qName==QName_0_21) {
+          ((ArrestWarrantInfo)value).setCourtLocation(strValue);
+          return true;}
+        else if (qName==QName_0_22) {
+          ((ArrestWarrantInfo)value).setCourtType(strValue);
+          return true;}
+        else if (qName==QName_0_23) {
+          ((ArrestWarrantInfo)value).setJailCode(strValue);
+          return true;}
+        else if (qName==QName_0_24) {
+          ((ArrestWarrantInfo)value).setInsertUserId(strValue);
+          return true;}
+        else if (qName==QName_0_25) {
+          ((ArrestWarrantInfo)value).setInsertDateTime(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_26) {
+          ((ArrestWarrantInfo)value).setModifyUserId(strValue);
+          return true;}
+        else if (qName==QName_0_27) {
+          ((ArrestWarrantInfo)value).setModifyDateTime(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_28) {
+          ((ArrestWarrantInfo)value).setIssueDate(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_29) {
+          ((ArrestWarrantInfo)value).setExpireDate(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_30) {
+          ((ArrestWarrantInfo)value).setRecallDate(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseDateTimeToCalendar(strValue));
+          return true;}
+        else if (qName==QName_0_31) {
+          ((ArrestWarrantInfo)value).setPersonId(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseint(strValue));
+          return true;}
+        else if (qName==QName_0_32) {
+          ((ArrestWarrantInfo)value).setWarrantId(com.ibm.ws.webservices.engine.encoding.ser.SimpleDeserializer.parseint(strValue));
+          return true;}
+        return false;
+    }
+    protected boolean tryAttributeSetFromString(javax.xml.namespace.QName qName, java.lang.String strValue) {
+        return false;
+    }
+    protected boolean tryElementSetFromObject(javax.xml.namespace.QName qName, java.lang.Object objValue) {
+        if (qName==QName_0_7) {
+          if (objValue instanceof java.util.List) {
+            java.lang.Object[] array = new java.lang.Object[((java.util.List)objValue).size()];
+            ((java.util.List)objValue).toArray(array);
+            ((ArrestWarrantInfo)value).setPersonNames(array);
+          } else { 
+            ((ArrestWarrantInfo)value).setPersonNames((java.lang.Object[])objValue);}
+          return true;}
+        else if (qName==QName_0_8) {
+          if (objValue instanceof java.util.List) {
+            java.lang.Object[] array = new java.lang.Object[((java.util.List)objValue).size()];
+            ((java.util.List)objValue).toArray(array);
+            ((ArrestWarrantInfo)value).setAddresses(array);
+          } else { 
+            ((ArrestWarrantInfo)value).setAddresses((java.lang.Object[])objValue);}
+          return true;}
+        else if (qName==QName_0_9) {
+          if (objValue instanceof java.util.List) {
+            java.lang.Object[] array = new java.lang.Object[((java.util.List)objValue).size()];
+            ((java.util.List)objValue).toArray(array);
+            ((ArrestWarrantInfo)value).setVehicles(array);
+          } else { 
+            ((ArrestWarrantInfo)value).setVehicles((java.lang.Object[])objValue);}
+          return true;}
+        else if (qName==QName_0_10) {
+          if (objValue instanceof java.util.List) {
+            java.lang.Object[] array = new java.lang.Object[((java.util.List)objValue).size()];
+            ((java.util.List)objValue).toArray(array);
+            ((ArrestWarrantInfo)value).setCharges(array);
+          } else { 
+            ((ArrestWarrantInfo)value).setCharges((java.lang.Object[])objValue);}
+          return true;}
+        return false;
+    }
+    protected boolean tryElementSetFromList(javax.xml.namespace.QName qName, java.util.List listValue) {
+        return false;
+    }
+    private final static javax.xml.namespace.QName QName_0_27 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyDateTime");
+    private final static javax.xml.namespace.QName QName_0_12 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "firstName");
+    private final static javax.xml.namespace.QName QName_0_16 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "courtOri");
+    private final static javax.xml.namespace.QName QName_0_15 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "caseNumber");
+    private final static javax.xml.namespace.QName QName_0_20 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "judgeName");
+    private final static javax.xml.namespace.QName QName_0_8 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "addresses");
+    private final static javax.xml.namespace.QName QName_0_19 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "bailFlag");
+    private final static javax.xml.namespace.QName QName_0_32 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "warrantId");
+    private final static javax.xml.namespace.QName QName_0_23 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "jailCode");
+    private final static javax.xml.namespace.QName QName_0_21 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "courtLocation");
+    private final static javax.xml.namespace.QName QName_0_11 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "warrantStatus");
+    private final static javax.xml.namespace.QName QName_0_17 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "otn");
+    private final static javax.xml.namespace.QName QName_0_10 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "charges");
+    private final static javax.xml.namespace.QName QName_0_13 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "lastName");
+    private final static javax.xml.namespace.QName QName_0_26 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyUserId");
+    private final static javax.xml.namespace.QName QName_0_29 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "expireDate");
+    private final static javax.xml.namespace.QName QName_0_25 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertDateTime");
+    private final static javax.xml.namespace.QName QName_0_7 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personNames");
+    private final static javax.xml.namespace.QName QName_0_28 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "issueDate");
+    private final static javax.xml.namespace.QName QName_0_24 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertUserId");
+    private final static javax.xml.namespace.QName QName_0_9 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicles");
+    private final static javax.xml.namespace.QName QName_0_30 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "recallDate");
+    private final static javax.xml.namespace.QName QName_0_14 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "warrantNo");
+    private final static javax.xml.namespace.QName QName_0_31 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personId");
+    private final static javax.xml.namespace.QName QName_0_18 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "bailAmount");
+    private final static javax.xml.namespace.QName QName_0_22 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "courtType");
+}

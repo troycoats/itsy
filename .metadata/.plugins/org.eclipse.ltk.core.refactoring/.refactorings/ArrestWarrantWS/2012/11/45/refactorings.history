@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ArrestWarrant.wsdl&apos; to &apos;wsdl&apos;&#x0D;&#x0A;- Original project: &apos;ArrestWarrantWS&apos;&#x0D;&#x0A;- Destination element: &apos;wsdl&apos;&#x0D;&#x0A;- Original element: &apos;ArrestWarrant.wsdl&apos;" description="Copy file" element1="WebContent/WEB-INF/wsdl/ArrestWarrant.wsdl" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1352129697830" target="/ArrestWarrantWSClient/WebContent/WEB-INF/wsdl" units="0" version="1.0"/>
+</session>

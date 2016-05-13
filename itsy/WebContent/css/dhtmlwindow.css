@@ -1,0 +1,69 @@
+/* ==================== DHTML WINDOWS/MODAL ==================== */
+/*CSS for Main Window*/
+.dhtmlwindow {
+	position: absolute;  
+	padding: 3px 3px 0px 3px;
+	visibility: hidden;
+	border: 1px solid #AEB6BE;
+	background-color: #CBD0D5;
+}
+
+/*CSS for Drag Handle*/
+.drag-handle {
+	padding: 4px 0px 7px 0px;
+	background-color: #CBD0D5;
+	color: #333333;
+	font-weight: bold;
+	cursor: move;
+	overflow: hidden;
+	width: auto;
+}
+
+/*CSS for controls (min, close etc) within Drag Handle*/
+.drag-handle .drag-controls {
+	position: absolute;
+	right: 3px;
+	top: 5px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+/*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
+* html .drag-handle {
+	width: 100%;
+}
+
+/*CSS for Content Display Area div*/
+.drag-contentarea {
+	background-color: #FBFBFB;
+	color: #333333;
+	height: 150px;
+	overflow: auto;
+}
+
+/*CSS for Status Bar div (includes resizearea)*/
+.drag-statusarea {
+	background-color: #F1F2F4;
+	height: 0px;
+}
+
+/*CSS for Resize Area itself*/
+.drag-resizearea {
+	float: right;
+	width: 5px; /*width of resize image*/
+	height: 3px; /*height of resize image*/
+	cursor: nw-resize;
+	font-size: 0;
+}
+
+/*CSS for veil that covers entire page while modal window is visible*/
+#interVeil {
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 50;
+}

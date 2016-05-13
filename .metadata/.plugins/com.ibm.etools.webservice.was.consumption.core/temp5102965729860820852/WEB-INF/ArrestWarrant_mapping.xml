@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+    <package-mapping>
+        <package-type>gov.utcourts.warrant.ws</package-type>
+        <namespaceURI>http://ws.warrant.utcourts.gov</namespaceURI>
+    </package-mapping>
+    <package-mapping>
+        <package-type>gov.utcourts.warrant</package-type>
+        <namespaceURI>http://warrant.utcourts.gov</namespaceURI>
+    </package-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.util.Calendar</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:dateTime</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.String</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:string</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>int</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:int</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.warrant.ResultWrapper</java-type>
+        <root-type-qname xmlns:rtq="http://warrant.utcourts.gov">rtq:ResultWrapper</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>reasonCode</java-variable-name>
+            <xml-element-name>reasonCode</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>reason</java-variable-name>
+            <xml-element-name>reason</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <service-interface-mapping>
+        <service-interface>gov.utcourts.warrant.ws.ArrestWarrantService</service-interface>
+        <wsdl-service-name xmlns:sim="http://ws.warrant.utcourts.gov">sim:ArrestWarrantService</wsdl-service-name>
+        <port-mapping>
+            <port-name>ArrestWarrant</port-name>
+            <java-port-name>ArrestWarrant</java-port-name>
+        </port-mapping>
+    </service-interface-mapping>
+    <service-endpoint-interface-mapping>
+        <service-endpoint-interface>gov.utcourts.warrant.ws.ArrestWarrant</service-endpoint-interface>
+        <wsdl-port-type xmlns:seimwpt="http://ws.warrant.utcourts.gov">seimwpt:ArrestWarrant</wsdl-port-type>
+        <wsdl-binding xmlns:seimwb="http://ws.warrant.utcourts.gov">seimwb:ArrestWarrantSoapBinding</wsdl-binding>
+        <service-endpoint-method-mapping>
+            <java-method-name>modifyArrestWarrant</java-method-name>
+            <wsdl-operation>modifyArrestWarrant</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>intCaseNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>caseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>warrantNo</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>5</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtOri</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>6</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>partyNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>7</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>corisUserId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>8</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:modifyArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>modification</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.warrant.ResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.warrant.utcourts.gov">wrvm:modifyArrestWarrantResponse</wsdl-message>
+                <wsdl-message-part-name>modifyArrestWarrantReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>recallArrestWarrant</java-method-name>
+            <wsdl-operation>recallArrestWarrant</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>intCaseNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>caseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>warrantNo</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>5</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtOri</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>6</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>partyNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>7</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>corisUserId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>8</param-position>
+                <param-type>java.util.Date</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:recallArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>recallDate</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.warrant.ResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.warrant.utcourts.gov">wrvm:recallArrestWarrantResponse</wsdl-message>
+                <wsdl-message-part-name>recallArrestWarrantReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>issueArrestWarrant</java-method-name>
+            <wsdl-operation>issueArrestWarrant</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>intCaseNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>caseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>warrantNo</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>courtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>5</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>partyNum</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>6</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.warrant.utcourts.gov">mppm:issueArrestWarrantRequest</wsdl-message>
+                    <wsdl-message-part-name>corisUserId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.warrant.ResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.warrant.utcourts.gov">wrvm:issueArrestWarrantResponse</wsdl-message>
+                <wsdl-message-part-name>issueArrestWarrantReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+    </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

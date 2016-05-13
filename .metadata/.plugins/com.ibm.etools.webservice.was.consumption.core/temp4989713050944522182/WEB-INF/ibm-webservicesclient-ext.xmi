@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wscext:WsClientExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wscext="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscext.xmi" xmi:id="WsClientExtension_1445970610497">
+  <serviceRefs xmi:id="ServiceRef_1445970610497" serviceRefLink="service/RimRequestService">
+    <portQnameBindings xmi:id="PortQnameBinding_1445970610497" portQnameLocalNameLink="RimRequest"/>
+  </serviceRefs>
+</com.ibm.etools.webservice.wscext:WsClientExtension>

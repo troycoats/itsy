@@ -1,0 +1,1573 @@
+/* ============================ greenStandard.css ============================ */
+
+/* 
+ * @author Rohan R. Tuladhar
+ * @version 1.0 (10/01/15)
+ */
+
+/* ==================== RESET ==================== */
+html,body,div,span,h1,h2,h3,h4,h5,h6,input,textarea,select,header,footer,figure,thead,tbody,tfoot,tr,th,td,form,fieldset,legend,small,strike,strong,sup,sub,b,u,i,em,ul,ol,li,dl,dt,dd,p,code,pre {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	font-size: 100%;
+	color: inherit;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border: 0px;
+}
+
+/* ==================== GENERAL TAGS ==================== */
+html {
+	font-family: "Segoe UI", Tahoma, Arial, Verdana, Sans-serif;
+	overflow-y: auto;
+}
+
+body {
+	display: block;
+	background-color: #FBFBFB;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	color: #333333;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: bold;
+}
+
+h1,.h1 {
+	font-size: 19px;
+}
+
+h2,.h2 {
+	font-size: 18px;
+}
+
+h3,.h3 {
+	font-size: 17px;
+}
+
+h4,.h4 {
+	font-size: 15px;
+}
+
+h5,.h5 {
+	font-size: 14px;
+}
+
+h6,.h6 {
+	font-size: 13px;
+}
+
+p {
+	padding: 10px 5px;
+	color: #818D37;
+}
+
+small {
+	font-size: 10px;
+}
+
+em,i {
+	font-style: italic;
+}
+
+strong,b {
+	font-weight: bold;
+}
+
+code,pre {
+	font-family: monospace;
+}
+
+sup,sub {
+	line-height: 0px;
+	font-size: 10px;
+}
+
+sup {
+	top: -5px;
+}
+
+sub {
+	bottom: -5px;
+}
+
+ul,ol,dl,dd {
+	padding-left: 20px; 
+}
+
+dt {
+	font-weight: bold;
+}
+
+hr {
+	height: 1px;
+	background-color: #333333;
+	border: 0px;
+}
+
+a {
+	text-decoration: underline;
+	color: #9AB00F;
+}
+
+a:link,a:visited {
+	text-decoration: underline;
+	color: #9AB00F;
+}
+
+a:hover {
+	color: #879339;
+}
+
+a:active {
+	color: #009900;
+}
+
+th {
+	font-size: 12px;
+}
+
+tbody {
+	font-size: 11px;
+}
+
+td {
+	padding: 2px;
+}
+
+fieldset { 
+	display: block;
+	margin: 0px 5px;
+	padding: 5px 5px;
+	border: 1px solid #B9B9B9;
+}
+
+legend {
+	padding: 2px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+}
+
+*:focus {
+	border: none;
+	outline: none;
+}
+
+input,textarea,select {
+	border: 1px solid #B9B9B9;
+	font-size: 11px;
+}
+
+input,textarea {
+	padding: 0px 3px;
+}
+
+input:focus,textarea:focus,select:focus {
+	border: 1px solid #B1BE5A;
+}
+
+textarea {
+	overflow: auto;
+}
+
+input[type=file] {
+	width: 350px;
+}
+
+optgroup {
+	padding: 2px 0px;
+	background-color: #a9b847;
+	text-align: center;
+	font-style: normal;
+	color: #363636;
+}
+
+option {
+	background-color: #FFFFFF;
+	text-align: left;
+	font-weight: normal;
+}
+
+option:hover,option:active {
+	background-color: #D0D98C;
+	color: #FFFFFF;
+}
+
+/* ==================== DISABLED/READONLY ==================== */
+[disabled],[readonly] {
+	background-color: #F0F0F0;
+	color: #6D6D6D;
+}
+
+input[type=button][disabled] {
+	cursor: default;
+}
+
+select:disabled option {
+	background-color: #F0F0F0;
+}
+
+/* ==================== TABLES/CELLS ==================== */
+.table-bottom {
+	bottom: 0px;
+	left: 0px;
+	position: fixed;
+	width: 100%;
+	height: 30px;
+}
+
+.table-top {
+	left: 0px;
+	position: fixed;
+	width: 100%;
+	height: 30px;
+}
+
+.appTableBorder {
+	border: 1px solid #ABB4BC;
+}
+
+.formTableHead {
+	background-color: #9BA941;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px black;
+}
+
+.formTableBody {
+	background-color: #F5F6F7;
+	border: 1px solid silver;
+	font-size: 11px;
+}
+
+.oddEven tr:nth-child(odd) {
+	background-color: #FBFBFC;
+}
+
+.oddEven tr:nth-child(even) {
+	background-color: #DCDFE3;
+}
+
+tr.oddEven:nth-child(odd) {
+	background-color: #FBFBFC;
+}
+
+tr.oddEven:nth-child(even) {
+	background-color: #DCDFE3;
+}
+
+.altTable {
+	border-collapse: collapse;
+}
+
+.altTable tr:nth-child(4n+3) {
+	background-color: #DCDFE3;
+}
+
+.altTable tr:nth-child(4n+4) {
+	background-color: #DCDFE3;
+}
+
+.listTableHead {
+	padding: 0px 5px;
+	background-color: #EBEDEF;
+	height: 22px;
+	font-size: 11px;
+	font-weight: bold;
+	border-width: 1px;
+	border-style: none solid solid none;
+	border-color: #ABB4BC;
+	color: #333333;
+}
+
+.listTableVal {
+	padding: 0px 5px;
+	background-color: #FBFBFC;
+	height: 22px;
+	font-size: 11px;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+	color: #333333;
+}
+
+.listTableVal:hover {
+	background-color: #F2F3F5;
+}
+
+.listTableValHighlight {
+	padding: 0px 5px;
+	background-color: #C9D57B;
+	height: 22px;
+	font-size: 11px;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #95A439;
+	color: #333333;
+}
+
+tr.listTableVal td,tr.listTableValHighlight td {
+	padding: 0px 5px;
+}
+
+.listPriority0 {
+ 	background-color: #FBFBFC;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+}
+
+.listPriority1 {
+ 	background-color: #FE000C;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+}
+
+.listPriority2 {
+	background-color: #FFF665;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+}
+
+.listPriority3 {
+	background-color: #65B200;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+}
+
+.listPriority4 {
+	background-color: #40E0D0;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+}
+
+.listAlt {
+	background-color: #800080;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #D6DADE;
+	font-weight: bold;
+	color: white;
+}
+
+/* ==================== FORMS ==================== */
+.appField,.appDropDown {
+	width: 150px;
+	height: 20px;
+}
+
+.appTextArea {
+	width: 150px;
+	height: 50px;
+}
+
+.appDateField {
+	width: 110px;
+	height: 20px;
+}
+
+.formField,.formDropDown {
+	width: 200px;
+	height: 20px;
+}
+
+.formTextArea {
+	width: 200px;
+	height: 50px;
+}
+
+.formDateField {
+	width: 160px;
+	height: 20px;
+}
+
+.fieldElement,.dropdownElement {
+	height: 20px;
+}
+
+.textAreaElement {
+	width: 100%;
+	height: 50px;
+}
+
+/* ==================== BOXES ==================== */
+.boxsolid {
+	border: 1px solid #A0B038;
+	background-color: #e0e6b2;
+}
+
+.boxsolid-active {
+	background-color: #CBE3FC;
+	border: 1px solid #A0B038;
+}
+
+.boxsolid-disabled {
+	background-color: #A9A9A9;
+	border: 1px solid #484848;
+}
+
+.boxcutter {
+	border: 1px dashed #A0B038;
+}
+
+.boxcutter-active {
+	background-color: #CBE3FC;
+	border: 1px dashed #A0B038;
+}
+
+.boxcutter-disabled {
+	background-color: #A9A9A9;
+	border: 1px dashed #484848;
+}
+
+/* ==================== Lists ==================== */
+ul.discList {
+	list-style: outside none disc;
+}
+
+ul.circleList {
+	list-style: outside none circle;
+}
+
+ul.squareList {
+	list-style: outside none square;
+}
+
+ol.numberList {
+	list-style: outside none decimal;
+}
+
+ol.lowerAlphaList {
+	list-style: outside none lower-alpha;
+}
+
+ol.upperAlphaList {
+	list-style: outside none upper-alpha;
+}
+
+ol.lowerRomanList {
+	list-style: outside none lower-roman;
+}
+
+ol.upperRomanList {
+	list-style: outside none upper-roman;
+}
+
+/* ==================== ANCHORS ==================== */
+.noUnderlineLink,.noUnderlineLink:link,.noUnderlineLink:visited,.noUnderlineLink:hover,.noUnderlineLink:active {
+	text-decoration: none;
+}
+
+.redLink,.redLink:link,.redLink:visited,.redLink:hover,.redLink:active {
+	text-decoration: underline;
+	color: #FF0000;
+}
+
+.whiteLink,.whiteLink:link,.whiteLink:visited,.whiteLink:active {
+	text-decoration: underline;
+	color: #FFFFFF;
+}
+
+.whiteLink:hover {
+	color: #FFFF80;
+}
+
+.disabledLink,.disabledLink:link,.disabledLink:visited,.disabledLink:hover,.disabledLink:active {
+	text-decoration: underline;
+	color: #A7ADAD;
+	cursor: default;
+}
+
+.anchorToButton,.anchorToButton:link,.anchorToButton:visited,.anchorToButton:active {
+	padding: 2px 8px;
+	display: inline-block;
+	text-decoration: none;
+	background-color: #9BA941;
+	border: 1px solid #94A23E;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.anchorToButton:hover {
+	background-color: #879339;
+	border: 1px solid #9BA941;
+}
+
+/* ==================== BUTTONS ==================== */
+.appButton {
+	background-color: #9BA941;
+	border: 1px solid #94A23E;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.appButtonBold {
+	padding: 1px 5px;
+	background-color: #9BA941;
+	border: 1px solid #94A23E;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.appButtonBoldDisabled {
+	padding: 1px 5px;
+	background-color: #808080;
+	border: 1px solid #666666;
+	font-weight: bold;
+	color: #d9d9d9;
+	cursor: pointer;
+}
+
+.appButtonBig {
+	padding: 2px 20px;
+	background-color: #9BA941;
+	border: 1px solid #94A23E;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.appButton:hover,.appButtonBold:hover,.appButtonBig:hover,.pickButton:hover {
+	background-color: #879339;
+	border: 1px solid #9BA941;
+}
+
+.greyButton {
+	background-color: #DDE0E4;
+	border: 1px solid #DDE0E4;
+	color: #333333;
+	cursor: pointer;
+}
+
+.greyButtonBold {
+	padding: 1px 5px;
+	background-color: #DDE0E4;
+	border: 1px solid #DDE0E4;
+	font-weight: bold;
+	color: #333333;
+	cursor: pointer;
+}
+
+.greyButtonBig {
+	padding: 2px 20px;
+	background-color: #DDE0E4;
+	border: 1px solid #DDE0E4;
+	font-weight: bold;
+	color: #333333;
+	cursor: pointer;
+}
+
+.greyButton:hover,.greyButtonBold:hover,.greyButtonBig:hover {
+	background-color: #B7BEC5;
+	border: 1px solid #474747;
+}
+
+.darkButton {
+	background-color: #5A5A5A;
+	border: 1px solid #424242;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.darkButtonBold {
+	padding: 1px 5px;
+	background-color: #5A5A5A;
+	border: 1px solid #424242;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.darkButtonBig {
+	padding: 2px 20px;
+	background-color: #5A5A5A;
+	border: 1px solid #424242;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.darkButton:hover,.darkButtonBold:hover,.darkButtonBig:hover {
+	background-color: #6B6A6A;
+	border: 1px solid #474747;
+}
+
+.redButton {
+	padding: 1px 5px;
+	background-color: #C75050;
+	border: 1px solid #E50000;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.yellowButton {
+	padding: 1px 5px;
+	background-color: #FFF665;
+	border: 1px solid #FFF665;
+	font-weight: bold;
+	color: #333333;
+	cursor: pointer;
+}
+
+/* ==================== TEXT ==================== */
+.fontFix {
+	font-family: "Segoe UI", Tahoma, Arial, Verdana, Sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	color: #333333;
+}
+
+.tcenter {
+	text-align: center;
+}
+
+.tleft {
+	text-align: left;
+}
+
+.tright {
+	text-align: right;
+}
+
+.tupper {
+	text-transform: uppercase;
+}
+
+.tlower {
+	text-transform: lowercase;
+}
+
+.tnormal {
+	text-transform: none;
+}
+
+.ttop {
+	text-align: top;
+}
+
+.tmiddle {
+	text-align: middle;
+}
+
+.tbottom {
+	text-align: bottom;
+}
+
+.onHeaderTitle {
+	font-size: 14px;
+	font-weight: bold;
+	color: #818D37;
+}
+
+.onSectionTitle {
+	font-size: 12px;
+	font-weight: bold;
+	color: #94A23E;
+}
+
+.italicTextInfo {
+	font-style: italic;
+	vertical-align: top;
+}
+
+.appFieldTitle {
+	font-weight: bold;
+}
+
+.appFieldText {
+	color: #818D37;
+}
+
+.appFieldHint {
+	font-size: 10px;
+	color: #818D37;
+}
+
+.appDateText {
+	font-size: 10px;
+	padding-left: 15px;
+}
+
+/* ==================== IMAGE BUTTONS ==================== */
+.calendarButton {
+	border: none;
+	background-image: url('../images/calendar3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.cancelButton {
+	border: none;
+	background-image: url('../images/cancel.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.closeButton {
+	border: none;
+	background-image: url('../images/close.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.deleteButton {
+	border: none;
+	background-image: url('../images/delete.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.downloadButton {
+	border: none;
+	background-image: url('../images/download3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.downloadButtonBig {
+	border: none;
+	background-image: url('../images/download_big3.png');
+	background-color: rgba(0,0,0,0);
+	width: 80px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.emailButton {
+	border: none;
+	background-image: url('../images/email.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.pdfButton {
+	border: none;
+	background-image: url('../images/document-pdf.png');
+	background-color: rgba(0, 0, 0, 0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.eraserButton {
+	border: none;
+	background-image: url('../images/eraser.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.pickButton {
+	padding: 1px 5px;
+	border: 1px solid #94A23E;
+	background-image: url('../images/arrow_right3.png');
+	background-color: #9BA941;
+	width: 20px;
+	height: 20px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.leftButton {
+	border: none;
+	background-image: url('../images/left3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.leftAllButton {
+	border: none;
+	background-image: url('../images/left_all3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.rightButton {
+	border: none;
+	background-image: url('../images/right3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.rightAllButton {
+	border: none;
+	background-image: url('../images/right_all3.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.upButton {
+	border: none;
+	background-image: url('../images/down3.png');
+	background-color: rgba(0, 0, 0, 0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.downButton {
+	border: none;
+	background-image: url('../images/down3.png');
+	background-color: rgba(0, 0, 0, 0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.noteButton {
+	border: none;
+	background-image: url('../images/note.png');
+	background-color: rgba(0,0,0,0);
+	width: 16px;
+	height: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.calendarButton:focus,.cancelButton:focus,.closeButton:focus,.deleteButton:focus,.downloadButton:focus,.downloadButtonBig:focus,.emailButton:focus,.eraserButton:focus,.leftButton:focus,.leftAllButton:focus,.rightButton:focus,.rightAllButton:focus,.noteButton:focus {
+	border: none;
+}
+
+/* ==================== IMAGES ==================== */
+#courtMontage {
+	width: 386px;
+	height: 70px;
+	position: relative;
+	border: 1px solid #ABB4BC;
+	text-align: left;
+}
+
+.courtLogo {
+	position: relative;
+}
+
+.courtMontageCrop {
+	left: 36px;
+	position: absolute;
+}
+
+/* ==================== WINDOWS/FRAMES ==================== */
+/* ---------- LARGE WINDOW/FRAME ---------- */
+#frameContainer {
+	position: fixed;
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: #CECECE;
+}
+
+#appLargeFrame {
+	width: 95%;
+	margin: 15px auto;
+	padding: 3px;
+	background-color: #A9B847;
+	border: 1px solid #A0B038;
+}
+
+#greyLargeFrame {
+	width: 95%;
+	margin: 15px auto;
+	padding: 3px;
+	background-color: #C8CDD3;
+	border: 1px solid #ABB4BC;
+}
+
+/* ---------- FLUID WINDOW/FRAME ---------- */
+#fluidFrameContainer {
+	position: fixed;
+	overflow-y: auto;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #CECECE;
+	text-align: center;
+}
+
+#fluidFrameContainer:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+#appFluidFrame {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px;
+	background-color: #A9B847;
+	border: 1px solid #A0B038;
+}
+
+#greyFluidFrame {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px;
+	background-color: #C8CDD3;
+	border: 1px solid #ABB4BC;
+}
+
+/* ---------- COMMON WINDOW/FRAME ---------- */
+#frameCard {
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #F5F6F7;
+}
+
+#frameHeading {
+	padding: 4px 0px 7px 0px;
+	text-align: left;
+	font-weight: bold;
+}
+
+#appFrameSubHeading {
+	margin: auto;
+	padding: 5px 5px;
+	background-color: #B5D6FA;
+	border: 1px solid #ABB4BC;
+	text-align: left;
+	font-weight: bold;
+	color: #404040;
+}
+
+#greyFrameSubHeading {
+	margin: auto;
+	padding: 5px 5px;
+	background-color: #E0E3E6;
+	border: 1px solid #ABB4BC;
+	text-align: left;
+	font-weight: bold;
+	color: #404040;
+}
+
+#frameBody {
+	background-color: #F5F6F7;
+	border-width: 1px;
+	border-style: none solid solid solid;
+	border-color: #ABB4BC;
+}
+
+/* ==================== MODAL WINDOW ==================== */
+.modalContainer:target {
+	display: block;
+}
+
+.modalContainer {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+}
+
+.modalContainer:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+.appModalCard {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px;
+	background-color: #A9B847;
+	border: 1px solid #A0B038;
+}
+
+.greyModalCard {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px;
+	background-color: #C8CDD3;
+	border: 1px solid #ABB4BC;
+}
+
+.modalHeading {
+	padding: 4px 0px 7px 0px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.modalSubHeading {
+	padding: 5px 5px;
+	background-color: #C8CDD3;
+	text-align: left;
+	font-weight: bold;
+	color: #404040;
+}
+
+.modalHeading .closeButton {
+	float: right;
+}
+
+.modalContent {
+	margin: 0px;
+	padding: 0px;
+	min-width: 300px;
+	max-width: 800px;
+	min-height: 100px;
+	max-height: 500px;
+	overflow-y: auto;
+	background-color: #F5F6F7;
+	border: 1px solid #ABB4BC;
+	text-align: left;
+}
+
+/* ==================== PANELS ==================== */
+.appHeaderPanel {
+	padding: 2px 5px 3px;
+	background-color: #A9B847;
+	border: 1px solid #A0B038;
+	line-height: 16px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.appHeaderShortPanel {
+	padding: 2px 5px 3px;
+	background-color: #A9B847;
+	border: 1px solid #A0B038;
+	line-height: 16px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.appHeader {
+	font-weight: bold;
+	font-size: 11px;
+	color: #363636;
+}
+
+.appHeaderWhite {
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.greyHeaderPanel {
+	padding: 2px 5px 3px;
+	background-color: #C8CDD3;
+	border: 1px solid #ABB4BC;
+	line-height: 24px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #363636;
+}
+
+.darkGreyHeaderPanel {
+	padding: 2px 5px 3px;
+	background-color: #5A5A5A;
+	border: 1px solid #000000;
+	line-height: 24px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.darkGreyHeaderShortPanel {
+	padding: 2px 5px 3px;
+	background-color: #5A5A5A;
+	border: 1px solid #000000;
+	line-height: 16px;
+	font-weight: bold;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+/* ==================== SECTIONS ==================== */
+.fixedSection {
+	padding: 5px;
+	background-color: #F1F2F4;
+	font-weight: bold;
+}
+
+.variableSection {
+	padding: 5px;
+	background-color: #F5F6F7;
+}
+
+.spacer {
+	background-color: rgba(0,0,0,0);
+}
+
+.errorMessageSection {
+	padding: 5px;
+	background-color: #FCCDCB;
+	border: 1px solid #F99E9B;
+	text-align: center;
+}
+
+/* ==================== HEADER/FOOTER ==================== */
+#superHeader {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+	height: 30px;
+	position: fixed;
+	background-color: #000000;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+#superFooter {
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+	height: 30px;
+	position: fixed;
+	background-color: #000000;
+	font-weight: bold;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+#hfWrapper {
+	width: 100%;
+	height: 100% - 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/* ==================== LOGIN ==================== */
+#loginContainer {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #CECECE;
+	text-align: center;
+}
+
+#loginContainer:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+#loginCard {
+	display: inline-block;
+	vertical-align: middle;
+	width: 388px;
+	padding: 5px;
+	background-color: #5A5A5A;
+	border: 1px solid #000000;
+}
+
+#loginHeading {
+	padding: 5px 0px 10px 0px;
+	text-align: left;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#loginSubHeading {
+	margin: auto;
+	width: 376px;
+	padding: 5px 5px;
+	background-color: #C8CDD3;
+	border: 1px solid #ABB4BC;
+	text-align: left;
+	font-weight: bold;
+	color: #404040;
+}
+
+#loginForm {
+	position: relative;
+	margin: auto;
+	width: 366px;
+	padding: 20px 10px 10px 10px;
+	background-color: #F5F6F7;
+	border-width: 1px;
+	border-style: none solid solid solid;
+	border-color: #ABB4BC;
+	text-align: left;
+}
+
+#login_msg {
+	background-color: #F5F6F7;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+#noscript_msg {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 100;
+	background-color: #F5F6F7;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	color: #FF0000;
+}
+
+#noscript_msg:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+
+#caps_msg {
+	font-weight: bold;
+	font-size: 18px;
+	color: #FF0000;
+}
+
+/* ==================== LOADING ==================== */
+#loadingContainer {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #E3E3E3;
+	text-align: center;
+}
+
+#loadingCard {
+	position: relative;
+	top: 50%;
+	margin: -20px auto;
+	display: inline-block;
+	background-color: #F5F6F7;
+	border: 1px solid #ABB4BC;
+}
+
+#loadingMessage {
+	margin: 2px;
+	padding: 4px 5px 4px 25px;
+	background-image: url('../images/loading.gif');
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	border: 1px solid #DDDDDD;
+	background-color: #EEEEEE;
+	line-height: 16px;
+	color: #222222;
+}
+
+/* ==================== MENUS ==================== */
+#menuOptions {
+	background-color: #DDE0E4;
+	width: 100%;
+	height: 28px;
+	font-size: 11px;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+#menuOptions ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+#menuOptions ul li {
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#menuOptions ul li a {
+	display: block;
+	margin: 0px;
+	padding: 8px 4px;
+	color: #333333;
+	text-decoration: none;
+	line-height: 1.2em;
+}
+
+#menuOptions ul li a:hover {
+	background-color: #646464;
+	color: #FFFFFF;
+}
+
+#menuOptions ul li a.active,#menuOptions ul li a.active:hover {
+	background-color: #DDE0E4;
+	color: #333333;
+	cursor: default;
+}
+
+.menuDivider {
+	width: 0px;
+	height: 14px;
+	margin-top: 7px;
+	border-left: 1px solid #B2BAC2;
+	border-right: 1px solid #FFFFFF;
+}
+
+/* ==================== TABS ==================== */
+#tabOptions {
+	padding-top: 2px;
+	background-color: #F5F5F5;
+	width: 100%;
+	font-size: 11px;
+	font-weight: bold;
+	color: #363636;
+	border-bottom: 4px solid #879339;
+	overflow: hidden;
+}
+
+#tabOptions ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+#tabOptions ul li {
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	right: 50%;
+}
+
+#tabOptions ul li a {
+	display: block;
+	margin: 0 0 0 4px;
+	padding: 4px 5px;
+	color: #606060;
+	text-decoration: none;
+	line-height: 1.2em;
+}
+
+#tabOptions ul li a:hover {
+	color: #FFFFFF;
+	background-color: #BAC66C;
+}
+
+#tabOptions ul li a.active,#tabOptions ul li a.active:hover {
+	color: #FFFFFF;
+	background-color: #879339;
+	cursor: default;
+}
+
+/* ==================== NAVIGATION/MENU ==================== */
+.navButton {
+	margin-top: -1px;
+	margin-left: -2px;
+	background-color: #DDE0E4;
+	border: none;
+	text-decoration: none;
+	color: #363636;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.navButton:hover {
+	background-color: #73818f;
+	color: #ffffff;
+	border: none;
+}
+
+.navDropdown {
+	background-image: url('../images/s-arrow-noline.gif');
+	background-repeat: no-repeat;
+   	padding-right: 12px !important;
+}
+
+#menuDiv {
+	top: -1px;
+}
+
+#menuDiv ul {
+	margin: 0px;
+	padding: 0px;
+	width: 230px;
+	list-style-type: none;
+	border: 1px solid #000000;
+	background-color: #DDE0E4;
+}
+
+#menuDiv ul li {
+	position: relative;
+	overflow: visible;
+	background-color: #DDE0E4;
+}
+
+#menuDiv ul li ul {
+	position: absolute;
+	width: 184px;
+	padding: 0px;
+	top: 0px;
+	visibility: hidden;
+	background-color: #DDE0E4;
+}
+
+#menuDiv ul li a {
+	display: block;
+	overflow: auto;
+	padding: 2px 4px 2px 8px;
+	background-color: #DDE0E4;
+	text-decoration: none;
+	font-size: 11px;
+	color: #363636;
+}
+
+#menuDiv a:hover {
+	background-color: #879339;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#menuDiv hr {
+	display: block;
+	margin: 0 !important;
+	margin: -6px 0;
+	height: 1px;
+	color: #A8A8A8;
+	background-color: #798C7C;
+	border: 0px;
+}
+
+#menuDiv .subfolderstyle {
+	background: url('../images/ArrowPopup.gif') no-repeat center right;
+}
+
+/* ==================== EXTRAS ==================== */
+.text-default {
+	color: #333333;
+}
+
+.text-app {
+	color: #818D37;
+}
+
+.text-black {
+	color: #000000;
+}
+
+.text-white {
+	color: #FFFFFF;
+}
+
+.text-red {
+	color: #FF0000;
+}
+
+.bg-app {
+	background-color: #AEBC51;
+}
+
+.bg-black {
+	background-color: #000000;
+}
+
+.bg-white {
+	background-color: #FFFFFF;
+}
+
+.bg-grey {
+	background-color: #C8CDD3;
+}
+
+.border-grey {
+	border: 1px solid #ABB4BC;
+}
+
+.vertical-line {
+	width: 1px;
+	background-color: black;
+	height: 100%;
+	float: left;
+}
+
+#wrapper {
+	overflow: hidden;
+}

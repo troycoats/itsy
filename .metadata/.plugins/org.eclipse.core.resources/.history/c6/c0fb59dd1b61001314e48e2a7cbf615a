@@ -1,0 +1,20 @@
+/**
+ * ArrestWarrant.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.ws;
+
+public interface ArrestWarrant extends java.rmi.Remote {
+    public gov.utcourts.warrant.ResultWrapper issueMultipleArrestWarrants(java.lang.String courtLocation, java.lang.String courtType, int corisUserId, java.lang.String corisLogName) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultWrapper issueArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, int partyNum, int corisUserId, java.lang.String corisLogName) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultWrapper modifyArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, java.lang.String courtOri, int partyNum, int corisUserId, java.lang.String corisLogName, int modification) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultArrayWrapper getPublicSafetyArrestWarrantDetail(int warrantId) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultWrapper warrantExists(java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultArrayWrapper searchForWarrants(java.lang.String warrantNo, java.lang.String caseNumber, int activeOnly, int bookingReport, java.lang.String firstName, java.lang.String lastName, java.lang.String otn, java.lang.String driversLicenseNumber, java.lang.String driversLicenseState, java.lang.String ssn, java.util.Calendar dateOfBirth, java.lang.String courtLocation, java.lang.String courtType, java.util.Calendar startDate, java.util.Calendar endDate, java.lang.String dateType) throws java.rmi.RemoteException;
+    public gov.utcourts.warrant.ResultWrapper recallArrestWarrant(int intCaseNum, java.lang.String caseNumber, java.lang.String warrantNo, java.lang.String courtLocation, java.lang.String courtType, java.lang.String courtOri, int partyNum, int corisUserId, java.lang.String corisLogName, java.util.Calendar recallDate) throws java.rmi.RemoteException;
+    public void generateSerializationObjectsFor(gov.utcourts.warrant.dataaccess.PersonNameBO personNameBO, gov.utcourts.warrant.dataaccess.AddressBO addressBO, gov.utcourts.warrant.dataaccess.PersonVehicleBO personVehicleBO, gov.utcourts.warrant.dataaccess.ChargeBO chargeBO) throws java.rmi.RemoteException;
+}

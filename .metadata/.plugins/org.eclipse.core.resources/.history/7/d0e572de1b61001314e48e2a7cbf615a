@@ -1,0 +1,23 @@
+package gov.utcourts.arrestwarrant.nightly;
+
+import gov.utcourts.common.util.CalendarUtil;
+
+import org.apache.log4j.Logger;
+
+public class AllNightlyProcesses {
+	
+	private static Logger logger = Logger.getLogger(AllNightlyProcesses.class);
+	
+	/*
+	 * main method
+	 */
+	public static void main(String[] args) {
+		logger.info("Arrest Warrant Nightly process started: " + CalendarUtil.printDate());
+		
+		ArrestWarrants.retransmitWarrants("D");
+		ArrestWarrants.retransmitWarrants("J");
+		
+		logger.info("Arrest Warrant Nightly process finished: " + CalendarUtil.printDate());
+	}
+}
+

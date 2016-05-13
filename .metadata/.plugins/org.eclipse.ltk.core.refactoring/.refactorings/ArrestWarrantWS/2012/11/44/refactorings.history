@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ArrestWarrantWS/src/gov/utcourts/warrant/AttorneyInfo.java&apos; to &apos;ArrestWarrantInfo.java&apos;" description="Rename resource &apos;AttorneyInfo.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/gov/utcourts/warrant/AttorneyInfo.java" name="ArrestWarrantInfo.java" stamp="1351880475633" updateReferences="true"/>
+</session>
