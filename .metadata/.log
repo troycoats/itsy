@@ -8496,3 +8496,64 @@ Caused by: javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_
 	at com.ibm.net.ssl.www2.protocol.https.b.getResponseCode(Unknown Source)
 	at org.eclipse.jgit.util.HttpSupport.response(Unknown Source)
 	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2016-05-13 16:18:11.941
+!MESSAGE https://github.com/troycoats/itsy.git: cannot open git-upload-pack
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: https://github.com/troycoats/itsy.git: cannot open git-upload-pack
+	at org.eclipse.jgit.api.FetchCommand.call(Unknown Source)
+	at org.eclipse.jgit.api.PullCommand.call(Unknown Source)
+	at org.eclipse.egit.core.op.PullOperation$1.run(Unknown Source)
+	at org.eclipse.core.internal.resources.Workspace.run(Unknown Source)
+	at org.eclipse.core.internal.resources.Workspace.run(Unknown Source)
+	at org.eclipse.egit.core.op.PullOperation.execute(Unknown Source)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI.execute(Unknown Source)
+	at org.eclipse.egit.ui.internal.pull.PullOperationUI$1.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Unknown Source)
+Caused by: org.eclipse.jgit.errors.TransportException: https://github.com/troycoats/itsy.git: cannot open git-upload-pack
+	at org.eclipse.jgit.transport.TransportHttp.connect(Unknown Source)
+	at org.eclipse.jgit.transport.TransportHttp.openFetch(Unknown Source)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(Unknown Source)
+	at org.eclipse.jgit.transport.FetchProcess.execute(Unknown Source)
+	at org.eclipse.jgit.transport.Transport.fetch(Unknown Source)
+	... 9 more
+Caused by: javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure
+	at com.ibm.jsse2.n.a(Unknown Source)
+	at com.ibm.jsse2.n.a(Unknown Source)
+	at com.ibm.jsse2.tc.b(Unknown Source)
+	at com.ibm.jsse2.tc.a(Unknown Source)
+	at com.ibm.jsse2.tc.g(Unknown Source)
+	at com.ibm.jsse2.tc.a(Unknown Source)
+	at com.ibm.jsse2.tc.startHandshake(Unknown Source)
+	at com.ibm.net.ssl.www2.protocol.https.c.afterConnect(Unknown Source)
+	at com.ibm.net.ssl.www2.protocol.https.d.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source)
+	at com.ibm.net.ssl.www2.protocol.https.b.getResponseCode(Unknown Source)
+	at org.eclipse.jgit.util.HttpSupport.response(Unknown Source)
+	... 14 more
+
+!ENTRY org.eclipse.egit.core 4 0 2016-05-13 16:21:58.651
+!MESSAGE 
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException
+	at org.eclipse.jgit.util.NB.decodeInt32(Unknown Source)
+	at org.eclipse.jgit.lib.MutableObjectId.fromRaw(Unknown Source)
+	at org.eclipse.jgit.treewalk.AbstractTreeIterator.getEntryObjectId(Unknown Source)
+	at org.eclipse.jgit.treewalk.TreeWalk.getObjectId(Unknown Source)
+	at org.eclipse.egit.core.synchronize.ThreeWayDiffEntry.scan(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSyncCache.loadDataFromGit(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSyncCache.getAllData(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSyncCache.getAllData(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitResourceVariantTreeSubscriber.refresh(Unknown Source)
+	at org.eclipse.team.core.subscribers.Subscriber.refresh(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSubscriberMergeContext.handleRepositoryChange(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSubscriberMergeContext.access$0(Unknown Source)
+	at org.eclipse.egit.core.synchronize.GitSubscriberMergeContext$1.indexDiffChanged(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCache.notifyListeners(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCache.access$0(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCache$1.indexDiffChanged(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCacheEntry.notifyListeners(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCacheEntry.access$7(Unknown Source)
+	at org.eclipse.egit.core.internal.indexdiff.IndexDiffCacheEntry$4.run(Unknown Source)
+	at org.eclipse.core.internal.jobs.Worker.run(Unknown Source)
