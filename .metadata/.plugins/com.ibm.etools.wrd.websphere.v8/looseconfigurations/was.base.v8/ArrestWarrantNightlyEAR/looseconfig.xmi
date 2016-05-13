@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.jst.j2ee.commonarchivecore.looseconfig:LooseArchive xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.eclipse.jst.j2ee.commonarchivecore.looseconfig="commonarchive.looseconfig.xmi" uri="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantNightlyEAR" binariesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantNightlyEAR" resourcesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantNightlyEAR" archiveType="EAR">
+  <looseChildren uri="ArrestWarrantNightly.war" binariesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantNightly\WebContent" resourcesPath="C:\Java Projects\SVN\ArrestWarrantWS\ArrestWarrantNightly\WebContent" archiveType="WAR"/>
+</org.eclipse.jst.j2ee.commonarchivecore.looseconfig:LooseArchive>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="com.ibm.ws.ast.st.v8.core.launchConfigurationType">
+<stringAttribute key="com.ibm.debug.wsa.attr_vm_name" value="IBM J9 VM"/>
+<stringAttribute key="com.ibm.debug.wsa.attr_vm_version" value="1.6.0"/>
+<intAttribute key="com.ibm.debug.wsa.attr_was_version" value="6"/>
+<stringAttribute key="server-id" value="was.base.v8"/>
+</launchConfiguration>

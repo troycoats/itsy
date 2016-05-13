@@ -1,0 +1,106 @@
+/**
+ * AddressVO_Helper.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class AddressVO_Helper {
+    // Type metadata
+    private static final com.ibm.ws.webservices.engine.description.TypeDesc typeDesc =
+        new com.ibm.ws.webservices.engine.description.TypeDesc(AddressVO.class);
+
+    static {
+        typeDesc.setOption("buildNum","cf011133.09");
+        com.ibm.ws.webservices.engine.description.FieldDesc field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("addressId");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "addressId"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("status");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "status"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("personId");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "personId"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("address1");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "address1"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("address2");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "address2"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("city");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "city"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("stateCode");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "stateCode"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("zipCode");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "zipCode"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("insertAgencyId");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "insertAgencyId"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("insertUserId");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "insertUserId"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("insertDateTime");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "insertDateTime"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        typeDesc.addFieldDesc(field);
+    };
+
+    /**
+     * Return type metadata object
+     */
+    public static com.ibm.ws.webservices.engine.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new AddressVO_Ser(
+            javaType, xmlType, typeDesc);
+    };
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new AddressVO_Deser(
+            javaType, xmlType, typeDesc);
+    };
+
+}

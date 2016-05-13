@@ -1,0 +1,106 @@
+/**
+ * PersonNameVO.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class PersonNameVO  extends gov.utcourts.warrant.dataaccess.BaseVO  {
+    private int nameId;
+    private int status;
+    private int personId;
+    private java.lang.String firstName;
+    private java.lang.String lastName;
+    private java.lang.String partyCode;
+    private java.lang.String insertAgencyId;
+    private java.lang.String insertUserId;
+    private java.util.Calendar insertDateTime;
+    private int nameType;
+
+    public PersonNameVO() {
+    }
+
+    public int getNameId() {
+        return nameId;
+    }
+
+    public void setNameId(int nameId) {
+        this.nameId = nameId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public java.lang.String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(java.lang.String firstName) {
+        this.firstName = firstName;
+    }
+
+    public java.lang.String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(java.lang.String lastName) {
+        this.lastName = lastName;
+    }
+
+    public java.lang.String getPartyCode() {
+        return partyCode;
+    }
+
+    public void setPartyCode(java.lang.String partyCode) {
+        this.partyCode = partyCode;
+    }
+
+    public java.lang.String getInsertAgencyId() {
+        return insertAgencyId;
+    }
+
+    public void setInsertAgencyId(java.lang.String insertAgencyId) {
+        this.insertAgencyId = insertAgencyId;
+    }
+
+    public java.lang.String getInsertUserId() {
+        return insertUserId;
+    }
+
+    public void setInsertUserId(java.lang.String insertUserId) {
+        this.insertUserId = insertUserId;
+    }
+
+    public java.util.Calendar getInsertDateTime() {
+        return insertDateTime;
+    }
+
+    public void setInsertDateTime(java.util.Calendar insertDateTime) {
+        this.insertDateTime = insertDateTime;
+    }
+
+    public int getNameType() {
+        return nameType;
+    }
+
+    public void setNameType(int nameType) {
+        this.nameType = nameType;
+    }
+
+}

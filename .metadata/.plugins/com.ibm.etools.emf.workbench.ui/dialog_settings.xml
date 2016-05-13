@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="com.ibm.etools.j2ee.manifest.ui.ImplementationVersionPageCommon"/>
+	<item value="false" key="com.ibm.etools.web.ui.ws.ext.presentation.sections.SectionWebAppJASPIAuthenticationCommon"/>
+	<item value="false" key="com.ibm.etools.common.ui.sections.SectionUsageTableCommon"/>
+	<item value="false" key="com.ibm.etools.j2ee.manifest.ui.SectionMainClassCommon"/>
+	<item value="false" key="com.ibm.etools.j2ee.manifest.ui.SectionUsageCommon"/>
+	<item value="false" key="com.ibm.etools.common.ui.sections.SectionIconsCommon"/>
+	<item value="false" key="com.ibm.etools.j2ee.manifest.ui.SectionDependenciesCommon"/>
+	<item value="false" key="com.ibm.etools.web.ui.ws.ext.presentation.sections.SectionOverviewBindingsCommon"/>
+	<item value="false" key="com.ibm.etools.web.ui.sections.WebGeneralInfoSectionCommon"/>
+	<item value="false" key="com.ibm.etools.emf.workbench.ui.custom.widgets.SectionDynamicTableCommon"/>
+	<item value="false" key="com.ibm.etools.web.ui.ws.ext.presentation.sections.VirtualHostNameSectionCommon"/>
+</section>

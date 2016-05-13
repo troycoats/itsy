@@ -1,0 +1,5 @@
+INDEX VERSION 1.123+C:\Java Projects\SVN\Itsy\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4061066970.index
+4225905154.index
+64769663.index
+283842667.index

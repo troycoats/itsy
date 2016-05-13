@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <service-ref>
+        <description>WSDL Service RimRequestService</description>
+        <service-ref-name>service/RimRequestService</service-ref-name>
+        <service-interface>gov.utcourts.rimrequest.ws.RimRequestService</service-interface>
+        <wsdl-file>WEB-INF/wsdl/RimRequest.wsdl</wsdl-file>
+        <jaxrpc-mapping-file>WEB-INF/RimRequest_mapping.xml</jaxrpc-mapping-file>
+        <service-qname xmlns:pfx="http://ws.rimrequest.utcourts.gov">pfx:RimRequestService</service-qname>
+        <port-component-ref>
+            <service-endpoint-interface>gov.utcourts.rimrequest.ws.RimRequest</service-endpoint-interface>
+            <mtom-threshold>0</mtom-threshold>
+        </port-component-ref>
+    </service-ref>
+</web-app>

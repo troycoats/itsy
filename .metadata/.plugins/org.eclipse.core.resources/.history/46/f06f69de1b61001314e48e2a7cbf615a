@@ -1,0 +1,66 @@
+package gov.utcourts.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+/**
+* JDBCConnect provides connectivity to our WebSphere Commerce Suite
+* database through the JDBC Oracle thin driver.  It uses properties
+* controlled by IDXConfig to obtain the database URL, Username
+* and Password.
+**/
+public class JDBCConnect implements JDBCConnector {
+	
+	public Connection getConnection() throws SmartException {
+		return null;
+	}
+	
+	/**
+	 * @return
+	 * @throws SmartException
+	 */
+	public static Connection getConnectionDistrictStatic() throws SmartException {
+		Connection conn = null;
+		try {
+			Properties connectionProperties = new Properties();
+			connectionProperties.setProperty("user", XMLConfig.getProperty("PROPERTY.nightly_batch.D.username"));
+			connectionProperties.setProperty("password", XMLConfig.getProperty("PROPERTY.nightly_batch.D.password"));
+			connectionProperties.setProperty("informixLockModeWait", "100");
+			connectionProperties.setProperty("ifxIFX_AUTOFREE", "true");
+			connectionProperties.setProperty("STMT_CACHE", "1");
+			Class.forName("com.informix.jdbc.IfxDriver");
+			conn = DriverManager.getConnection(XMLConfig.getProperty("PROPERTY.nightly_batch.D.JDBCURL"), connectionProperties);
+		} catch (ClassNotFoundException e) {
+			throw new SystemException(e, "The jdbc informix drivers are not in the CLASSPATH.");
+		} catch (SQLException e) {
+			throw new SystemException(e, "Could not connect to database.  The database appears to be off-line.");
+		}
+		return conn;
+	}
+
+	/**
+	 * @return
+	 * @throws SmartException
+	 */
+	public static Connection getConnectionJusticeStatic() throws SmartException {
+		Connection conn = null;
+		try {
+			Properties connectionProperties = new Properties();
+			connectionProperties.setProperty("user", XMLConfig.getProperty("PROPERTY.nightly_batch.J.username"));
+			connectionProperties.setProperty("password", XMLConfig.getProperty("PROPERTY.nightly_batch.J.password"));
+			connectionProperties.setProperty("informixLockModeWait", "100");
+			connectionProperties.setProperty("ifxIFX_AUTOFREE", "true");
+			connectionProperties.setProperty("STMT_CACHE", "1");
+			Class.forName("com.informix.jdbc.IfxDriver");
+			conn = DriverManager.getConnection(XMLConfig.getProperty("PROPERTY.nightly_batch.J.JDBCURL"), connectionProperties);
+		} catch (ClassNotFoundException e) {
+			throw new SystemException(e, "The jdbc informix drivers are not in the CLASSPATH.");
+		} catch (SQLException e) {
+			throw new SystemException(e, "Could not connect to database.  The database appears to be off-line.");
+		}
+		return conn;
+	}
+
+}

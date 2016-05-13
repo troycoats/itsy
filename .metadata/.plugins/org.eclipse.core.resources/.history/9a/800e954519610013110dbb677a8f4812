@@ -1,0 +1,269 @@
+/**
+ * PersonVehicleVO_Ser.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class PersonVehicleVO_Ser extends gov.utcourts.warrant.dataaccess.BaseVO_Ser {
+    /**
+     * Constructor
+     */
+    public PersonVehicleVO_Ser(
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType, 
+           com.ibm.ws.webservices.engine.description.TypeDesc _typeDesc) {
+        super(_javaType, _xmlType, _typeDesc);
+    }
+    public void serialize(
+        javax.xml.namespace.QName name,
+        org.xml.sax.Attributes attributes,
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        context.startElement(name, addAttributes(attributes, value, context));
+        addElements(value, context);
+        context.endElement();
+    }
+    protected org.xml.sax.Attributes addAttributes(
+        org.xml.sax.Attributes attributes,
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        attributes = super.addAttributes(attributes, value, context);
+        return attributes;
+    }
+    protected void addElements(
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        super.addElements(value, context);
+        PersonVehicleVO bean = (PersonVehicleVO) value;
+        java.lang.Object propValue;
+        javax.xml.namespace.QName propQName;
+        {
+          propQName = QName_0_47;
+          propValue = new java.lang.Integer(bean.getPersonVehicleId());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_37;
+          propValue = new java.lang.Integer(bean.getStatus());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_31;
+          propValue = new java.lang.Integer(bean.getPersonId());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_48;
+          propValue = bean.getLicensePlateNumber();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_49;
+          propValue = bean.getLicensePlateState();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_50;
+          propValue = bean.getVehicleYear();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_51;
+          propValue = bean.getVehicleMake();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_52;
+          propValue = bean.getVehicleModel();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_53;
+          propValue = bean.getVehicleStyle();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_54;
+          propValue = bean.getVehicleColor();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_39;
+          propValue = bean.getInsertAgencyId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_24;
+          propValue = bean.getInsertUserId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_25;
+          propValue = bean.getInsertDateTime();
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_34,
+              true,null,context);
+          propQName = QName_0_55;
+          propValue = bean.getModifyAgencyId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_26;
+          propValue = bean.getModifyUserId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_27;
+          propValue = bean.getModifyDateTime();
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_34,
+              true,null,context);
+        }
+    }
+    private final static javax.xml.namespace.QName QName_0_27 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyDateTime");
+    private final static javax.xml.namespace.QName QName_0_50 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleYear");
+    private final static javax.xml.namespace.QName QName_0_48 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "licensePlateNumber");
+    private final static javax.xml.namespace.QName QName_0_49 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "licensePlateState");
+    private final static javax.xml.namespace.QName QName_0_54 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleColor");
+    private final static javax.xml.namespace.QName QName_1_35 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "int");
+    private final static javax.xml.namespace.QName QName_1_3 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "string");
+    private final static javax.xml.namespace.QName QName_0_53 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleStyle");
+    private final static javax.xml.namespace.QName QName_1_34 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "dateTime");
+    private final static javax.xml.namespace.QName QName_0_26 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyUserId");
+    private final static javax.xml.namespace.QName QName_0_25 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertDateTime");
+    private final static javax.xml.namespace.QName QName_0_47 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personVehicleId");
+    private final static javax.xml.namespace.QName QName_0_55 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "modifyAgencyId");
+    private final static javax.xml.namespace.QName QName_0_37 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "status");
+    private final static javax.xml.namespace.QName QName_0_39 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertAgencyId");
+    private final static javax.xml.namespace.QName QName_0_24 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertUserId");
+    private final static javax.xml.namespace.QName QName_0_51 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleMake");
+    private final static javax.xml.namespace.QName QName_0_31 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personId");
+    private final static javax.xml.namespace.QName QName_0_52 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "vehicleModel");
+}

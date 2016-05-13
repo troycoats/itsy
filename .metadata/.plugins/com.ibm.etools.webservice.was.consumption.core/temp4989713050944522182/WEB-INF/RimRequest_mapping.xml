@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?><java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+    <package-mapping>
+        <package-type>gov.utcourts.rimrequest</package-type>
+        <namespaceURI>http://rimrequest.utcourts.gov</namespaceURI>
+    </package-mapping>
+    <package-mapping>
+        <package-type>gov.utcourts.rimrequest.ws</package-type>
+        <namespaceURI>http://ws.rimrequest.utcourts.gov</namespaceURI>
+    </package-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.util.Calendar</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:dateTime</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.String</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:string</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.rimrequest.StatusResultWrapper</java-type>
+        <root-type-qname xmlns:rtq="http://rimrequest.utcourts.gov">rtq:StatusResultWrapper</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>reason</java-variable-name>
+            <xml-element-name>reason</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>rimRequestId</java-variable-name>
+            <xml-element-name>rimRequestId</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>judgeName</java-variable-name>
+            <xml-element-name>judgeName</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>reasonCode</java-variable-name>
+            <xml-element-name>reasonCode</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>udcId</java-variable-name>
+            <xml-element-name>udcId</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>statusDescription</java-variable-name>
+            <xml-element-name>statusDescription</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.Object[]</java-type>
+        <root-type-qname xmlns:rtq="http://ws.rimrequest.utcourts.gov">rtq:ArrayOfXSDAnyType</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>anyType</java-variable-name>
+            <xml-element-name>anyType</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.rimrequest.SubmitResultWrapper</java-type>
+        <root-type-qname xmlns:rtq="http://rimrequest.utcourts.gov">rtq:SubmitResultWrapper</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>reason</java-variable-name>
+            <xml-element-name>reason</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>rimRequestId</java-variable-name>
+            <xml-element-name>rimRequestId</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>judgeName</java-variable-name>
+            <xml-element-name>judgeName</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>reasonCode</java-variable-name>
+            <xml-element-name>reasonCode</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.rimrequest.CaseInfo</java-type>
+        <root-type-qname xmlns:rtq="http://rimrequest.utcourts.gov">rtq:CaseInfo</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>caseNumber</java-variable-name>
+            <xml-element-name>caseNumber</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>caseLocation</java-variable-name>
+            <xml-element-name>caseLocation</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>caseCourtType</java-variable-name>
+            <xml-element-name>caseCourtType</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.Object[]</java-type>
+        <anonymous-type-qname>http://www.w3.org/2001/XMLSchema:anyType[0,unbounded]</anonymous-type-qname>
+        <qname-scope>complexType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.Object</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:anyType</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>org.w3c.dom.Element</java-type>
+        <root-type-qname xmlns:rtq="http://xml.apache.org/xml-soap">rtq:Element</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.rimrequest.OrderResultWrapper</java-type>
+        <root-type-qname xmlns:rtq="http://rimrequest.utcourts.gov">rtq:OrderResultWrapper</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>reason</java-variable-name>
+            <xml-element-name>reason</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>rimRequestId</java-variable-name>
+            <xml-element-name>rimRequestId</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>reasonCode</java-variable-name>
+            <xml-element-name>reasonCode</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>udcId</java-variable-name>
+            <xml-element-name>udcId</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>orderFile</java-variable-name>
+            <xml-element-name>orderFile</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>byte[]</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:base64Binary</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>int</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:int</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>javax.xml.soap.SOAPElement</java-type>
+        <root-type-qname xmlns:rtq="http://websphere.ibm.com/webservices/">rtq:SOAPElement</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>gov.utcourts.rimrequest.CancelResultWrapper</java-type>
+        <root-type-qname xmlns:rtq="http://rimrequest.utcourts.gov">rtq:CancelResultWrapper</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>reason</java-variable-name>
+            <xml-element-name>reason</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>reasonCode</java-variable-name>
+            <xml-element-name>reasonCode</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.Object[]</java-type>
+        <anonymous-type-qname>http://ws.rimrequest.utcourts.gov:ArrayOfXSDAnyType&gt;anyType[0,unbounded]</anonymous-type-qname>
+        <qname-scope>complexType</qname-scope>
+    </java-xml-type-mapping>
+    <service-interface-mapping>
+        <service-interface>gov.utcourts.rimrequest.ws.RimRequestService</service-interface>
+        <wsdl-service-name xmlns:sim="http://ws.rimrequest.utcourts.gov">sim:RimRequestService</wsdl-service-name>
+        <port-mapping>
+            <port-name>RimRequest</port-name>
+            <java-port-name>RimRequest</java-port-name>
+        </port-mapping>
+    </service-interface-mapping>
+    <service-endpoint-interface-mapping>
+        <service-endpoint-interface>gov.utcourts.rimrequest.ws.RimRequest</service-endpoint-interface>
+        <wsdl-port-type xmlns:seimwpt="http://ws.rimrequest.utcourts.gov">seimwpt:RimRequest</wsdl-port-type>
+        <wsdl-binding xmlns:seimwb="http://ws.rimrequest.utcourts.gov">seimwb:RimRequestSoapBinding</wsdl-binding>
+        <service-endpoint-method-mapping>
+            <java-method-name>retrieveOrderFile</java-method-name>
+            <wsdl-operation>retrieveOrderFile</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:retrieveOrderFileRequest</wsdl-message>
+                    <wsdl-message-part-name>udcId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:retrieveOrderFileRequest</wsdl-message>
+                    <wsdl-message-part-name>rimRequestId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:retrieveOrderFileRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:retrieveOrderFileRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:retrieveOrderFileRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseCourtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.rimrequest.OrderResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.rimrequest.utcourts.gov">wrvm:retrieveOrderFileResponse</wsdl-message>
+                <wsdl-message-part-name>retrieveOrderFileReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>submitRequest</java-method-name>
+            <wsdl-operation>submitRequest</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCase</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryFirstName</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryLastName</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.Object[]</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>ancillaryCases</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>requestedBy</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>5</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>udcId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>6</param-position>
+                <param-type>java.util.Calendar</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>udcSubmitDateTime</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>7</param-position>
+                <param-type>byte[]</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:submitRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>udcPdfFile</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.rimrequest.SubmitResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.rimrequest.utcourts.gov">wrvm:submitRequestResponse</wsdl-message>
+                <wsdl-message-part-name>submitRequestReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>statusOfRequest</java-method-name>
+            <wsdl-operation>statusOfRequest</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:statusOfRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>udcId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:statusOfRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>rimRequestId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:statusOfRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:statusOfRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:statusOfRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseCourtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.rimrequest.StatusResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.rimrequest.utcourts.gov">wrvm:statusOfRequestResponse</wsdl-message>
+                <wsdl-message-part-name>statusOfRequestReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>cancelRequest</java-method-name>
+            <wsdl-operation>cancelRequest</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>udcId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>rimRequestId</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>2</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseNumber</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>3</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseLocation</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>4</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>primaryCaseCourtType</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>5</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>reason</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>6</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:cancelRequestRequest</wsdl-message>
+                    <wsdl-message-part-name>requestedBy</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>gov.utcourts.rimrequest.CancelResultWrapper</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.rimrequest.utcourts.gov">wrvm:cancelRequestResponse</wsdl-message>
+                <wsdl-message-part-name>cancelRequestReturn</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+        <service-endpoint-method-mapping>
+            <java-method-name>generateSerializationObjectsFor</java-method-name>
+            <wsdl-operation>generateSerializationObjectsFor</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>gov.utcourts.rimrequest.CaseInfo</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://ws.rimrequest.utcourts.gov">mppm:generateSerializationObjectsForRequest</wsdl-message>
+                    <wsdl-message-part-name>caseInfo</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>void</method-return-value>
+                <wsdl-message xmlns:wrvm="http://ws.rimrequest.utcourts.gov">wrvm:generateSerializationObjectsForResponse</wsdl-message>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+    </service-endpoint-interface-mapping>
+</java-wsdl-mapping>

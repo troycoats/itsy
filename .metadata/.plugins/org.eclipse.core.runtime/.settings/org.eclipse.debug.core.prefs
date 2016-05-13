@@ -1,0 +1,3 @@
+#Mon Nov 25 15:26:37 MST 2013
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8"?><watchExpressions>\r\n<expression enabled\="true" text\="warrantInfo"/>\r\n<expression enabled\="true" text\="this.getHeight(), p2.getHeight()"/>\r\n<expression enabled\="true" text\="collideErChangedWarrants"/>\r\n<expression enabled\="true" text\="corisName.getFirstNameNotNullFirst5("/>\r\n</watchExpressions>
+eclipse.preferences.version=1

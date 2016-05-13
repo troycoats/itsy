@@ -1,0 +1,160 @@
+/**
+ * PersonVehicleVO.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class PersonVehicleVO  extends gov.utcourts.warrant.dataaccess.BaseVO  {
+    private int personVehicleId;
+    private int status;
+    private int personId;
+    private java.lang.String licensePlateNumber;
+    private java.lang.String licensePlateState;
+    private java.lang.String vehicleYear;
+    private java.lang.String vehicleMake;
+    private java.lang.String vehicleModel;
+    private java.lang.String vehicleStyle;
+    private java.lang.String vehicleColor;
+    private java.lang.String insertAgencyId;
+    private java.lang.String insertUserId;
+    private java.util.Calendar insertDateTime;
+    private java.lang.String modifyAgencyId;
+    private java.lang.String modifyUserId;
+    private java.util.Calendar modifyDateTime;
+
+    public PersonVehicleVO() {
+    }
+
+    public int getPersonVehicleId() {
+        return personVehicleId;
+    }
+
+    public void setPersonVehicleId(int personVehicleId) {
+        this.personVehicleId = personVehicleId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public java.lang.String getLicensePlateNumber() {
+        return licensePlateNumber;
+    }
+
+    public void setLicensePlateNumber(java.lang.String licensePlateNumber) {
+        this.licensePlateNumber = licensePlateNumber;
+    }
+
+    public java.lang.String getLicensePlateState() {
+        return licensePlateState;
+    }
+
+    public void setLicensePlateState(java.lang.String licensePlateState) {
+        this.licensePlateState = licensePlateState;
+    }
+
+    public java.lang.String getVehicleYear() {
+        return vehicleYear;
+    }
+
+    public void setVehicleYear(java.lang.String vehicleYear) {
+        this.vehicleYear = vehicleYear;
+    }
+
+    public java.lang.String getVehicleMake() {
+        return vehicleMake;
+    }
+
+    public void setVehicleMake(java.lang.String vehicleMake) {
+        this.vehicleMake = vehicleMake;
+    }
+
+    public java.lang.String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(java.lang.String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public java.lang.String getVehicleStyle() {
+        return vehicleStyle;
+    }
+
+    public void setVehicleStyle(java.lang.String vehicleStyle) {
+        this.vehicleStyle = vehicleStyle;
+    }
+
+    public java.lang.String getVehicleColor() {
+        return vehicleColor;
+    }
+
+    public void setVehicleColor(java.lang.String vehicleColor) {
+        this.vehicleColor = vehicleColor;
+    }
+
+    public java.lang.String getInsertAgencyId() {
+        return insertAgencyId;
+    }
+
+    public void setInsertAgencyId(java.lang.String insertAgencyId) {
+        this.insertAgencyId = insertAgencyId;
+    }
+
+    public java.lang.String getInsertUserId() {
+        return insertUserId;
+    }
+
+    public void setInsertUserId(java.lang.String insertUserId) {
+        this.insertUserId = insertUserId;
+    }
+
+    public java.util.Calendar getInsertDateTime() {
+        return insertDateTime;
+    }
+
+    public void setInsertDateTime(java.util.Calendar insertDateTime) {
+        this.insertDateTime = insertDateTime;
+    }
+
+    public java.lang.String getModifyAgencyId() {
+        return modifyAgencyId;
+    }
+
+    public void setModifyAgencyId(java.lang.String modifyAgencyId) {
+        this.modifyAgencyId = modifyAgencyId;
+    }
+
+    public java.lang.String getModifyUserId() {
+        return modifyUserId;
+    }
+
+    public void setModifyUserId(java.lang.String modifyUserId) {
+        this.modifyUserId = modifyUserId;
+    }
+
+    public java.util.Calendar getModifyDateTime() {
+        return modifyDateTime;
+    }
+
+    public void setModifyDateTime(java.util.Calendar modifyDateTime) {
+        this.modifyDateTime = modifyDateTime;
+    }
+
+}

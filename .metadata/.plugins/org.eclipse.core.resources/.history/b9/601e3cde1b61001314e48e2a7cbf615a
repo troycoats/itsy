@@ -1,0 +1,66 @@
+/**
+ * ResultWrapper_Helper.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant;
+
+public class ResultWrapper_Helper {
+    // Type metadata
+    private static final com.ibm.ws.webservices.engine.description.TypeDesc typeDesc =
+        new com.ibm.ws.webservices.engine.description.TypeDesc(ResultWrapper.class);
+
+    static {
+        typeDesc.setOption("buildNum","cf011133.09");
+        com.ibm.ws.webservices.engine.description.FieldDesc field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("reasonCode");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "reasonCode"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("reason");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "reason"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"));
+        typeDesc.addFieldDesc(field);
+        field = new com.ibm.ws.webservices.engine.description.ElementDesc();
+        field.setFieldName("errors");
+        field.setXmlName(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "errors"));
+        field.setXmlType(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ArrayOfXSDAnyType"));
+        typeDesc.addFieldDesc(field);
+    };
+
+    /**
+     * Return type metadata object
+     */
+    public static com.ibm.ws.webservices.engine.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new ResultWrapper_Ser(
+            javaType, xmlType, typeDesc);
+    };
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new ResultWrapper_Deser(
+            javaType, xmlType, typeDesc);
+    };
+
+}

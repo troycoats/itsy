@@ -1,0 +1,7 @@
+#Fri May 13 15:28:00 MDT 2016
+merge_mode=0
+show_initial_config_dialog=false
+eclipse.preferences.version=1
+commit_dialog_push_upstream=true
+show_git_prefix_warning=false
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>&\#x0A;&\#x0A;Change-Id\: I0000000000000000000000000000000000000000&\#x0A;</message>\r\n<message>initial commit&\#x0A;</message>\r\n<message>initial commit</message>\r\n</messages>

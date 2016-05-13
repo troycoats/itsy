@@ -1,0 +1,203 @@
+/**
+ * AddressVO_Ser.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class AddressVO_Ser extends gov.utcourts.warrant.dataaccess.BaseVO_Ser {
+    /**
+     * Constructor
+     */
+    public AddressVO_Ser(
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType, 
+           com.ibm.ws.webservices.engine.description.TypeDesc _typeDesc) {
+        super(_javaType, _xmlType, _typeDesc);
+    }
+    public void serialize(
+        javax.xml.namespace.QName name,
+        org.xml.sax.Attributes attributes,
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        context.startElement(name, addAttributes(attributes, value, context));
+        addElements(value, context);
+        context.endElement();
+    }
+    protected org.xml.sax.Attributes addAttributes(
+        org.xml.sax.Attributes attributes,
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        attributes = super.addAttributes(attributes, value, context);
+        return attributes;
+    }
+    protected void addElements(
+        java.lang.Object value,
+        com.ibm.ws.webservices.engine.encoding.SerializationContext context)
+        throws java.io.IOException
+    {
+        super.addElements(value, context);
+        AddressVO bean = (AddressVO) value;
+        java.lang.Object propValue;
+        javax.xml.namespace.QName propQName;
+        {
+          propQName = QName_0_41;
+          propValue = new java.lang.Integer(bean.getAddressId());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_37;
+          propValue = new java.lang.Integer(bean.getStatus());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_31;
+          propValue = new java.lang.Integer(bean.getPersonId());
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_35,
+              true,null,context);
+          propQName = QName_0_42;
+          propValue = bean.getAddress1();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_43;
+          propValue = bean.getAddress2();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_44;
+          propValue = bean.getCity();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_45;
+          propValue = bean.getStateCode();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_46;
+          propValue = bean.getZipCode();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_39;
+          propValue = bean.getInsertAgencyId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_24;
+          propValue = bean.getInsertUserId();
+          if (propValue != null && !context.shouldSendXSIType()) {
+            context.simpleElement(propQName, null, propValue.toString()); 
+          } else {
+            serializeChild(propQName, null, 
+              propValue, 
+              QName_1_3,
+              true,null,context);
+          }
+          propQName = QName_0_25;
+          propValue = bean.getInsertDateTime();
+          serializeChild(propQName, null, 
+              propValue, 
+              QName_1_34,
+              true,null,context);
+        }
+    }
+    private final static javax.xml.namespace.QName QName_0_46 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "zipCode");
+    private final static javax.xml.namespace.QName QName_0_43 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "address2");
+    private final static javax.xml.namespace.QName QName_0_42 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "address1");
+    private final static javax.xml.namespace.QName QName_0_39 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertAgencyId");
+    private final static javax.xml.namespace.QName QName_0_24 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertUserId");
+    private final static javax.xml.namespace.QName QName_0_44 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "city");
+    private final static javax.xml.namespace.QName QName_0_37 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "status");
+    private final static javax.xml.namespace.QName QName_0_25 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "insertDateTime");
+    private final static javax.xml.namespace.QName QName_1_35 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "int");
+    private final static javax.xml.namespace.QName QName_0_41 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "addressId");
+    private final static javax.xml.namespace.QName QName_1_3 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "string");
+    private final static javax.xml.namespace.QName QName_1_34 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "http://www.w3.org/2001/XMLSchema",
+                  "dateTime");
+    private final static javax.xml.namespace.QName QName_0_45 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "stateCode");
+    private final static javax.xml.namespace.QName QName_0_31 = 
+           com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                  "",
+                  "personId");
+}

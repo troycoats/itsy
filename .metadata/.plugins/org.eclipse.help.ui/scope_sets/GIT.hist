@@ -1,0 +1,7 @@
+#Tue Apr 26 14:35:58 MDT 2016
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+com.ibm.developerWorks.master=true
+expression=GIT
+com.ibm.websphere.infocenter.master=true

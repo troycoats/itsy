@@ -1,0 +1,43 @@
+/**
+ * ResultArrayWrapper.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant;
+
+public class ResultArrayWrapper  {
+    private java.lang.String reasonCode;
+    private java.lang.String reason;
+    private gov.utcourts.warrant.ArrestWarrantInfo[] objects;
+
+    public ResultArrayWrapper() {
+    }
+
+    public java.lang.String getReasonCode() {
+        return reasonCode;
+    }
+
+    public void setReasonCode(java.lang.String reasonCode) {
+        this.reasonCode = reasonCode;
+    }
+
+    public java.lang.String getReason() {
+        return reason;
+    }
+
+    public void setReason(java.lang.String reason) {
+        this.reason = reason;
+    }
+
+    public gov.utcourts.warrant.ArrestWarrantInfo[] getObjects() {
+        return objects;
+    }
+
+    public void setObjects(gov.utcourts.warrant.ArrestWarrantInfo[] objects) {
+        this.objects = objects;
+    }
+
+}

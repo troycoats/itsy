@@ -1,0 +1,7 @@
+1350656810687	Delete resource 'ArrestWarrantWS/src/gov/utcourts/warrant/ws/ArrestWarrant_SEI.java'
+1350674417445	Delete resource 'ArrestWarrantWSClient/WebContent/WEB-INF/wsdl/AttorneyInfo.wsdl'
+1350674422920	Delete resource 'ArrestWarrantWSClient/WebContent/sampleAttorneyInfoProxy'
+1350674428349	Delete resource 'ArrestWarrantWSClient/WebContent/WEB-INF/AttorneyInfo_mapping.xml'
+1350674538769	Delete resource 'ArrestWarrantWSClient/WebContent/WEB-INF/classes/gov/utcourts/attorneyinfo'
+1350674591451	Delete resource 'ArrestWarrantWS/AttorneyInfo_Properties.xml'
+1350674606177	Delete resource 'ArrestWarrantWSClient/src/gov/utcourts/attorneyinfo'

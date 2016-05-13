@@ -1,0 +1,1301 @@
+package gov.utcourts.warrant.dataaccess;
+
+import gov.utcourts.common.DatabaseConnection;
+import gov.utcourts.common.util.TextUtil;
+import gov.utcourts.warrant.ArrestWarrantInfo;
+import gov.utcourts.warrant.PersonInfo;
+import gov.utcourts.warrant.WarrantInfo;
+import gov.utcourts.warrant.util.ServiceConstants;
+
+import java.sql.Connection;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.log4j.Logger;
+
+public class WarrantFacade {
+	
+	private static int WARRANT_ACTIVE = 1;
+	private static int WARRANT_SERVED = 2;
+	private static int WARRANT_BOOKED = 3;
+	private static int WARRANT_RECALLED = 4;
+	private static int WARRANT_EXPIRED = 5;
+	private static int WARRANT_CANCELLED = 6;
+	
+	private static Logger logger = Logger.getLogger(WarrantFacade.class.getName());
+
+	/**
+	 * Method to return a warrant from CORIS
+	 * @param int intCaseNum
+	 * @param String caseNumber
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param int partyNum
+	 * @param String warrantNo
+	 * @param int corisUserId
+	 * @return WarrantBO
+	 * @throws Exception
+	 */
+	public static WarrantBO getWarrantFromCoris(int intCaseNum, String caseNumber, String courtLocation, String courtType, int partyNum, String warrantNo, int corisUserId) throws Exception {
+		logger.info(".getWarrantFromCoris(" + intCaseNum + "," + caseNumber + "," + courtLocation + "," + courtType + "," + partyNum + "," + warrantNo + "," + corisUserId + ") start");
+		Connection conn = null;
+		WarrantBO result = null;
+		try {
+			if ("J".equalsIgnoreCase(courtType)) {
+				conn = DatabaseConnection.getJDBCConnectionJustice();
+			} else {
+				conn = DatabaseConnection.getJDBCConnectionDistrict();
+			}
+			result = getDefnDAO(conn).getWarrantFromCoris(intCaseNum, caseNumber, courtLocation, courtType, partyNum, warrantNo, corisUserId);
+		} catch (Exception e) {
+			logger.info(".getWarrantFromCoris [Exception]", e);
+			throw(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) { 
+				// do nothing
+			}
+			logger.info(".getWarrantFromCoris end");
+		}
+		return result;	
+	}
+	
+	/**
+	 * Method to return a warrant from arrest warrant database
+	 * @param int intCaseNum
+	 * @param String caseNumber
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param String warrantNo
+	 * @param String courtOri
+	 * @param int partyNum
+	 * @param int corisUserId
+	 * @param String corisLogName
+	 * @return WarrantInfo
+	 * @throws Exception
+	 */
+	public static WarrantInfo getWarrantFromArrestWarrantDB(int intCaseNum, String caseNumber, String courtLocation, String courtType, String warrantNo, String courtOri, int partyNum, int corisUserId, String corisLogName) throws Exception {
+		logger.info(".getWarrantFromArrestWarrantDB(" + intCaseNum + "," + caseNumber + "," + courtLocation + "," + courtType + "," + warrantNo + "," + courtOri + "," + partyNum + "," + corisUserId + "," + corisLogName + ") start");
+		Connection conn = null;
+		WarrantInfo result = null;
+		try {
+			conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			result = getDefnDAO(conn).getWarrantFromArrestWarrantDB(intCaseNum, caseNumber, courtLocation, courtType, warrantNo, courtOri, partyNum, corisUserId, corisLogName);
+		} catch (Exception e) {
+			logger.info(".getWarrantFromArrestWarrantDB [Exception]", e);
+			throw(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) { 
+				// do nothing
+			}
+			logger.info(".getWarrantFromArrestWarrantDB end");
+		}
+		return result;	
+	}
+	
+	/**
+	 * Search for arrest warrants
+	 * @param String warrantNo
+	 * @param String caseNumber 
+	 * @param int activeOnly
+	 * @param int bookingReport
+	 * @param String firstName 
+	 * @param String lastName
+	 * @param String otn
+	 * @param String driversLicenseNumber
+	 * @param String driversLicenseState
+	 * @param String ssn
+	 * @param Date dateOfBirth
+	 * @param String courtLocation
+	 * @param String courtType
+	 * @param Date startDate
+	 * @param Date endDate
+	 * @param String dateType
+	 * @return Collection<ArrestWarrantInfo>
+	 */
+	public static Collection<ArrestWarrantInfo> searchForWarrants(String warrantNo, String caseNumber, int activeOnly, int bookingReport, String firstName, String lastName, String otn, String driversLicenseNumber, String driversLicenseState, String ssn, Date dateOfBirth, String courtLocation, String courtType, Date startDate, Date endDate, String dateType) throws Exception {
+		logger.debug(".searchForWarrants(" + warrantNo + "," + caseNumber + "," + activeOnly + "," + bookingReport + "," + firstName + "," + lastName + "," + otn + "," + driversLicenseNumber + "," + driversLicenseState + "," + ssn + "," + dateOfBirth + "," + courtLocation + "," + courtType + "," + startDate + "," + endDate + "," + dateType + ") start");
+		Connection conn = null;
+		try {
+			conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			return getDefnDAO(conn).searchForWarrants(warrantNo, caseNumber, activeOnly, bookingReport, firstName, lastName, otn, driversLicenseNumber, driversLicenseState, ssn, dateOfBirth, courtLocation, courtType, startDate, endDate, dateType);
+		} catch (Exception e) {
+			logger.debug(".searchForWarrants [Exception]", e);
+			throw e;
+		} finally {
+			try {
+				conn.close();
+				conn = null;
+			} catch (Exception e) { 
+				// do nothing 
+			}
+			logger.debug(".searchForWarrants end");
+		}
+	}
+	
+	/**
+	 * Get arrest warrant
+	 * @param int warrantId
+	 * @return ArrestWarrantInfo
+	 */
+	public static ArrestWarrantInfo getPublicSafetyArrestWarrant(int warrantId) throws Exception {
+		logger.debug(".getArrestWarrant(" + warrantId + ") start");
+		Connection conn = null;
+		try {
+			conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			return getDefnDAO(conn).getPublicSafetyArrestWarrant(warrantId);
+		} catch (Exception e) {
+			logger.debug(".getArrestWarrant [Exception]", e);
+			throw e;
+		} finally {
+			try {
+				conn.close();
+				conn = null;
+			} catch (Exception e) { 
+				// do nothing 
+			}
+			logger.debug(".getArrestWarrant end");
+		}
+	}
+	
+	/**
+	 * Issue arrest warrant
+	 * @param WarrantInfo warrantInfo
+	 * @param PersonInfo personInfo
+	 * @param int issueType
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public static boolean issueArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int issueType) throws Exception {
+		logger.debug(".issueArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int issueType) start");
+		Connection conn = null;
+		Connection corisConn = null;
+	    try {
+			if (personInfo.getPersonBO().getStatus() == ServiceConstants.DATA_FOUND && warrantInfo.getWarrantBO().getStatus() == ServiceConstants.DATA_FOUND) {
+				
+				// data validation
+				if (warrantInfo.getWarrantBO().getIssueDate() == null) {
+					throw new Exception("Issue Date not valid in CORIS.");
+				}
+				if (TextUtil.isEmpty(warrantInfo.getWarrantBO().getCourtOri())) {
+					throw new Exception("CourtOri not valid in CORIS.");
+				}
+				
+				conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+				conn.setAutoCommit(false);
+				
+				PersonDAO personDAO = DAOFactory.getFactory().getPersonDAO();
+	            personDAO.setCon(conn);
+	            personInfo = personDAO.insertPerson(personInfo);
+	            
+            	// insert personNames
+            	if (personInfo.getPersonNames().size() > 0 && personInfo.isSuccessful()) {
+	            	PersonNameDAO personNameDAO = DAOFactory.getFactory().getPersonNameDAO();
+		            personNameDAO.setCon(conn);
+		            personInfo = personNameDAO.insertPersonNames(personInfo);
+            	}
+            	
+            	// insert addresses
+            	if (personInfo.getAddresses().size() > 0 && personInfo.isSuccessful()) {
+	            	AddressDAO addressDAO = DAOFactory.getFactory().getAddressDAO();
+		            addressDAO.setCon(conn);
+		            personInfo = addressDAO.insertAddresses(personInfo);
+            	}
+            	
+            	// insert vehicles
+            	if (personInfo.getVehicles().size() > 0 && personInfo.isSuccessful()) {
+	            	PersonVehicleDAO personVehicleDAO = DAOFactory.getFactory().getPersonVehicleDAO();
+	            	personVehicleDAO.setCon(conn);
+		            personInfo = personVehicleDAO.insertVehicles(personInfo);
+            	}
+            	
+            	// insert id numbers
+            	IdNumbersBO idNumbersBO = personInfo.getIdNumbers();
+            	if (idNumbersBO != null && personInfo.isSuccessful()) {
+	            	IdNumbersDAO idNumbersDAO = DAOFactory.getFactory().getIdNumbersDAO();
+	            	
+	            	// ssn
+	            	if (!TextUtil.isEmpty(idNumbersBO.getSsn())) {
+	            		idNumbersDAO.setCon(conn);
+	            		personInfo = idNumbersDAO.insertIdNumber(personInfo, personInfo.getIdNumbers(), IdNumbersDAO.SSN);
+	            	}
+	            	
+	            	// dl
+	            	if (!TextUtil.isEmpty(idNumbersBO.getDriversLicenseNumber())) {
+	            		idNumbersDAO.setCon(conn);
+	            		personInfo = idNumbersDAO.insertIdNumber(personInfo, personInfo.getIdNumbers(), IdNumbersDAO.DL);
+	            	}
+            	}
+            	idNumbersBO = null;
+            	
+				// NOTE: Scars, Marks and Tattoos will NOT be inserted due to NCIC codes 
+            	
+            	WarrantDAO warrantDAO = DAOFactory.getFactory().getWarrantDAO();
+                warrantDAO.setCon(conn);
+            	warrantInfo = warrantDAO.insertWarrant(warrantInfo, personInfo);
+        		
+    			// insert comment record for otherReasonText 
+        		if (!TextUtil.isEmpty(warrantInfo.getWarrantBO().getOtherReasonText()) && warrantInfo.isSuccessful()) {
+        			CommentDAO commentDAO = DAOFactory.getFactory().getCommentDAO();
+        			commentDAO.setCon(conn);
+	            	commentDAO.insertComment(warrantInfo);
+        		}
+        		
+        		// insert charges
+        		if (warrantInfo.getCharges().size() > 0 && warrantInfo.isSuccessful()) {
+	            	ChargeDAO chargeDAO = DAOFactory.getFactory().getChargeDAO();
+	            	chargeDAO.setCon(conn);
+		            warrantInfo = chargeDAO.insertCharges(warrantInfo);
+            	}
+        		
+        		// insert warrant status -- active
+        		if (warrantInfo.isSuccessful()) {
+                	WarrantStatusDAO warrantStatusDAO = DAOFactory.getFactory().getWarrantStatusDAO();
+                	warrantStatusDAO.setCon(conn);
+    	            warrantInfo = warrantStatusDAO.insertWarrantStatus(warrantInfo, new Date(), WARRANT_ACTIVE);
+            	}
+        		
+        		// update warrant swws_status -- 'S' (in CORIS)
+            	if (issueType == WarrantBO.MASS_ISSUE) {
+            		if ("J".equalsIgnoreCase(warrantInfo.getCourtType())) {
+            			corisConn = DatabaseConnection.getJDBCConnectionJustice();
+        			} else {
+        				corisConn = DatabaseConnection.getJDBCConnectionDistrict();
+        			}
+            		corisConn.setAutoCommit(false);
+    				
+            		WarrantDAO corisWarrantDAO = DAOFactory.getFactory().getWarrantDAO();
+            		corisWarrantDAO.setCon(corisConn);
+                	warrantInfo.setSuccessful(corisWarrantDAO.updateSwwsStatus(warrantInfo));
+        		}
+            	
+	           	if (conn != null) {
+					conn.commit();
+				}
+	           	if (corisConn != null) {
+	           		corisConn.commit();
+				}
+			} else {
+				if (personInfo.getPersonBO().getStatus() != ServiceConstants.DATA_FOUND) {
+					throw new Exception("Person not found in CORIS.");
+				} else if (warrantInfo.getWarrantBO().getStatus() != ServiceConstants.DATA_FOUND) {
+					throw new Exception("Warrant not found in CORIS.");
+				}
+			}
+		} catch (Exception e) {
+			logger.error(".issueArrestWarrant() [Exception]", e);
+			if (conn != null) {
+				conn.rollback();
+			}
+			if (corisConn != null) {
+				corisConn.rollback();
+			}
+			throw e;
+		} finally {
+			try {
+				if (conn != null) {
+					conn.setAutoCommit(true);
+					conn.close();
+					conn = null;
+				}
+				if (corisConn != null) {
+					corisConn.setAutoCommit(true);
+					corisConn.close();
+					corisConn = null;
+				}
+			} catch (Exception execption) { 
+				// do nothing
+			}
+			logger.debug(".issueArrestWarrant() end");
+		}
+		return warrantInfo.isSuccessful();
+	} 
+	
+	/**
+	 * Recall arrest warrant
+	 * @param WarrantInfo
+	 * @param Date
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public static boolean recallArrestWarrant(WarrantInfo warrantInfo, Date recallDate) throws Exception {
+		logger.debug(".recallArrestWarrant(WarrantInfo warrantInfo, Date recallDate) start");
+		Connection conn = null;
+	    try {
+			conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			conn.setAutoCommit(false);
+            			
+        	WarrantDAO warrantDAO = DAOFactory.getFactory().getWarrantDAO();
+            warrantDAO.setCon(conn);
+        	warrantInfo = warrantDAO.recallWarrant(warrantInfo, recallDate);
+		
+        	// insert warrant status -- recalled
+    		if (warrantInfo.isSuccessful()) {
+            	WarrantStatusDAO warrantStatusDAO = DAOFactory.getFactory().getWarrantStatusDAO();
+            	warrantStatusDAO.setCon(conn);
+	            warrantInfo = warrantStatusDAO.insertWarrantStatus(warrantInfo, recallDate, WARRANT_RECALLED);
+        	}
+    		
+           	if (conn != null) {
+				conn.commit();
+			}
+		} catch (Exception e) {
+			logger.error(".recallArrestWarrant() [Exception]", e);
+			if (conn != null) {
+				conn.rollback();
+			}
+			throw e;
+		} finally {
+			try {
+				if (conn != null) {
+					conn.setAutoCommit(true);
+					conn.close();
+					conn = null;
+				}
+			} catch (Exception execption) { 
+				// do nothing
+			}
+			logger.debug(".recallArrestWarrant() end");
+		}
+		return warrantInfo.isSuccessful();
+	} 
+	
+	/**
+	 * Modify arrest warrant
+	 * @param WarrantInfo warrantInfo
+	 * @param PersonInfo personInfo
+	 * @param int modification
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public static boolean modifyArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int modification) throws Exception {
+		logger.debug(".modifyArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int modification) start");
+		Connection arrestConn = null;
+		Connection corisConn = null;
+	    try {
+	    	boolean modified = false;
+	    	
+	    	if ("J".equalsIgnoreCase(warrantInfo.getCourtType())) {
+	    		corisConn = DatabaseConnection.getJDBCConnectionJustice();
+			} else {
+				corisConn = DatabaseConnection.getJDBCConnectionDistrict();
+			}
+	    	
+			arrestConn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			arrestConn.setAutoCommit(false);
+        
+			List<WarrPartyBO> warrantParties = personInfo.getWarrParties();
+			
+			// WARRANT - 1	
+			if ((modification & ServiceConstants.MODIFY_WARRANT) == ServiceConstants.MODIFY_WARRANT) {
+				WarrantDAO warrantDAO = DAOFactory.getFactory().getWarrantDAO();
+				warrantDAO.setCon(corisConn);
+				
+				WarrantBO corisWarrantBO = warrantDAO.getWarrantFromCoris(warrantInfo);
+				if (corisWarrantBO != null && !corisWarrantBO.equals(warrantInfo.getWarrantBO())) {
+					warrantDAO.setCon(arrestConn);
+					modified = warrantDAO.updateWarrantFromCoris(corisWarrantBO, warrantInfo);
+				}
+				
+				corisWarrantBO = null;
+				warrantDAO = null;
+				
+        		if (warrantInfo.getCharges().size() > 0) {
+        			ChargeDAO chargeDAO = DAOFactory.getFactory().getChargeDAO();
+        			chargeDAO.setCon(arrestConn);
+        			chargeDAO.deleteCharges(warrantInfo);
+        			
+        			chargeDAO.setCon(arrestConn);
+		            warrantInfo = chargeDAO.insertCharges(warrantInfo);
+            	}
+			}
+			
+			// PERSON - 2
+			if ((modification & ServiceConstants.MODIFY_PERSON) == ServiceConstants.MODIFY_PERSON) {
+				PersonDAO personDAO = DAOFactory.getFactory().getPersonDAO();
+				personDAO.setCon(corisConn);
+				
+				PersonBO corisPersonBO = personDAO.getPersonFromCoris(personInfo);
+				if (corisPersonBO != null && !corisPersonBO.equals(personInfo.getPersonBO())) {
+					personDAO.setCon(arrestConn);
+					modified = personDAO.updatePersonFromCoris(corisPersonBO, personInfo);
+				}
+				
+				corisPersonBO = null;
+				personDAO = null;
+			}
+			
+			// PERSON_NAME - 4
+			if ((modification & ServiceConstants.MODIFY_PERSON_NAME) == ServiceConstants.MODIFY_PERSON_NAME) {
+				PersonNameDAO personNameDAO = DAOFactory.getFactory().getPersonNameDAO();
+				
+				List<PersonNameBO> corisNames = new ArrayList<PersonNameBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personNameDAO.setCon(corisConn);
+					corisNames = personNameDAO.getPersonNamesFromCoris(corisNames, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisNames != null && corisNames.size() > 0) {
+					boolean found = false;
+					
+					List<PersonNameBO> arrestWarrantNames = personInfo.getPersonNames();
+					for (PersonNameBO corisName : corisNames) {
+						found = false;
+						
+						if (arrestWarrantNames != null && arrestWarrantNames.size() > 0) {						
+							for (PersonNameBO arrestWarrantName : arrestWarrantNames) {
+								if (corisName.getFirstNameNotNull().equalsIgnoreCase(arrestWarrantName.getFirstNameNotNull()) && 
+									corisName.getLastNameNotNull().equalsIgnoreCase(arrestWarrantName.getLastNameNotNull())) {
+										found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							personNameDAO.setCon(arrestConn);
+							modified = personNameDAO.insert(corisName, personInfo);
+						}
+					}
+				}
+				corisNames = null;
+				
+				personNameDAO = null;
+			}
+			
+			// ADDRESS - 8
+			if ((modification & ServiceConstants.MODIFY_ADDRESS) == ServiceConstants.MODIFY_ADDRESS) {
+				AddressDAO addressDAO = DAOFactory.getFactory().getAddressDAO();
+				
+				List<AddressBO> corisAddresses = new ArrayList<AddressBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					addressDAO.setCon(corisConn);
+					corisAddresses = addressDAO.getAddressesFromCoris(corisAddresses, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisAddresses != null && corisAddresses.size() > 0) {
+					boolean found = false;
+					List<AddressBO> arrestWarrantAddresses = personInfo.getAddresses();
+					for (AddressBO corisAddress : corisAddresses) {
+						found = false;
+						
+						if (arrestWarrantAddresses != null && arrestWarrantAddresses.size() > 0) {						
+							for (AddressBO arrestWarrantAddress : arrestWarrantAddresses) {
+								if (corisAddress.getAddress1().equalsIgnoreCase(arrestWarrantAddress.getAddress1())
+									&& corisAddress.getAddress2().equalsIgnoreCase(arrestWarrantAddress.getAddress2())
+										&& corisAddress.getCity().equalsIgnoreCase(arrestWarrantAddress.getCity())
+											&& corisAddress.getStateCode().equalsIgnoreCase(arrestWarrantAddress.getStateCode())
+												&& corisAddress.getZipCode().equalsIgnoreCase(arrestWarrantAddress.getZipCode())) 
+								{
+									found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							addressDAO.setCon(arrestConn);
+							modified = addressDAO.insert(corisAddress, personInfo);
+						}
+					}
+				}
+				corisAddresses = null;
+				
+				addressDAO = null;
+			}
+			
+			// PERSON_VEHICLE - 16
+			if ((modification & ServiceConstants.MODIFY_PERSON_VEHICLE) == ServiceConstants.MODIFY_PERSON_VEHICLE) {
+				PersonVehicleDAO personVehicleDAO = DAOFactory.getFactory().getPersonVehicleDAO();
+				
+				List<PersonVehicleBO> corisVehicles = new ArrayList<PersonVehicleBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personVehicleDAO.setCon(corisConn);
+					corisVehicles = personVehicleDAO.getPersonVehiclesFromCoris(corisVehicles, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisVehicles != null && corisVehicles.size() > 0) {
+					boolean found = false;
+					List<PersonVehicleBO> arrestWarrantVehicles = personInfo.getVehicles();
+					for (PersonVehicleBO corisVehicle : corisVehicles) {
+						found = false;
+						
+						if (arrestWarrantVehicles != null && arrestWarrantVehicles.size() > 0) {						
+							for (PersonVehicleBO arrestWarrantVehicle : arrestWarrantVehicles) {
+								if (corisVehicle.getLicensePlateNumberNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateNumberNotNull())
+									&& corisVehicle.getLicensePlateStateNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateStateNotNull())
+										&& corisVehicle.getVehicleColorNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleColorNotNull())
+											&& corisVehicle.getVehicleMakeNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleMakeNotNull())
+												&& corisVehicle.getVehicleModelNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleModelNotNull())
+													&& corisVehicle.getVehicleStyleNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleStyleNotNull())
+														&& corisVehicle.getVehicleYearNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleYearNotNull())) 
+								{
+									found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							personVehicleDAO.setCon(arrestConn);
+							modified = personVehicleDAO.insert(corisVehicle, personInfo);
+						}
+					}
+				}
+				corisVehicles = null;
+				
+				personVehicleDAO = null;
+			}
+			
+			// IDNUMBERS - 32
+			if ((modification & ServiceConstants.MODIFY_IDNUMBERS) == ServiceConstants.MODIFY_IDNUMBERS) {
+				IdNumbersDAO idNumbersDAO = DAOFactory.getFactory().getIdNumbersDAO();
+				idNumbersDAO.setCon(corisConn);
+				
+				IdNumbersBO corisIdNumbers = idNumbersDAO.getIdNumbersFromCoris(personInfo);
+				if (corisIdNumbers != null && !corisIdNumbers.equals(personInfo.getIdNumbers())) {
+					
+					// ssn
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getSsn(), corisIdNumbers.getSsn())) {
+						if (TextUtil.isEmpty(personInfo.getIdNumbers().getSsn())) {
+							personInfo = idNumbersDAO.insertIdNumber(personInfo, corisIdNumbers, IdNumbersDAO.SSN);
+							modified = personInfo.isSuccessful();
+						} else {
+							modified = idNumbersDAO.updateIdNumbersFromCoris(personInfo, corisIdNumbers, IdNumbersDAO.SSN);
+						}
+					}
+					
+					// dl
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseNumber(), corisIdNumbers.getDriversLicenseNumber())
+						|| !TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseState(), corisIdNumbers.getDriversLicenseState())) {
+						
+							if (TextUtil.isEmpty(personInfo.getIdNumbers().getDriversLicenseNumber()) && TextUtil.isEmpty(personInfo.getIdNumbers().getDriversLicenseState())) {
+								personInfo = idNumbersDAO.insertIdNumber(personInfo, corisIdNumbers, IdNumbersDAO.DL);
+								modified = personInfo.isSuccessful();
+							} else {
+								modified = idNumbersDAO.updateIdNumbersFromCoris(personInfo, corisIdNumbers, IdNumbersDAO.DL);
+							}
+							
+					}
+				}
+				
+				idNumbersDAO = null;
+			}
+			
+			// SCARSMARKSTATTOOS - 64 -- NOT IMPLEMENTED
+    		
+			warrantParties = null;
+			
+           	if (arrestConn != null) {
+           		arrestConn.commit();
+			}
+           	
+           	return modified;
+		} catch (Exception e) {
+			logger.error(".modifyArrestWarrant() [Exception]", e);
+			if (arrestConn != null) {
+				arrestConn.rollback();
+			}
+			throw e;
+		} finally {
+			try {
+				if (arrestConn != null) {
+					arrestConn.setAutoCommit(true);
+					arrestConn.close();
+					arrestConn = null;
+				}
+				
+				if (corisConn != null) {
+					corisConn.close();
+					corisConn = null;
+				}
+				
+			} catch (Exception execption) { 
+				// do nothing
+			}
+			logger.debug(".modifyArrestWarrant() end");
+		}
+	} 
+	
+	public static boolean checkArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo) throws Exception {
+		
+		Date CONVERSION_DATE = new SimpleDateFormat("mm/dd/yyyy", Locale.ENGLISH).parse("11/1/2012"); 
+			
+		logger.debug(".checkArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo) start");
+		Connection arrestConn = null;
+		Connection corisConn = null;
+	    try {
+	    	boolean modified = false;
+	    	
+	    	if ("J".equalsIgnoreCase(warrantInfo.getCourtType())) {
+	    		corisConn = DatabaseConnection.getJDBCConnectionJustice();
+			} else {
+				corisConn = DatabaseConnection.getJDBCConnectionDistrict();
+			}
+	    	
+			arrestConn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			arrestConn.setAutoCommit(false);
+        
+			List<WarrPartyBO> warrantParties = personInfo.getWarrParties();
+			
+			// WARRANT - 1	
+			// if ((modification & ServiceConstants.MODIFY_WARRANT) == ServiceConstants.MODIFY_WARRANT) {
+				WarrantDAO warrantDAO = DAOFactory.getFactory().getWarrantDAO();
+				warrantDAO.setCon(corisConn);
+				
+				WarrantBO corisWarrantBO = warrantDAO.getWarrantFromCoris(warrantInfo);
+				if (corisWarrantBO != null) {
+					String message = corisWarrantBO.equals2(warrantInfo.getWarrantBO());
+				
+					if (!TextUtil.isEmpty(message)) {
+						CollideReportBO collideReportBO = new CollideReportBO(
+																warrantInfo.getWarrantBO().getWarrantId(), 
+																"Warrant doesn't match (" + message + ")",
+																"warrant",
+																corisWarrantBO.toString2(),
+																warrantInfo.toString2(),
+																warrantInfo.getWarrantBO().getIssueDate(),
+																warrantInfo.getWarrantBO().getModifyDateTime(),
+																warrantInfo.getCourtLocation(), 
+																warrantInfo.getCourtType(), 
+																warrantInfo.getWarrantBO().getCaseNum()
+														   );
+						CollideReportBO.insertReport(collideReportBO);
+					}
+				}
+				
+				corisWarrantBO = null;
+				warrantDAO = null;
+				
+				// CHARGES
+        		if (warrantInfo.getCharges() != null && warrantInfo.getCharges().size() > 0) {
+        			List<ChargeBO> corisCharges = warrantInfo.getCharges();
+
+        			if (corisCharges != null && corisCharges.size() > 0) {
+	        			ChargeDAO arrestWarrantChargesDAO = DAOFactory.getFactory().getChargeDAO();
+	        			arrestWarrantChargesDAO.setCon(arrestConn);
+	        			List<ChargeBO> arrestWarrantCharges = ChargeBO.getChargesFromArrestWarrantDB(warrantInfo.getWarrantBO().getWarrantId());
+	        			if (arrestWarrantCharges != null && arrestWarrantCharges.size() > 0 && arrestWarrantCharges.size() == corisCharges.size()) {
+	        				
+	        				for (int i=0; i < corisCharges.size(); i++) {
+	        					ChargeBO corisCharge = corisCharges.get(i);
+	        					ChargeBO arrestWarrantCharge = arrestWarrantCharges.get(i);
+	        					if (arrestWarrantCharge.getInsertDateTime().before(CONVERSION_DATE)) {
+		        					if (!corisCharge.getChargeSeq().equalsIgnoreCase(arrestWarrantCharge.getChargeSeq()) ||
+		        							!corisCharge.getViolationCode().equalsIgnoreCase(arrestWarrantCharge.getViolationCode()) ||
+		        									!corisCharge.getGovCode().equalsIgnoreCase(arrestWarrantCharge.getGovCode()) ||
+		        											!corisCharge.getSeverity().equalsIgnoreCase(arrestWarrantCharge.getSeverity())) 
+		        					{
+		        						
+		        						CollideReportBO collideReportBO = new CollideReportBO(
+		    									warrantInfo.getWarrantBO().getWarrantId(), 
+		    									"Charge doesn't match",
+		    									"charge",
+		    									corisCharge.getChargeSeq() + " " + corisCharge.getViolationCode() + " " + corisCharge.getGovCode() + " " + corisCharge.getSeverity(),
+		    									arrestWarrantCharge.getChargeSeq() + " " + arrestWarrantCharge.getViolationCode() + " " + arrestWarrantCharge.getGovCode() + " " + arrestWarrantCharge.getSeverity(),
+		    									null,
+		    									arrestWarrantCharge.getInsertDateTime(),
+		    									warrantInfo.getCourtLocation(), 
+												warrantInfo.getCourtType(), 
+												warrantInfo.getIntCaseNumAsString()
+		    							   );
+		    	        				CollideReportBO.insertReport(collideReportBO);
+		    	        				break;
+		        					}
+	        					}
+	        				}
+	        				
+	        			} else {
+	        				
+	        				CollideReportBO collideReportBO = new CollideReportBO(
+									warrantInfo.getWarrantBO().getWarrantId(), 
+									"Charge doesn't match",
+									"charge",
+									"Size = " + corisCharges.size(),
+									"Size = " + arrestWarrantCharges.size(),
+									null,
+									arrestWarrantCharges.get(0).getInsertDateTime(),
+									warrantInfo.getCourtLocation(), 
+									warrantInfo.getCourtType(), 
+									warrantInfo.getIntCaseNumAsString()
+							   );
+	        				CollideReportBO.insertReport(collideReportBO);
+	        				
+	        			}
+        			}
+            	}
+				
+			// }
+			
+			// PERSON - 2
+			//if ((modification & ServiceConstants.MODIFY_PERSON) == ServiceConstants.MODIFY_PERSON) {
+				PersonDAO personDAO = DAOFactory.getFactory().getPersonDAO();
+				personDAO.setCon(corisConn);
+				
+				PersonBO corisPersonBO = personDAO.getPersonFromCoris(personInfo);
+				if (corisPersonBO != null) {
+
+					String message = corisPersonBO.equals2(personInfo.getPersonBO()); 
+					if (!TextUtil.isEmpty(message)) {
+						CollideReportBO collideReportBO = new CollideReportBO(
+								warrantInfo.getWarrantBO().getWarrantId(), 
+								"Person doesn't match (" + message + ")",
+								"person",
+								corisPersonBO.toString(),
+								personInfo.getPersonBO().toString(),
+								null,
+								corisPersonBO.getInsertDateTime(),
+								warrantInfo.getCourtLocation(), 
+								warrantInfo.getCourtType(), 
+								warrantInfo.getIntCaseNumAsString()
+						   );
+						CollideReportBO.insertReport(collideReportBO);
+					}
+					
+				}
+				
+				corisPersonBO = null;
+				personDAO = null;
+			//}
+			
+			// PERSON_NAME - 4
+			// if ((modification & ServiceConstants.MODIFY_PERSON_NAME) == ServiceConstants.MODIFY_PERSON_NAME) {
+				PersonNameDAO personNameDAO = DAOFactory.getFactory().getPersonNameDAO();
+				
+				List<PersonNameBO> corisNames = new ArrayList<PersonNameBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personNameDAO.setCon(corisConn);
+					corisNames = personNameDAO.getPersonNamesFromCoris(corisNames, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisNames != null && corisNames.size() > 0) {
+					
+					PersonNameBO corisName = corisNames.get(corisNames.size() - 1);
+					
+					List<PersonNameBO> arrestWarrantNames = personInfo.getPersonNames();
+					if (arrestWarrantNames != null && arrestWarrantNames.size() > 0) {	
+						
+						PersonNameBO arrestWarrantName = arrestWarrantNames.get(arrestWarrantNames.size() - 1);
+						
+						int corisFirstNameLength = corisName.getFirstName() != null ? corisName.getFirstName().length() : 0;
+						int arrestFirstNameLength = arrestWarrantName.getFirstName() != null ? arrestWarrantName.getFirstName().length() : 0;
+						int shortestFirstNameLength = arrestFirstNameLength <= corisFirstNameLength ? arrestFirstNameLength : corisFirstNameLength;
+						
+						int corisLastNameLength = corisName.getLastName() != null ? corisName.getLastName().length() : 0;
+						int arrestLastNameLength = arrestWarrantName.getLastName() != null ? arrestWarrantName.getLastName().length() : 0;
+						int shortestLastNameLength = arrestLastNameLength <= corisLastNameLength ? arrestLastNameLength : corisLastNameLength;
+						
+						if (!corisName.getFirstNameCompare(arrestWarrantName.getFirstName(), shortestFirstNameLength) || 
+							!corisName.getLastNameCompare(arrestWarrantName.getLastName(), shortestLastNameLength)) {
+
+							if (!corisName.getFirstNameNotNullFirst5().trim().equalsIgnoreCase(arrestWarrantName.getFirstNameNotNullFirst5().trim()) || 
+								!corisName.getLastNameNotNullFirst5().trim().equalsIgnoreCase(arrestWarrantName.getLastNameNotNullFirst5().trim())) {
+	
+								if (!corisName.getFirstNameNotNullFirst5().trim().equalsIgnoreCase(arrestWarrantName.getFirstNameNotNullFirst5().trim()) || 
+									!corisName.getLastNameNotNullLast5().trim().equalsIgnoreCase(arrestWarrantName.getLastNameNotNullLast5().trim())) {
+	
+										CollideReportBO collideReportBO = new CollideReportBO(
+												warrantInfo.getWarrantBO().getWarrantId(), 
+												"Name doesn't match",
+												"person_name",
+												corisName.getFirstName() + " " + corisName.getLastName(),
+												arrestWarrantName.getFirstName() + " " + arrestWarrantName.getLastName(),
+												null,
+												arrestWarrantName.getInsertDateTime(),
+												warrantInfo.getCourtLocation(), 
+												warrantInfo.getCourtType(), 
+												warrantInfo.getIntCaseNumAsString()
+										   );
+										CollideReportBO.insertReport(collideReportBO);
+								}
+								
+							}
+						}
+					}
+				}
+				corisNames = null;
+				personNameDAO = null;
+			//}
+			
+			// ADDRESS - 8
+			//if ((modification & ServiceConstants.MODIFY_ADDRESS) == ServiceConstants.MODIFY_ADDRESS) {
+				AddressDAO addressDAO = DAOFactory.getFactory().getAddressDAO();
+				
+				List<AddressBO> corisAddresses = new ArrayList<AddressBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					addressDAO.setCon(corisConn);
+					corisAddresses = addressDAO.getAddressesFromCoris(corisAddresses, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisAddresses != null && corisAddresses.size() > 0) {
+					
+					AddressBO corisAddress = corisAddresses.get(corisAddresses.size() - 1);
+					
+					List<AddressBO> arrestWarrantAddresses = personInfo.getAddresses();
+					if (arrestWarrantAddresses != null && arrestWarrantAddresses.size() > 0) {
+						
+						AddressBO arrestWarrantAddress = arrestWarrantAddresses.get(arrestWarrantAddresses.size() - 1);
+						
+						if (!corisAddress.getAddress1First5().trim().equalsIgnoreCase(arrestWarrantAddress.getAddress1First5().trim())
+							// || !corisAddress.getAddress2First5().trim().equalsIgnoreCase(arrestWarrantAddress.getAddress2First5().trim())
+								|| !corisAddress.getCity().equalsIgnoreCase(arrestWarrantAddress.getCity())
+									|| !corisAddress.getStateCode().equalsIgnoreCase(arrestWarrantAddress.getStateCode())
+										|| !corisAddress.getZipCode().equalsIgnoreCase(arrestWarrantAddress.getZipCode())) 
+						{
+							
+							CollideReportBO collideReportBO = new CollideReportBO(
+									warrantInfo.getWarrantBO().getWarrantId(), 
+									"Address doesn't match",
+									"person_address",
+									// corisAddress.getAddress1() + " " + corisAddress.getAddress2() + " " + corisAddress.getCity() + " " + corisAddress.getStateCode() + " " + corisAddress.getZipCode(),
+									// arrestWarrantAddress.getAddress1() + " " + arrestWarrantAddress.getAddress2() + " " + arrestWarrantAddress.getCity() + " " + arrestWarrantAddress.getStateCode() + " " + arrestWarrantAddress.getZipCode()
+									corisAddress.getAddress1() + " " + corisAddress.getCity() + " " + corisAddress.getStateCode() + " " + corisAddress.getZipCode(),
+									arrestWarrantAddress.getAddress1() + " " + arrestWarrantAddress.getCity() + " " + arrestWarrantAddress.getStateCode() + " " + arrestWarrantAddress.getZipCode(),
+									null,
+									arrestWarrantAddress.getInsertDateTime(),
+									warrantInfo.getCourtLocation(), 
+									warrantInfo.getCourtType(), 
+									warrantInfo.getIntCaseNumAsString()
+							   );
+							CollideReportBO.insertReport(collideReportBO);
+						}
+					}
+				}
+				corisAddresses = null;
+				addressDAO = null;
+			//}
+			
+			// PERSON_VEHICLE - 16
+			//if ((modification & ServiceConstants.MODIFY_PERSON_VEHICLE) == ServiceConstants.MODIFY_PERSON_VEHICLE) {
+				PersonVehicleDAO personVehicleDAO = DAOFactory.getFactory().getPersonVehicleDAO();
+				
+				List<PersonVehicleBO> corisVehicles = new ArrayList<PersonVehicleBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personVehicleDAO.setCon(corisConn);
+					corisVehicles = personVehicleDAO.getPersonVehiclesFromCoris(corisVehicles, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisVehicles != null && corisVehicles.size() > 0) {
+					
+					PersonVehicleBO corisVehicle = corisVehicles.get(corisVehicles.size() - 1);
+					
+					List<PersonVehicleBO> arrestWarrantVehicles = personInfo.getVehicles();
+					if (arrestWarrantVehicles != null && arrestWarrantVehicles.size() > 0) {
+						
+						PersonVehicleBO arrestWarrantVehicle = arrestWarrantVehicles.get(arrestWarrantVehicles.size() - 1);
+						if (!corisVehicle.getLicensePlateNumberNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateNumberNotNull())
+							|| !corisVehicle.getLicensePlateStateNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateStateNotNull()))
+								// || !corisVehicle.getVehicleColorNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleColorNotNull())
+								//	 || !corisVehicle.getVehicleMakeNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleMakeNotNull())
+								//	 	|| !corisVehicle.getVehicleModelNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleModelNotNull())
+								//	 		|| !corisVehicle.getVehicleStyleNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleStyleNotNull())
+								//	 			|| !corisVehicle.getVehicleYearNotNullLast2().equalsIgnoreCase(arrestWarrantVehicle.getVehicleYearNotNullLast2())) 
+						{
+							
+							CollideReportBO collideReportBO = new CollideReportBO(
+									warrantInfo.getWarrantBO().getWarrantId(), 
+									"Vehicle doesn't match",
+									"person_vehicle",
+									corisVehicle.getLicensePlateNumberNotNull() + " " + corisVehicle.getLicensePlateStateNotNull(),
+									arrestWarrantVehicle.getLicensePlateNumberNotNull() + " " + arrestWarrantVehicle.getLicensePlateStateNotNull(),
+									// corisVehicle.getLicensePlateNumberNotNull() + " " + corisVehicle.getLicensePlateStateNotNull() + " " + corisVehicle.getVehicleColorNotNull() + " " + corisVehicle.getVehicleMakeNotNull() + " " + corisVehicle.getVehicleModelNotNull() + " " + corisVehicle.getVehicleStyleNotNull() + " " + corisVehicle.getVehicleYearNotNullLast2(),
+									// arrestWarrantVehicle.getLicensePlateNumberNotNull() + " " + arrestWarrantVehicle.getLicensePlateStateNotNull() + " " + arrestWarrantVehicle.getVehicleColorNotNull() + " " + arrestWarrantVehicle.getVehicleMakeNotNull() + " " + arrestWarrantVehicle.getVehicleModelNotNull() + " " + arrestWarrantVehicle.getVehicleStyleNotNull() + " " + arrestWarrantVehicle.getVehicleYearNotNullLast2()
+									null,
+									arrestWarrantVehicle.getInsertDateTime(),
+									warrantInfo.getCourtLocation(), 
+									warrantInfo.getCourtType(), 
+									warrantInfo.getIntCaseNumAsString()
+							   );
+							CollideReportBO.insertReport(collideReportBO);
+							
+						}
+					}
+						
+				}
+				corisVehicles = null;
+				personVehicleDAO = null;
+			//}
+			
+			// IDNUMBERS - 32
+			//if ((modification & ServiceConstants.MODIFY_IDNUMBERS) == ServiceConstants.MODIFY_IDNUMBERS) {
+				IdNumbersDAO idNumbersDAO = DAOFactory.getFactory().getIdNumbersDAO();
+				idNumbersDAO.setCon(corisConn);
+				
+				IdNumbersBO corisIdNumbers = idNumbersDAO.getIdNumbersFromCoris(personInfo);
+				if (corisIdNumbers != null && !corisIdNumbers.equals(personInfo.getIdNumbers())) {
+					
+					// ssn
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getSsn(), corisIdNumbers.getSsn())) {
+						
+						CollideReportBO collideReportBO = new CollideReportBO(
+								warrantInfo.getWarrantBO().getWarrantId(), 
+								"ssn doesn't match",
+								"idnumbers",
+								corisIdNumbers.getSsn(),
+								personInfo.getIdNumbers().getSsn(), 
+								null,
+								null,
+								warrantInfo.getCourtLocation(), 
+								warrantInfo.getCourtType(), 
+								warrantInfo.getIntCaseNumAsString()
+						   );
+						CollideReportBO.insertReport(collideReportBO);
+						
+					}
+					
+					// dl
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseNumber(), corisIdNumbers.getDriversLicenseNumber())
+						|| !TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseState(), corisIdNumbers.getDriversLicenseState())) {
+						
+						if (!TextUtil.isEmpty(corisIdNumbers.getDriversLicenseNumber()) || !TextUtil.isEmpty(personInfo.getIdNumbers().getDriversLicenseNumber())) {
+							
+							CollideReportBO collideReportBO = new CollideReportBO(
+									warrantInfo.getWarrantBO().getWarrantId(), 
+									"drivers license doesn't match",
+									"idnumbers",
+									corisIdNumbers.getDriversLicenseState() + " " + corisIdNumbers.getDriversLicenseNumber(),
+									personInfo.getIdNumbers().getDriversLicenseState() + " " + personInfo.getIdNumbers().getDriversLicenseNumber(),
+									null,
+									null,
+									warrantInfo.getCourtLocation(), 
+									warrantInfo.getCourtType(), 
+									warrantInfo.getIntCaseNumAsString()
+							   );
+							CollideReportBO.insertReport(collideReportBO);
+							
+						}
+					}
+				}
+				
+				idNumbersDAO = null;
+			//}
+			
+			// SCARSMARKSTATTOOS - 64 -- NOT IMPLEMENTED
+    		
+			warrantParties = null;
+			
+           	if (arrestConn != null) {
+           		arrestConn.commit();
+			}
+           	
+           	return modified;
+		} catch (Exception e) {
+			logger.error(".checkArrestWarrant() [Exception]", e);
+			if (arrestConn != null) {
+				arrestConn.rollback();
+			}
+			throw e;
+		} finally {
+			try {
+				if (arrestConn != null) {
+					arrestConn.setAutoCommit(true);
+					arrestConn.close();
+					arrestConn = null;
+				}
+				
+				if (corisConn != null) {
+					corisConn.close();
+					corisConn = null;
+				}
+				
+			} catch (Exception execption) { 
+				// do nothing
+			}
+			logger.debug(".modifyArrestWarrant() end");
+		}
+	} 
+ 
+	/**
+	 * Repair arrest warrant
+	 * @param WarrantInfo warrantInfo
+	 * @param PersonInfo personInfo
+	 * @param int modification
+	 * @return boolean
+	 * @throws Exception
+	 */
+	public static boolean repairArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int modification) throws Exception {
+		logger.debug(".modifyArrestWarrant(WarrantInfo warrantInfo, PersonInfo personInfo, int modification) start");
+		Connection arrestConn = null;
+		Connection corisConn = null;
+	    try {
+	    	boolean modified = false;
+	    	
+	    	if ("J".equalsIgnoreCase(warrantInfo.getCourtType())) {
+	    		corisConn = DatabaseConnection.getJDBCConnectionJustice();
+			} else {
+				corisConn = DatabaseConnection.getJDBCConnectionDistrict();
+			}
+	    	
+			arrestConn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			arrestConn.setAutoCommit(false);
+        
+			List<WarrPartyBO> warrantParties = personInfo.getWarrParties();
+			
+			// WARRANT - 1	
+			if ((modification & ServiceConstants.MODIFY_WARRANT) == ServiceConstants.MODIFY_WARRANT) {
+				WarrantDAO warrantDAO = DAOFactory.getFactory().getWarrantDAO();
+				warrantDAO.setCon(corisConn);
+				
+				WarrantBO corisWarrantBO = warrantDAO.getWarrantFromCoris(warrantInfo);
+				if (corisWarrantBO != null && !corisWarrantBO.equals(warrantInfo.getWarrantBO())) {
+					warrantDAO.setCon(arrestConn);
+					modified = warrantDAO.updateWarrantFromCoris(corisWarrantBO, warrantInfo);
+				}
+				
+				corisWarrantBO = null;
+				warrantDAO = null;
+				
+        		if (warrantInfo.getCharges().size() > 0) {
+        			ChargeDAO chargeDAO = DAOFactory.getFactory().getChargeDAO();
+        			chargeDAO.setCon(arrestConn);
+        			chargeDAO.deleteCharges(warrantInfo);
+        			
+        			chargeDAO.setCon(arrestConn);
+		            warrantInfo = chargeDAO.insertCharges(warrantInfo);
+            	}
+			}
+			
+			// PERSON - 2
+			if ((modification & ServiceConstants.MODIFY_PERSON) == ServiceConstants.MODIFY_PERSON) {
+				PersonDAO personDAO = DAOFactory.getFactory().getPersonDAO();
+				personDAO.setCon(corisConn);
+				
+				PersonBO corisPersonBO = personDAO.getPersonFromCoris(personInfo);
+				if (corisPersonBO != null && !corisPersonBO.equals(personInfo.getPersonBO())) {
+					personDAO.setCon(arrestConn);
+					modified = personDAO.updatePersonFromCoris(corisPersonBO, personInfo);
+				}
+				
+				corisPersonBO = null;
+				personDAO = null;
+			}
+			
+			// PERSON_NAME - 4
+			if ((modification & ServiceConstants.MODIFY_PERSON_NAME) == ServiceConstants.MODIFY_PERSON_NAME) {
+				PersonNameDAO personNameDAO = DAOFactory.getFactory().getPersonNameDAO();
+				
+				List<PersonNameBO> corisNames = new ArrayList<PersonNameBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personNameDAO.setCon(corisConn);
+					corisNames = personNameDAO.getPersonNamesFromCoris(corisNames, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisNames != null && corisNames.size() > 0) {
+					boolean found = false;
+					
+					List<PersonNameBO> arrestWarrantNames = personInfo.getPersonNames();
+					for (PersonNameBO corisName : corisNames) {
+						found = false;
+						
+						if (arrestWarrantNames != null && arrestWarrantNames.size() > 0) {						
+							for (PersonNameBO arrestWarrantName : arrestWarrantNames) {
+								if (corisName.getFirstNameNotNull().equalsIgnoreCase(arrestWarrantName.getFirstNameNotNull()) && 
+									corisName.getLastNameNotNull().equalsIgnoreCase(arrestWarrantName.getLastNameNotNull())) {
+										found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							personNameDAO.setCon(arrestConn);
+							modified = personNameDAO.insert(corisName, personInfo);
+						}
+					}
+				}
+				corisNames = null;
+				
+				personNameDAO = null;
+			}
+			
+			// ADDRESS - 8
+			if ((modification & ServiceConstants.MODIFY_ADDRESS) == ServiceConstants.MODIFY_ADDRESS) {
+				AddressDAO addressDAO = DAOFactory.getFactory().getAddressDAO();
+				
+				List<AddressBO> corisAddresses = new ArrayList<AddressBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					addressDAO.setCon(corisConn);
+					corisAddresses = addressDAO.getAddressesFromCoris(corisAddresses, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisAddresses != null && corisAddresses.size() > 0) {
+					boolean found = false;
+					List<AddressBO> arrestWarrantAddresses = personInfo.getAddresses();
+					for (AddressBO corisAddress : corisAddresses) {
+						found = false;
+						
+						if (arrestWarrantAddresses != null && arrestWarrantAddresses.size() > 0) {						
+							for (AddressBO arrestWarrantAddress : arrestWarrantAddresses) {
+								if (corisAddress.getAddress1().equalsIgnoreCase(arrestWarrantAddress.getAddress1())
+									&& corisAddress.getAddress2().equalsIgnoreCase(arrestWarrantAddress.getAddress2())
+										&& corisAddress.getCity().equalsIgnoreCase(arrestWarrantAddress.getCity())
+											&& corisAddress.getStateCode().equalsIgnoreCase(arrestWarrantAddress.getStateCode())
+												&& corisAddress.getZipCode().equalsIgnoreCase(arrestWarrantAddress.getZipCode())) 
+								{
+									found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							addressDAO.setCon(arrestConn);
+							modified = addressDAO.insert(corisAddress, personInfo);
+						}
+					}
+				}
+				corisAddresses = null;
+				
+				addressDAO = null;
+			}
+			
+			// PERSON_VEHICLE - 16
+			if ((modification & ServiceConstants.MODIFY_PERSON_VEHICLE) == ServiceConstants.MODIFY_PERSON_VEHICLE) {
+				PersonVehicleDAO personVehicleDAO = DAOFactory.getFactory().getPersonVehicleDAO();
+				
+				List<PersonVehicleBO> corisVehicles = new ArrayList<PersonVehicleBO>();
+				for (WarrPartyBO warrParty : warrantParties) {
+					personVehicleDAO.setCon(corisConn);
+					corisVehicles = personVehicleDAO.getPersonVehiclesFromCoris(corisVehicles, personInfo, warrParty.getPartyNum());
+				}
+				
+				if (corisVehicles != null && corisVehicles.size() > 0) {
+					boolean found = false;
+					List<PersonVehicleBO> arrestWarrantVehicles = personInfo.getVehicles();
+					for (PersonVehicleBO corisVehicle : corisVehicles) {
+						found = false;
+						
+						if (arrestWarrantVehicles != null && arrestWarrantVehicles.size() > 0) {						
+							for (PersonVehicleBO arrestWarrantVehicle : arrestWarrantVehicles) {
+								if (corisVehicle.getLicensePlateNumberNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateNumberNotNull())
+									&& corisVehicle.getLicensePlateStateNotNull().equalsIgnoreCase(arrestWarrantVehicle.getLicensePlateStateNotNull())
+										&& corisVehicle.getVehicleColorNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleColorNotNull())
+											&& corisVehicle.getVehicleMakeNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleMakeNotNull())
+												&& corisVehicle.getVehicleModelNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleModelNotNull())
+													&& corisVehicle.getVehicleStyleNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleStyleNotNull())
+														&& corisVehicle.getVehicleYearNotNull().equalsIgnoreCase(arrestWarrantVehicle.getVehicleYearNotNull())) 
+								{
+									found = true;
+								}
+							}
+						}
+						
+						if (!found) {
+							personVehicleDAO.setCon(arrestConn);
+							modified = personVehicleDAO.insert(corisVehicle, personInfo);
+						}
+					}
+				}
+				corisVehicles = null;
+				
+				personVehicleDAO = null;
+			}
+			
+			// IDNUMBERS - 32
+			if ((modification & ServiceConstants.MODIFY_IDNUMBERS) == ServiceConstants.MODIFY_IDNUMBERS) {
+				IdNumbersDAO idNumbersDAO = DAOFactory.getFactory().getIdNumbersDAO();
+				idNumbersDAO.setCon(corisConn);
+				
+				IdNumbersBO corisIdNumbers = idNumbersDAO.getIdNumbersFromCoris(personInfo);
+				if (corisIdNumbers != null && !corisIdNumbers.equals(personInfo.getIdNumbers())) {
+					
+					// ssn
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getSsn(), corisIdNumbers.getSsn())) {
+						if (TextUtil.isEmpty(personInfo.getIdNumbers().getSsn())) {
+							personInfo = idNumbersDAO.insertIdNumber(personInfo, corisIdNumbers, IdNumbersDAO.SSN);
+							modified = personInfo.isSuccessful();
+						} else {
+							modified = idNumbersDAO.updateIdNumbersFromCoris(personInfo, corisIdNumbers, IdNumbersDAO.SSN);
+						}
+					}
+					
+					// dl
+					idNumbersDAO.setCon(arrestConn);
+					if (!TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseNumber(), corisIdNumbers.getDriversLicenseNumber())
+						|| !TextUtil.equalsIgnoreCase(personInfo.getIdNumbers().getDriversLicenseState(), corisIdNumbers.getDriversLicenseState())) {
+						
+							if (TextUtil.isEmpty(personInfo.getIdNumbers().getDriversLicenseNumber()) && TextUtil.isEmpty(personInfo.getIdNumbers().getDriversLicenseState())) {
+								personInfo = idNumbersDAO.insertIdNumber(personInfo, corisIdNumbers, IdNumbersDAO.DL);
+								modified = personInfo.isSuccessful();
+							} else {
+								modified = idNumbersDAO.updateIdNumbersFromCoris(personInfo, corisIdNumbers, IdNumbersDAO.DL);
+							}
+							
+					}
+				}
+				
+				idNumbersDAO = null;
+			}
+			
+			// SCARSMARKSTATTOOS - 64 -- NOT IMPLEMENTED
+    		
+			warrantParties = null;
+			
+           	if (arrestConn != null) {
+           		arrestConn.commit();
+			}
+           	
+           	return modified;
+		} catch (Exception e) {
+			logger.error(".modifyArrestWarrant() [Exception]", e);
+			if (arrestConn != null) {
+				arrestConn.rollback();
+			}
+			throw e;
+		} finally {
+			try {
+				if (arrestConn != null) {
+					arrestConn.setAutoCommit(true);
+					arrestConn.close();
+					arrestConn = null;
+				}
+				
+				if (corisConn != null) {
+					corisConn.close();
+					corisConn = null;
+				}
+				
+			} catch (Exception execption) { 
+				// do nothing
+			}
+			logger.debug(".modifyArrestWarrant() end");
+		}
+	} 
+	
+	public static HashMap<String, String> getListOfWarrantsFromER() throws Exception {
+		Connection conn = null;
+		try {
+			conn = DatabaseConnection.getJDBCConnectionArrestWarrant();
+			return getDefnDAO(conn).getListOfWarrantsFromER();
+		} catch (Exception e) {
+			logger.info(".getWarrantFromCoris [Exception]", e);
+			throw(e);
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) { 
+				// do nothing
+			}
+			logger.info(".getWarrantFromCoris end");
+		}
+	}
+	
+	/**
+	 * @param conn
+	 * @return DAO
+	 */
+	private static WarrantDAO getDefnDAO(Connection conn) {
+		DAOFactory factory = DAOFactory.getFactory();
+		WarrantDAO WarrantDAO = factory.getWarrantDAO();
+		WarrantDAO.setCon(conn);
+		return WarrantDAO;
+	}
+}

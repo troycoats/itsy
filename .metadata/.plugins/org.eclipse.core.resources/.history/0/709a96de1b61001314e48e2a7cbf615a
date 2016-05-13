@@ -1,0 +1,162 @@
+package gov.utcourts.arrestwarrant.dataaccess;
+
+import gov.utcourts.arrestwarrant.dataaccess.common.BaseDAO;
+import gov.utcourts.common.util.SQLPropertiesUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+public class WarrantRetransmissionDAO extends BaseDAO {
+
+	public static Logger logger = Logger.getLogger(WarrantRetransmissionDAO.class);
+	
+	/**
+	 * Method to return List<WarrantRetransmissionBO>.
+	 * @param WarrantRetransmissionBO bo
+	 * @return List<WarrantRetransmissionBO>
+	 * @throws Exception
+	 */
+	public List<WarrantRetransmissionBO> findAll() throws Exception {
+		logger.debug(".findAll() start");
+		
+		List<WarrantRetransmissionBO> values = new ArrayList<WarrantRetransmissionBO>();
+		try {
+			setPStmt("set isolation to dirty read");
+			execute();
+			
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.select.all"));
+			executeQuery();
+			
+			while (hasMoreResults()) {
+				values.add(createWarrantRetransmissionBO());
+			}
+			
+			setPStmt("set isolation to committed read");
+			execute();
+		} catch (Exception e) {
+			logger.error(".findAll() [Exception]", e);
+			throw e;
+		} finally {
+			close();
+			logger.debug(".findAll() end");
+		}
+		return values;
+	}
+	
+	/**
+	 * insert
+	 * @param vo VO 
+	 * @return vo VO
+	 * <p>
+	 * @throws Exception
+	 */
+	public WarrantRetransmissionBO insert(WarrantRetransmissionBO bo) throws Exception {
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.insert"));
+			setPStmtValue(1,  bo.getAction());
+			setPStmtValue(2,  bo.getActionDatetime());
+			setPStmtValue(3,  bo.getCaseNum());
+			setPStmtValue(4,  bo.getWarrNum());
+			setPStmtValue(5,  bo.getLocnCode());
+			setPStmtValue(6,  bo.getCourtType());
+			setPStmtValue(7,  bo.getPartyNum());
+			setPStmtValue(8,  bo.getUserId());
+			setPStmtValue(9,  bo.getLogName());
+			setPStmtValue(10, bo.getModificationType());
+			setPStmtValue(11, bo.getIntCaseNum());
+			
+			execute();
+			
+			return bo;
+		} catch (Exception e) {
+			logger.error("Exception in WarrantRetransmissionBO insert(WarrantRetransmissionBO bo)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * update existing record
+	 * @param WarrantRetransmissionBO bo
+	 * <p>
+	 * @throws Exception
+	 */
+	public void update(WarrantRetransmissionBO bo) throws Exception {
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.update"));
+			setPStmtValue(1,  bo.getAction());
+			setPStmtValue(2,  bo.getActionDatetime());
+			setPStmtValue(3,  bo.getCaseNum());
+			setPStmtValue(4,  bo.getWarrNum());
+			setPStmtValue(5,  bo.getLocnCode());
+			setPStmtValue(6,  bo.getCourtType());
+			setPStmtValue(7,  bo.getPartyNum());
+			setPStmtValue(8,  bo.getUserId());
+			setPStmtValue(9,  bo.getLogName());
+			setPStmtValue(10, bo.getModificationType());
+			setPStmtValue(11, bo.getIntCaseNum());
+			execute();
+		} catch (Exception e) {
+			logger.error("Exception in void update(WarrantRetransmissionBO vo)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * delete record
+	 * @param WarrantRetransmissionBO bo
+	 * <p>
+	 * @throws Exception
+	 */
+	public void delete(WarrantRetransmissionBO bo) throws Exception {
+		try {
+			setPStmt(SQLPropertiesUtil.getProperty(getClass().getName(), "sql.delete"));
+			setPStmtValue(1, bo.getIntCaseNum());
+			setPStmtValue(2, bo.getWarrNum());
+			execute();
+		} catch (Exception e) {
+			logger.error("Exception in void delete(WarrantRetransmissionBO bo)", e);
+			throw e;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @return WarrantRetransmissionBO
+	 * @throws Exception
+	 */
+	private WarrantRetransmissionBO createWarrantRetransmissionBO() throws Exception {
+		WarrantRetransmissionBO bo = new WarrantRetransmissionBO();
+		bo.setAction(getRSValueString("action"));
+		bo.setIntCaseNum(getRSValueInt("int_case_num"));
+		bo.setCaseNum(getRSValueString("case_num"));
+		bo.setWarrNum(getRSValueString("warr_num"));
+		bo.setLocnCode(getRSValueString("locn_code"));
+		bo.setCourtType(getRSValueString("court_type"));
+		bo.setPartyNum(getRSValueInt("party_num"));
+		bo.setUserId(getRSValueInt("userid_srl"));
+		bo.setLogName(getRSValueString("logname"));
+		bo.setRecallDate(getRSValueDate("recall_datetime"));
+		bo.setModificationType(getRSValueInt("warrant_type_value"));
+		return bo;
+	}
+}

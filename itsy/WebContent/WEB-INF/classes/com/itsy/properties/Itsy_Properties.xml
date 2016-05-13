@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<PROPERTY>
+	<system_version>123</system_version>
+	<max_results>100</max_results>
+	<max_results_message>Too many results have been returned. Please narrow your search.</max_results_message>
+	<no_results_message>No results found.</no_results_message>
+	<data_sources>	
+		<itsy_ds>
+			<username>sa</username>
+			<password></password>
+			<jdbcurl>jdbc:sqlite:c:\content\ITSY\itsy.db</jdbcurl>
+		</itsy_ds>
+	</data_sources>
+</PROPERTY>

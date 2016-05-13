@@ -1,0 +1,36 @@
+############################################
+# WarrantRetransmissionDAO.Properties
+############################################
+
+
+############################################################################################
+# find all
+############################################################################################
+sql.select.all = \
+select * from warrant_retransmission
+
+
+
+############################################################################################
+# insert
+############################################################################################
+sql.insert = \
+insert into warrant_retransmission (action,int_case_num,action_datetime,case_num,warr_num,locn_code,court_type,party_num,userid_srl,logname,recall_datetime,warrant_type_value) values (?,?,?,?,?,?,?,?,?,?,?) 
+
+
+
+############################################################################################
+# update
+############################################################################################
+sql.update = \
+update warrant_retransmission set action=?, action_datetime=?, case_num=?, warr_num=?, locn_code=?, court_type=?, party_num=?, userid_srl=?, logname=?, recall_datetime=?, warrant_type_value=? where int_case_num=?
+
+
+
+############################################################################################
+# delete
+############################################################################################
+sql.delete = \
+delete from warrant_retransmission where int_case_num=? and warr_num=?
+
+

@@ -1,0 +1,16 @@
+/**
+ * BaseVO.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public abstract class BaseVO  {
+
+    public BaseVO() {
+    }
+
+}

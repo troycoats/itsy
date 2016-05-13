@@ -1,0 +1,97 @@
+package gov.utcourts.arrestwarrant.dataaccess;
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class WarrantRetransmissionVO {
+	private String action;
+	private Date actionDatetime;
+	private int intCaseNum;
+	private String caseNum;
+	private String warrNum;
+	private String locnCode;
+	private String courtType;
+	private int partyNum;
+	private int userId;
+	private String logName;
+	private Date recallDate;
+	private int modificationType;
+	
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	public Date getActionDatetime() {
+		return actionDatetime;
+	}
+	public void setActionDatetime(Date actionDatetime) {
+		this.actionDatetime = actionDatetime;
+	}
+	public int getIntCaseNum() {
+		return intCaseNum;
+	}
+	public void setIntCaseNum(int intCaseNum) {
+		this.intCaseNum = intCaseNum;
+	}
+	public String getCaseNum() {
+		return caseNum;
+	}
+	public void setCaseNum(String caseNum) {
+		this.caseNum = caseNum;
+	}
+	public String getWarrNum() {
+		return warrNum;
+	}
+	public void setWarrNum(String warrNum) {
+		this.warrNum = warrNum;
+	}
+	public String getLocnCode() {
+		return locnCode;
+	}
+	public void setLocnCode(String locnCode) {
+		this.locnCode = locnCode;
+	}
+	public String getCourtType() {
+		return courtType;
+	}
+	public void setCourtType(String courtType) {
+		this.courtType = courtType;
+	}
+	public int getPartyNum() {
+		return partyNum;
+	}
+	public void setPartyNum(int partyNum) {
+		this.partyNum = partyNum;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getLogName() {
+		return logName;
+	}
+	public void setLogName(String logName) {
+		this.logName = logName;
+	}
+	public Date getRecallDate() {
+		return recallDate;
+	}
+	public Calendar getRecallDateAsCalendar() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(recallDate);
+		return cal;
+	}
+	public void setRecallDate(Date recallDate) {
+		this.recallDate = recallDate;
+	}
+	public int getModificationType() {
+		return modificationType;
+	}
+	public void setModificationType(int modificationType) {
+		this.modificationType = modificationType;
+	}
+}

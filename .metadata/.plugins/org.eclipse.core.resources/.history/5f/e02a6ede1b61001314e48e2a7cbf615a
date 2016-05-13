@@ -1,0 +1,52 @@
+package gov.utcourts.arrestwarrant.nightly;
+
+import gov.utcourts.arrestwarrant.dataaccess.WarrantRetransmissionBO;
+import gov.utcourts.common.XMLConfig;
+import gov.utcourts.warrant.ResultWrapper;
+import gov.utcourts.warrant.ws.ArrestWarrantProxy;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+/**
+ *	Nightly process to re-transmit warrants that failed to process normally from CORIS
+ *      
+ */
+public class ArrestWarrants {
+	private static Logger logger = Logger.getLogger(ArrestWarrants.class);
+	
+	/*
+	 * re-transmit warrants
+	 */
+	public static void retransmitWarrants(String courtType) {
+		try {
+			List<WarrantRetransmissionBO> retranmissions = WarrantRetransmissionBO.findAll(courtType);
+			if (retranmissions != null && retranmissions.size() > 0) {
+				try {
+					ArrestWarrantProxy arrestWarrantProxy = new ArrestWarrantProxy();
+					arrestWarrantProxy.setEndpoint(XMLConfig.getProperty("PROPERTY.arrestwarrant_ws.endpoint"));
+					for (WarrantRetransmissionBO r : retranmissions) {
+						ResultWrapper wrapper = null;
+						if ("M".equalsIgnoreCase(r.getAction())) {
+							wrapper = arrestWarrantProxy.modifyArrestWarrant(r.getIntCaseNum(), r.getCaseNum(), r.getWarrNum(), r.getLocnCode(), r.getCourtType(), null, r.getPartyNum(), r.getUserId(), r.getLogName(), r.getModificationType());
+						} else if ("I".equalsIgnoreCase(r.getAction())) {
+							wrapper = arrestWarrantProxy.issueArrestWarrant(r.getIntCaseNum(), r.getCaseNum(), r.getWarrNum(), r.getLocnCode(), r.getCourtType(), r.getPartyNum(), r.getUserId(), r.getLogName());
+						} else if ("R".equalsIgnoreCase(r.getAction())) {
+							wrapper = arrestWarrantProxy.recallArrestWarrant(r.getIntCaseNum(), r.getCaseNum(), r.getWarrNum(), r.getLocnCode(), r.getCourtType(), null, r.getPartyNum(), r.getUserId(), r.getLogName(), r.getRecallDateAsCalendar());
+						}
+						if (wrapper != null && "60".equals(wrapper.getReasonCode())) {
+							WarrantRetransmissionBO.delete(r);
+						}
+						wrapper = null;
+					}	
+					arrestWarrantProxy = null;
+				} catch (Exception e) {
+					
+				}
+			}
+		} catch (Exception e) {
+			logger.equals("Error occurred in ArrestWarrants.retransmitWarrants - " + e.getMessage());
+		}
+	}
+}

@@ -1,0 +1,11 @@
+INDEX VERSION 1.126
+C:\Java Projects\SVN\Itsy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4224774832.index
+\itsy
+C:\Java Projects\SVN\ArrestWarrantWS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\267549261.index
+\ArrestWarrantNightlySample
+C:\Java Projects\SVN\Itsy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2980937046.index
+\itsy
+C:\Java Projects\SVN\ArrestWarrantWS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\193353699.index
+\ArrestWarrantWSClient
+C:\Java Projects\AttorneyInfoWS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1215962427.index
+\AttorneyInfoWSClient

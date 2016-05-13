@@ -1,0 +1,115 @@
+/**
+ * AddressVO.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class AddressVO  extends gov.utcourts.warrant.dataaccess.BaseVO  {
+    private int addressId;
+    private int status;
+    private int personId;
+    private java.lang.String address1;
+    private java.lang.String address2;
+    private java.lang.String city;
+    private java.lang.String stateCode;
+    private java.lang.String zipCode;
+    private java.lang.String insertAgencyId;
+    private java.lang.String insertUserId;
+    private java.util.Calendar insertDateTime;
+
+    public AddressVO() {
+    }
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public java.lang.String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(java.lang.String address1) {
+        this.address1 = address1;
+    }
+
+    public java.lang.String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(java.lang.String address2) {
+        this.address2 = address2;
+    }
+
+    public java.lang.String getCity() {
+        return city;
+    }
+
+    public void setCity(java.lang.String city) {
+        this.city = city;
+    }
+
+    public java.lang.String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(java.lang.String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public java.lang.String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(java.lang.String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public java.lang.String getInsertAgencyId() {
+        return insertAgencyId;
+    }
+
+    public void setInsertAgencyId(java.lang.String insertAgencyId) {
+        this.insertAgencyId = insertAgencyId;
+    }
+
+    public java.lang.String getInsertUserId() {
+        return insertUserId;
+    }
+
+    public void setInsertUserId(java.lang.String insertUserId) {
+        this.insertUserId = insertUserId;
+    }
+
+    public java.util.Calendar getInsertDateTime() {
+        return insertDateTime;
+    }
+
+    public void setInsertDateTime(java.util.Calendar insertDateTime) {
+        this.insertDateTime = insertDateTime;
+    }
+
+}

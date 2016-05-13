@@ -1,0 +1,7 @@
+package gov.utcourts.arrestwarrant.dataaccess.common;
+
+//needs javadoc
+public class TooManyResultsException extends Exception {
+
+}
+

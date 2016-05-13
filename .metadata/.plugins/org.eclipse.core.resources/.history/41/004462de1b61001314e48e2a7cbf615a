@@ -1,0 +1,7 @@
+package gov.utcourts.common;
+
+import java.sql.*;
+
+public interface JDBCConnector {
+	public Connection getConnection() throws SmartException;
+}

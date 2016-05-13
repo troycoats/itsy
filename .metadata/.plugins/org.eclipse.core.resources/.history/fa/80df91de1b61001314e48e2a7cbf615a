@@ -1,0 +1,169 @@
+package gov.utcourts.arrestwarrant.dataaccess;
+
+import gov.utcourts.arrestwarrant.dataaccess.common.DAOFactory;
+import gov.utcourts.common.DatabaseConnection;
+
+import java.sql.Connection;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+public class WarrantRetransmissionFacade {
+
+	private static Logger logger = Logger.getLogger(WarrantRetransmissionFacade.class);
+	
+	/**
+	 * Method to return WarrantRetransmissionBO
+	 * @return List<WarrantRetransmissionBO>
+	 * @throws Exception
+	 */
+	public static List<WarrantRetransmissionBO> findAll(String courtType) throws Exception {
+		logger.info(".findAll() start");
+		Connection conn = null;
+		
+		try {
+			if ("D".equalsIgnoreCase(courtType))
+				conn = DatabaseConnection.getJDBCConnectionDistrictStatic();
+			else 
+				conn = DatabaseConnection.getJDBCConnectionJusticeStatic();
+			
+			return getWarrantRetransmissionDAO(conn).findAll();
+		} catch (Exception e) {
+			logger.info(".findAll() [Exception]", e);
+			throw e;
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) { 
+				// do nothing
+			}
+			logger.info(".findAll() end");
+		}
+	}
+	
+	/**
+	 * Inserts new record
+	 *
+	 * Handles exception from DAO if any
+	 * <p>
+	 * @param bo WarrantRetransmissionBO
+	 * @return WarrantRetransmissionBO  
+	 * 
+	 * @throws Exception 
+	 */
+	public static WarrantRetransmissionBO insert(WarrantRetransmissionBO bo) throws Exception {
+		Connection conn = null;
+		logger.debug(">>> insert(WarrantRetransmissionBO bo)");
+		
+		try {
+			if ("D".equalsIgnoreCase(bo.getCourtType()))
+				conn = DatabaseConnection.getJDBCConnectionDistrictStatic();
+			else 
+				conn = DatabaseConnection.getJDBCConnectionJusticeStatic();
+			
+			conn.setAutoCommit(false);
+			bo = (WarrantRetransmissionBO) getWarrantRetransmissionDAO(conn).insert(bo);
+			conn.commit();
+			
+			return bo;
+		} catch (Exception e) {
+			conn.rollback();
+			logger.error("Exception in insert(WarrantRetransmissionBO bo)", e);
+			throw e;	
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				// do nothing
+			}
+			logger.debug(">>Exiting insert(WarrantRetransmissionBO bo)<<");
+		}
+	}
+		
+	/**
+	 * Updates existing record.
+	 *
+	 * Handles exception from DAO if any
+	 * <p>
+	 * @param bo WarrantRetransmissionBO 
+	 * 
+	 * @throws Exception 
+	 */
+	public static void update(WarrantRetransmissionBO bo) throws Exception {
+		Connection conn = null;
+		logger.debug(">>> update(WarrantRetransmissionBO bo)");
+		
+		try {
+			if ("D".equalsIgnoreCase(bo.getCourtType()))
+				conn = DatabaseConnection.getJDBCConnectionDistrictStatic();
+			else 
+				conn = DatabaseConnection.getJDBCConnectionJusticeStatic();
+			
+			conn.setAutoCommit(false);
+
+			getWarrantRetransmissionDAO(conn).update(bo);
+			conn.commit();
+			
+		} catch (Exception e) {
+			conn.rollback();
+			logger.error("Exception in update(CaseBO bo)", e);
+			throw e;	
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				// do nothing
+			}
+			logger.debug(">>Exiting update(WarrantRetransmissionBO bo)<<");
+		}
+	}
+	
+	/**
+	 * Delete existing record.
+	 *
+	 * Handles exception from DAO if any
+	 * <p>
+	 * @param bo WarrantRetransmissionBO 
+	 * 
+	 * @throws Exception 
+	 */
+	public static void delete(WarrantRetransmissionBO bo) throws Exception {
+		Connection conn = null;
+		logger.debug(">>> delete(WarrantRetransmissionBO bo)");
+		
+		try {
+			if ("D".equalsIgnoreCase(bo.getCourtType()))
+				conn = DatabaseConnection.getJDBCConnectionDistrictStatic();
+			else 
+				conn = DatabaseConnection.getJDBCConnectionJusticeStatic();
+			
+			conn.setAutoCommit(false);
+
+			getWarrantRetransmissionDAO(conn).delete(bo);
+			
+			conn.commit();
+		} catch (Exception e) {
+			conn.rollback();
+			logger.error("Exception in delete(WarrantRetransmissionBO bo)", e);
+			throw e;	
+		} finally {
+			try {
+				conn.close();
+			} catch (Exception e) {
+				// do nothing
+			}
+			logger.debug(">>Exiting delete(WarrantRetransmissionBO bo)<<");
+		}
+	}
+	
+	/**
+	 * @param conn
+	 * @return DAO
+	 */
+	private static WarrantRetransmissionDAO getWarrantRetransmissionDAO(Connection conn) {
+		DAOFactory factory = DAOFactory.getFactory();
+		WarrantRetransmissionDAO warrantRetransmisssionDAO = factory.getWarrantRetransmissionDAO();
+		warrantRetransmisssionDAO.setCon(conn);
+		return warrantRetransmisssionDAO;
+	}
+}

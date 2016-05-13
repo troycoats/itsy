@@ -1,0 +1,15 @@
+package gov.utcourts.arrestwarrant.dataaccess.common;
+
+/**
+ * Represents a Blob not Found excetpion.
+ * @author Brian Holt- Sirius Computer Solutions.
+ */
+public class BlobNotFoundException extends Exception {
+	/**
+	 * Default constructor.
+	 */
+	public BlobNotFoundException(){
+		super();
+		fillInStackTrace();
+	}
+}

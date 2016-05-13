@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.EARWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593538_0" label="EAR Projects" name="EAR Projects">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/itsyEAR" type="4"/>
+</workingSet>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.AppClientWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593553_1" label="Application Client Projects" name="Application Client Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.EjbWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593569_2" label="EJB Projects" name="EJB Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.ConnectorWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593569_3" label="Connector Projects" name="Connector Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.WebWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593569_4" label="Dynamic Web Projects" name="Dynamic Web Projects">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/itsy" type="4"/>
+</workingSet>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.JPAWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593584_5" label="JPA Projects" name="JPA Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.UtilWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593584_6" label="Utility Projects" name="Utility Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.StaticWebProjects" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593600_7" label="Static Web Projects" name="Static Web Projects"/>
+<workingSet editPageId="com.ibm.etools.j2ee.ui.WebFragmentWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593600_8" label="Web Fragment Projects" name="Web Fragment Projects"/>
+<workingSet editPageId="com.ibm.etools.project.OthersWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593616_9" label="Uncategorized Projects" name="Uncategorized Projects"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1337348593959_10" label="Multiple Working Sets" name="Aggregate:EAR Projects:Application Client Projects:EJB Projects:Connector Projects:Dynamic Web Projects:JPA Projects:Utility Projects:Static Web Projects:Web Fragment Projects:Uncategorized Projects:">
+<workingSet IMemento.internal.id="EAR Projects"/>
+<workingSet IMemento.internal.id="Application Client Projects"/>
+<workingSet IMemento.internal.id="EJB Projects"/>
+<workingSet IMemento.internal.id="Connector Projects"/>
+<workingSet IMemento.internal.id="Dynamic Web Projects"/>
+<workingSet IMemento.internal.id="JPA Projects"/>
+<workingSet IMemento.internal.id="Utility Projects"/>
+<workingSet IMemento.internal.id="Static Web Projects"/>
+<workingSet IMemento.internal.id="Web Fragment Projects"/>
+<workingSet IMemento.internal.id="Uncategorized Projects"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1354231616203_11" label="Window Working Set" name="Aggregate for window 1354231616203"/>
+</workingSetManager>

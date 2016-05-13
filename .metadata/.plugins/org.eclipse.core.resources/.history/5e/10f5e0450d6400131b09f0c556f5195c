@@ -1,0 +1,9 @@
+#Fri Dec 13 08:43:12 MST 2013
+encoding//src/gov/utcourts/warrant/ws/IssueArrestWarrant.java=UTF-8
+eclipse.preferences.version=1
+encoding//src/gov/utcourts/warrant/dataaccess/PersonVehicleBO.java=UTF-8
+encoding//src/gov/utcourts/warrant/ws/SearchForWarrantsResponse.java=UTF-8
+encoding//src/gov/utcourts/warrant/ws/WarrantExistsResponse.java=UTF-8
+encoding//src/gov/utcourts/warrant/dataaccess/AddressVO.java=UTF-8
+encoding//src/gov/utcourts/warrant/ws/GenerateSerializationObjectsFor.java=UTF-8
+encoding//src/gov/utcourts/warrant/dataaccess/ChargeVO.java=UTF-8

@@ -1,0 +1,51 @@
+/**
+ * AddressBO_Helper.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.dataaccess;
+
+public class AddressBO_Helper {
+    // Type metadata
+    private static final com.ibm.ws.webservices.engine.description.TypeDesc typeDesc =
+        new com.ibm.ws.webservices.engine.description.TypeDesc(AddressBO.class);
+
+    static {
+        typeDesc.setOption("buildNum","cf011133.09");
+    };
+
+    /**
+     * Return type metadata object
+     */
+    public static com.ibm.ws.webservices.engine.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new AddressBO_Ser(
+            javaType, xmlType, typeDesc);
+    };
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static com.ibm.ws.webservices.engine.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class javaType,  
+           javax.xml.namespace.QName xmlType) {
+        return 
+          new AddressBO_Deser(
+            javaType, xmlType, typeDesc);
+    };
+
+}

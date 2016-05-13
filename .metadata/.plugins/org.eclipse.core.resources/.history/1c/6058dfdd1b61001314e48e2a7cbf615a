@@ -1,0 +1,168 @@
+/**
+ * ArrestWarrantServiceLocator.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.ws;
+
+public class ArrestWarrantServiceLocator extends com.ibm.ws.webservices.multiprotocol.AgnosticService implements com.ibm.ws.webservices.multiprotocol.GeneratedService, gov.utcourts.warrant.ws.ArrestWarrantService {
+
+    public ArrestWarrantServiceLocator() {
+        super(com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+           "http://ws.warrant.utcourts.gov",
+           "ArrestWarrantService"));
+
+        context.setLocatorName("gov.utcourts.warrant.ws.ArrestWarrantServiceLocator");
+    }
+
+    public ArrestWarrantServiceLocator(com.ibm.ws.webservices.multiprotocol.ServiceContext ctx) {
+        super(ctx);
+        context.setLocatorName("gov.utcourts.warrant.ws.ArrestWarrantServiceLocator");
+    }
+
+    // Use to get a proxy class for arrestWarrant
+    private final java.lang.String arrestWarrant_address = "http://localhost:9080/ArrestWarrantWS/services/ArrestWarrant";
+
+    public java.lang.String getArrestWarrantAddress() {
+        if (context.getOverriddingEndpointURIs() == null) {
+            return arrestWarrant_address;
+        }
+        String overriddingEndpoint = (String) context.getOverriddingEndpointURIs().get("ArrestWarrant");
+        if (overriddingEndpoint != null) {
+            return overriddingEndpoint;
+        }
+        else {
+            return arrestWarrant_address;
+        }
+    }
+
+    private java.lang.String arrestWarrantPortName = "ArrestWarrant";
+
+    // The WSDD port name defaults to the port name.
+    private java.lang.String arrestWarrantWSDDPortName = "ArrestWarrant";
+
+    public java.lang.String getArrestWarrantWSDDPortName() {
+        return arrestWarrantWSDDPortName;
+    }
+
+    public void setArrestWarrantWSDDPortName(java.lang.String name) {
+        arrestWarrantWSDDPortName = name;
+    }
+
+    public gov.utcourts.warrant.ws.ArrestWarrant getArrestWarrant() throws javax.xml.rpc.ServiceException {
+       java.net.URL endpoint;
+        try {
+            endpoint = new java.net.URL(getArrestWarrantAddress());
+        }
+        catch (java.net.MalformedURLException e) {
+            return null; // unlikely as URL was validated in WSDL2Java
+        }
+        return getArrestWarrant(endpoint);
+    }
+
+    public gov.utcourts.warrant.ws.ArrestWarrant getArrestWarrant(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+        gov.utcourts.warrant.ws.ArrestWarrant _stub =
+            (gov.utcourts.warrant.ws.ArrestWarrant) getStub(
+                arrestWarrantPortName,
+                (String) getPort2NamespaceMap().get(arrestWarrantPortName),
+                gov.utcourts.warrant.ws.ArrestWarrant.class,
+                "gov.utcourts.warrant.ws.ArrestWarrantSoapBindingStub",
+                portAddress.toString());
+        if (_stub instanceof com.ibm.ws.webservices.engine.client.Stub) {
+            ((com.ibm.ws.webservices.engine.client.Stub) _stub).setPortName(arrestWarrantWSDDPortName);
+        }
+        return _stub;
+    }
+
+    /**
+     * For the given interface, get the stub implementation.
+     * If this service has no port for the given interface,
+     * then ServiceException is thrown.
+     */
+    public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+        try {
+            if (gov.utcourts.warrant.ws.ArrestWarrant.class.isAssignableFrom(serviceEndpointInterface)) {
+                return getArrestWarrant();
+            }
+        }
+        catch (java.lang.Throwable t) {
+            throw new javax.xml.rpc.ServiceException(t);
+        }
+        throw new javax.xml.rpc.ServiceException("WSWS3273E: Error: There is no stub implementation for the interface:  " + (serviceEndpointInterface == null ? "null" : serviceEndpointInterface.getName()));
+    }
+
+    /**
+     * For the given interface, get the stub implementation.
+     * If this service has no port for the given interface,
+     * then ServiceException is thrown.
+     */
+    public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+        String inputPortName = portName.getLocalPart();
+        if ("ArrestWarrant".equals(inputPortName)) {
+            return getArrestWarrant();
+        }
+        else  {
+            throw new javax.xml.rpc.ServiceException();
+        }
+    }
+
+    public void setPortNamePrefix(java.lang.String prefix) {
+        arrestWarrantWSDDPortName = prefix + "/" + arrestWarrantPortName;
+    }
+
+    public javax.xml.namespace.QName getServiceName() {
+        return com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService");
+    }
+
+    private java.util.Map port2NamespaceMap = null;
+
+    protected synchronized java.util.Map getPort2NamespaceMap() {
+        if (port2NamespaceMap == null) {
+            port2NamespaceMap = new java.util.HashMap();
+            port2NamespaceMap.put(
+               "ArrestWarrant",
+               "http://schemas.xmlsoap.org/wsdl/soap/");
+        }
+        return port2NamespaceMap;
+    }
+
+    private java.util.HashSet ports = null;
+
+    public java.util.Iterator getPorts() {
+        if (ports == null) {
+            ports = new java.util.HashSet();
+            String serviceNamespace = getServiceName().getNamespaceURI();
+            for (java.util.Iterator i = getPort2NamespaceMap().keySet().iterator(); i.hasNext(); ) {
+                ports.add(
+                    com.ibm.ws.webservices.engine.utils.QNameTable.createQName(
+                        serviceNamespace,
+                        (String) i.next()));
+            }
+        }
+        return ports.iterator();
+    }
+
+    public javax.xml.rpc.Call[] getCalls(javax.xml.namespace.QName portName) throws javax.xml.rpc.ServiceException {
+        if (portName == null) {
+            throw new javax.xml.rpc.ServiceException("WSWS3062E: Error: portName should not be null.");
+        }
+        if  (portName.getLocalPart().equals("ArrestWarrant")) {
+            return new javax.xml.rpc.Call[] {
+                createCall(portName, "issueMultipleArrestWarrants", "issueMultipleArrestWarrantsRequest"),
+                createCall(portName, "issueArrestWarrant", "issueArrestWarrantRequest"),
+                createCall(portName, "modifyArrestWarrant", "modifyArrestWarrantRequest"),
+                createCall(portName, "getPublicSafetyArrestWarrantDetail", "getPublicSafetyArrestWarrantDetailRequest"),
+                createCall(portName, "warrantExists", "warrantExistsRequest"),
+                createCall(portName, "searchForWarrants", "searchForWarrantsRequest"),
+                createCall(portName, "recallArrestWarrant", "recallArrestWarrantRequest"),
+                createCall(portName, "generateSerializationObjectsFor", "generateSerializationObjectsForRequest"),
+            };
+        }
+        else {
+            throw new javax.xml.rpc.ServiceException("WSWS3062E: Error: portName should not be null.");
+        }
+    }
+}

@@ -1,0 +1,17 @@
+/**
+ * ArrestWarrantService.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.ws;
+
+public interface ArrestWarrantService extends javax.xml.rpc.Service {
+    public gov.utcourts.warrant.ws.ArrestWarrant getArrestWarrant() throws javax.xml.rpc.ServiceException;
+
+    public java.lang.String getArrestWarrantAddress();
+
+    public gov.utcourts.warrant.ws.ArrestWarrant getArrestWarrant(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+}

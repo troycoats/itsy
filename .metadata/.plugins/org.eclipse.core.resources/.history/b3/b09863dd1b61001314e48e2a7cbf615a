@@ -1,0 +1,587 @@
+/**
+ * ArrestWarrantServiceInformation.java
+ *
+ * This file was auto-generated from WSDL
+ * by the IBM Web services WSDL2Java emitter.
+ * cf011133.09 v82411210542
+ */
+
+package gov.utcourts.warrant.ws;
+
+public class ArrestWarrantServiceInformation implements com.ibm.ws.webservices.multiprotocol.ServiceInformation {
+
+    private static java.util.Map operationDescriptions;
+    private static java.util.Map typeMappings;
+
+    static {
+         initOperationDescriptions();
+         initTypeMappings();
+    }
+
+    private static void initOperationDescriptions() { 
+        operationDescriptions = new java.util.HashMap();
+
+        java.util.Map inner0 = new java.util.HashMap();
+
+        java.util.List list0 = new java.util.ArrayList();
+        inner0.put("generateSerializationObjectsFor", list0);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc generateSerializationObjectsFor0Op = _generateSerializationObjectsFor0Op();
+        list0.add(generateSerializationObjectsFor0Op);
+
+        java.util.List list1 = new java.util.ArrayList();
+        inner0.put("getPublicSafetyArrestWarrantDetail", list1);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc getPublicSafetyArrestWarrantDetail1Op = _getPublicSafetyArrestWarrantDetail1Op();
+        list1.add(getPublicSafetyArrestWarrantDetail1Op);
+
+        java.util.List list2 = new java.util.ArrayList();
+        inner0.put("issueArrestWarrant", list2);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc issueArrestWarrant2Op = _issueArrestWarrant2Op();
+        list2.add(issueArrestWarrant2Op);
+
+        java.util.List list3 = new java.util.ArrayList();
+        inner0.put("issueMultipleArrestWarrants", list3);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc issueMultipleArrestWarrants3Op = _issueMultipleArrestWarrants3Op();
+        list3.add(issueMultipleArrestWarrants3Op);
+
+        java.util.List list4 = new java.util.ArrayList();
+        inner0.put("modifyArrestWarrant", list4);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc modifyArrestWarrant4Op = _modifyArrestWarrant4Op();
+        list4.add(modifyArrestWarrant4Op);
+
+        java.util.List list5 = new java.util.ArrayList();
+        inner0.put("recallArrestWarrant", list5);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc recallArrestWarrant5Op = _recallArrestWarrant5Op();
+        list5.add(recallArrestWarrant5Op);
+
+        java.util.List list6 = new java.util.ArrayList();
+        inner0.put("searchForWarrants", list6);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc searchForWarrants6Op = _searchForWarrants6Op();
+        list6.add(searchForWarrants6Op);
+
+        java.util.List list7 = new java.util.ArrayList();
+        inner0.put("warrantExists", list7);
+
+        com.ibm.ws.webservices.engine.description.OperationDesc warrantExists7Op = _warrantExists7Op();
+        list7.add(warrantExists7Op);
+
+        operationDescriptions.put("ArrestWarrant",inner0);
+        operationDescriptions = java.util.Collections.unmodifiableMap(operationDescriptions);
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _generateSerializationObjectsFor0Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc generateSerializationObjectsFor0Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "personNameBO"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonNameBO"), gov.utcourts.warrant.dataaccess.PersonNameBO.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "addressBO"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "AddressBO"), gov.utcourts.warrant.dataaccess.AddressBO.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "personVehicleBO"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonVehicleBO"), gov.utcourts.warrant.dataaccess.PersonVehicleBO.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "chargeBO"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "ChargeBO"), gov.utcourts.warrant.dataaccess.ChargeBO.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://dataaccess.warrant.utcourts.gov}PersonNameBO");
+        _params0[0].setOption("partName","PersonNameBO");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://dataaccess.warrant.utcourts.gov}AddressBO");
+        _params0[1].setOption("partName","AddressBO");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://dataaccess.warrant.utcourts.gov}PersonVehicleBO");
+        _params0[2].setOption("partName","PersonVehicleBO");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://dataaccess.warrant.utcourts.gov}ChargeBO");
+        _params0[3].setOption("partName","ChargeBO");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(null, com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://websphere.ibm.com/webservices/", "Void"), void.class, true, false, false, false, true, true); 
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        generateSerializationObjectsFor0Op = new com.ibm.ws.webservices.engine.description.OperationDesc("generateSerializationObjectsFor", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "generateSerializationObjectsFor"), _params0, _returnDesc0, _faults0, null);
+        generateSerializationObjectsFor0Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        generateSerializationObjectsFor0Op.setOption("usingAddressing","false");
+        generateSerializationObjectsFor0Op.setOption("inputName","generateSerializationObjectsForRequest");
+        generateSerializationObjectsFor0Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "generateSerializationObjectsForResponse"));
+        generateSerializationObjectsFor0Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        generateSerializationObjectsFor0Op.setOption("buildNum","cf011133.09");
+        generateSerializationObjectsFor0Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        generateSerializationObjectsFor0Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        generateSerializationObjectsFor0Op.setOption("outputName","generateSerializationObjectsForResponse");
+        generateSerializationObjectsFor0Op.setOption("ResponseLocalPart","generateSerializationObjectsForResponse");
+        generateSerializationObjectsFor0Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "generateSerializationObjectsForRequest"));
+        generateSerializationObjectsFor0Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return generateSerializationObjectsFor0Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _getPublicSafetyArrestWarrantDetail1Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc getPublicSafetyArrestWarrantDetail1Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantId"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[0].setOption("partName","int");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "getPublicSafetyArrestWarrantDetailReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultArrayWrapper"), gov.utcourts.warrant.ResultArrayWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultArrayWrapper");
+        _returnDesc0.setOption("partName","ResultArrayWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        getPublicSafetyArrestWarrantDetail1Op = new com.ibm.ws.webservices.engine.description.OperationDesc("getPublicSafetyArrestWarrantDetail", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "getPublicSafetyArrestWarrantDetail"), _params0, _returnDesc0, _faults0, null);
+        getPublicSafetyArrestWarrantDetail1Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        getPublicSafetyArrestWarrantDetail1Op.setOption("usingAddressing","false");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("inputName","getPublicSafetyArrestWarrantDetailRequest");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "getPublicSafetyArrestWarrantDetailResponse"));
+        getPublicSafetyArrestWarrantDetail1Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        getPublicSafetyArrestWarrantDetail1Op.setOption("buildNum","cf011133.09");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("outputName","getPublicSafetyArrestWarrantDetailResponse");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("ResponseLocalPart","getPublicSafetyArrestWarrantDetailResponse");
+        getPublicSafetyArrestWarrantDetail1Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "getPublicSafetyArrestWarrantDetailRequest"));
+        getPublicSafetyArrestWarrantDetail1Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return getPublicSafetyArrestWarrantDetail1Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _issueArrestWarrant2Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc issueArrestWarrant2Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "intCaseNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "caseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantNo"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "partyNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisUserId"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisLogName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[0].setOption("partName","int");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[2].setOption("partName","string");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[3].setOption("partName","string");
+        _params0[4].setOption("inputPosition","4");
+        _params0[4].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[4].setOption("partName","string");
+        _params0[5].setOption("inputPosition","5");
+        _params0[5].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[5].setOption("partName","int");
+        _params0[6].setOption("inputPosition","6");
+        _params0[6].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[6].setOption("partName","int");
+        _params0[7].setOption("inputPosition","7");
+        _params0[7].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[7].setOption("partName","string");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "issueArrestWarrantReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"), gov.utcourts.warrant.ResultWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultWrapper");
+        _returnDesc0.setOption("partName","ResultWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        issueArrestWarrant2Op = new com.ibm.ws.webservices.engine.description.OperationDesc("issueArrestWarrant", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueArrestWarrant"), _params0, _returnDesc0, _faults0, null);
+        issueArrestWarrant2Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        issueArrestWarrant2Op.setOption("usingAddressing","false");
+        issueArrestWarrant2Op.setOption("inputName","issueArrestWarrantRequest");
+        issueArrestWarrant2Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueArrestWarrantResponse"));
+        issueArrestWarrant2Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        issueArrestWarrant2Op.setOption("buildNum","cf011133.09");
+        issueArrestWarrant2Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        issueArrestWarrant2Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        issueArrestWarrant2Op.setOption("outputName","issueArrestWarrantResponse");
+        issueArrestWarrant2Op.setOption("ResponseLocalPart","issueArrestWarrantResponse");
+        issueArrestWarrant2Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueArrestWarrantRequest"));
+        issueArrestWarrant2Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return issueArrestWarrant2Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _issueMultipleArrestWarrants3Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc issueMultipleArrestWarrants3Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisUserId"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisLogName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[0].setOption("partName","string");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[2].setOption("partName","int");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[3].setOption("partName","string");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "issueMultipleArrestWarrantsReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"), gov.utcourts.warrant.ResultWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultWrapper");
+        _returnDesc0.setOption("partName","ResultWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        issueMultipleArrestWarrants3Op = new com.ibm.ws.webservices.engine.description.OperationDesc("issueMultipleArrestWarrants", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueMultipleArrestWarrants"), _params0, _returnDesc0, _faults0, null);
+        issueMultipleArrestWarrants3Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        issueMultipleArrestWarrants3Op.setOption("usingAddressing","false");
+        issueMultipleArrestWarrants3Op.setOption("inputName","issueMultipleArrestWarrantsRequest");
+        issueMultipleArrestWarrants3Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueMultipleArrestWarrantsResponse"));
+        issueMultipleArrestWarrants3Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        issueMultipleArrestWarrants3Op.setOption("buildNum","cf011133.09");
+        issueMultipleArrestWarrants3Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        issueMultipleArrestWarrants3Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        issueMultipleArrestWarrants3Op.setOption("outputName","issueMultipleArrestWarrantsResponse");
+        issueMultipleArrestWarrants3Op.setOption("ResponseLocalPart","issueMultipleArrestWarrantsResponse");
+        issueMultipleArrestWarrants3Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "issueMultipleArrestWarrantsRequest"));
+        issueMultipleArrestWarrants3Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return issueMultipleArrestWarrants3Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _modifyArrestWarrant4Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc modifyArrestWarrant4Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "intCaseNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "caseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantNo"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtOri"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "partyNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisUserId"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisLogName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "modification"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[0].setOption("partName","int");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[2].setOption("partName","string");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[3].setOption("partName","string");
+        _params0[4].setOption("inputPosition","4");
+        _params0[4].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[4].setOption("partName","string");
+        _params0[5].setOption("inputPosition","5");
+        _params0[5].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[5].setOption("partName","string");
+        _params0[6].setOption("inputPosition","6");
+        _params0[6].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[6].setOption("partName","int");
+        _params0[7].setOption("inputPosition","7");
+        _params0[7].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[7].setOption("partName","int");
+        _params0[8].setOption("inputPosition","8");
+        _params0[8].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[8].setOption("partName","string");
+        _params0[9].setOption("inputPosition","9");
+        _params0[9].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[9].setOption("partName","int");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "modifyArrestWarrantReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"), gov.utcourts.warrant.ResultWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultWrapper");
+        _returnDesc0.setOption("partName","ResultWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        modifyArrestWarrant4Op = new com.ibm.ws.webservices.engine.description.OperationDesc("modifyArrestWarrant", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "modifyArrestWarrant"), _params0, _returnDesc0, _faults0, null);
+        modifyArrestWarrant4Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        modifyArrestWarrant4Op.setOption("usingAddressing","false");
+        modifyArrestWarrant4Op.setOption("inputName","modifyArrestWarrantRequest");
+        modifyArrestWarrant4Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "modifyArrestWarrantResponse"));
+        modifyArrestWarrant4Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        modifyArrestWarrant4Op.setOption("buildNum","cf011133.09");
+        modifyArrestWarrant4Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        modifyArrestWarrant4Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        modifyArrestWarrant4Op.setOption("outputName","modifyArrestWarrantResponse");
+        modifyArrestWarrant4Op.setOption("ResponseLocalPart","modifyArrestWarrantResponse");
+        modifyArrestWarrant4Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "modifyArrestWarrantRequest"));
+        modifyArrestWarrant4Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return modifyArrestWarrant4Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _recallArrestWarrant5Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc recallArrestWarrant5Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "intCaseNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "caseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantNo"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtOri"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "partyNum"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisUserId"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "corisLogName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "recallDate"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "dateTime"), java.util.Calendar.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[0].setOption("partName","int");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[2].setOption("partName","string");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[3].setOption("partName","string");
+        _params0[4].setOption("inputPosition","4");
+        _params0[4].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[4].setOption("partName","string");
+        _params0[5].setOption("inputPosition","5");
+        _params0[5].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[5].setOption("partName","string");
+        _params0[6].setOption("inputPosition","6");
+        _params0[6].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[6].setOption("partName","int");
+        _params0[7].setOption("inputPosition","7");
+        _params0[7].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[7].setOption("partName","int");
+        _params0[8].setOption("inputPosition","8");
+        _params0[8].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[8].setOption("partName","string");
+        _params0[9].setOption("inputPosition","9");
+        _params0[9].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}dateTime");
+        _params0[9].setOption("partName","dateTime");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "recallArrestWarrantReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"), gov.utcourts.warrant.ResultWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultWrapper");
+        _returnDesc0.setOption("partName","ResultWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        recallArrestWarrant5Op = new com.ibm.ws.webservices.engine.description.OperationDesc("recallArrestWarrant", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "recallArrestWarrant"), _params0, _returnDesc0, _faults0, null);
+        recallArrestWarrant5Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        recallArrestWarrant5Op.setOption("usingAddressing","false");
+        recallArrestWarrant5Op.setOption("inputName","recallArrestWarrantRequest");
+        recallArrestWarrant5Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "recallArrestWarrantResponse"));
+        recallArrestWarrant5Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        recallArrestWarrant5Op.setOption("buildNum","cf011133.09");
+        recallArrestWarrant5Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        recallArrestWarrant5Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        recallArrestWarrant5Op.setOption("outputName","recallArrestWarrantResponse");
+        recallArrestWarrant5Op.setOption("ResponseLocalPart","recallArrestWarrantResponse");
+        recallArrestWarrant5Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "recallArrestWarrantRequest"));
+        recallArrestWarrant5Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return recallArrestWarrant5Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _searchForWarrants6Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc searchForWarrants6Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantNo"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "caseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "activeOnly"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "bookingReport"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "firstName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "lastName"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "otn"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "driversLicenseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "driversLicenseState"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "ssn"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "dateOfBirth"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "dateTime"), java.util.Calendar.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "startDate"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "dateTime"), java.util.Calendar.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "endDate"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "dateTime"), java.util.Calendar.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "dateType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[0].setOption("partName","string");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[2].setOption("partName","int");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}int");
+        _params0[3].setOption("partName","int");
+        _params0[4].setOption("inputPosition","4");
+        _params0[4].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[4].setOption("partName","string");
+        _params0[5].setOption("inputPosition","5");
+        _params0[5].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[5].setOption("partName","string");
+        _params0[6].setOption("inputPosition","6");
+        _params0[6].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[6].setOption("partName","string");
+        _params0[7].setOption("inputPosition","7");
+        _params0[7].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[7].setOption("partName","string");
+        _params0[8].setOption("inputPosition","8");
+        _params0[8].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[8].setOption("partName","string");
+        _params0[9].setOption("inputPosition","9");
+        _params0[9].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[9].setOption("partName","string");
+        _params0[10].setOption("inputPosition","10");
+        _params0[10].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}dateTime");
+        _params0[10].setOption("partName","dateTime");
+        _params0[11].setOption("inputPosition","11");
+        _params0[11].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[11].setOption("partName","string");
+        _params0[12].setOption("inputPosition","12");
+        _params0[12].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[12].setOption("partName","string");
+        _params0[13].setOption("inputPosition","13");
+        _params0[13].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}dateTime");
+        _params0[13].setOption("partName","dateTime");
+        _params0[14].setOption("inputPosition","14");
+        _params0[14].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}dateTime");
+        _params0[14].setOption("partName","dateTime");
+        _params0[15].setOption("inputPosition","15");
+        _params0[15].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[15].setOption("partName","string");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "searchForWarrantsReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultArrayWrapper"), gov.utcourts.warrant.ResultArrayWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultArrayWrapper");
+        _returnDesc0.setOption("partName","ResultArrayWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        searchForWarrants6Op = new com.ibm.ws.webservices.engine.description.OperationDesc("searchForWarrants", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "searchForWarrants"), _params0, _returnDesc0, _faults0, null);
+        searchForWarrants6Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        searchForWarrants6Op.setOption("usingAddressing","false");
+        searchForWarrants6Op.setOption("inputName","searchForWarrantsRequest");
+        searchForWarrants6Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "searchForWarrantsResponse"));
+        searchForWarrants6Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        searchForWarrants6Op.setOption("buildNum","cf011133.09");
+        searchForWarrants6Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        searchForWarrants6Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        searchForWarrants6Op.setOption("outputName","searchForWarrantsResponse");
+        searchForWarrants6Op.setOption("ResponseLocalPart","searchForWarrantsResponse");
+        searchForWarrants6Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "searchForWarrantsRequest"));
+        searchForWarrants6Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return searchForWarrants6Op;
+
+    }
+
+    private static com.ibm.ws.webservices.engine.description.OperationDesc _warrantExists7Op() {
+        com.ibm.ws.webservices.engine.description.OperationDesc warrantExists7Op = null;
+        com.ibm.ws.webservices.engine.description.ParameterDesc[]  _params0 = new com.ibm.ws.webservices.engine.description.ParameterDesc[] {
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "caseNumber"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantNo"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtLocation"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+         new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "courtType"), com.ibm.ws.webservices.engine.description.ParameterDesc.IN, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false, false, false, true, false), 
+          };
+        _params0[0].setOption("inputPosition","0");
+        _params0[0].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[0].setOption("partName","string");
+        _params0[1].setOption("inputPosition","1");
+        _params0[1].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[1].setOption("partName","string");
+        _params0[2].setOption("inputPosition","2");
+        _params0[2].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[2].setOption("partName","string");
+        _params0[3].setOption("inputPosition","3");
+        _params0[3].setOption("partQNameString","{http://www.w3.org/2001/XMLSchema}string");
+        _params0[3].setOption("partName","string");
+        com.ibm.ws.webservices.engine.description.ParameterDesc  _returnDesc0 = new com.ibm.ws.webservices.engine.description.ParameterDesc(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("", "warrantExistsReturn"), com.ibm.ws.webservices.engine.description.ParameterDesc.OUT, com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"), gov.utcourts.warrant.ResultWrapper.class, true, false, false, false, true, false); 
+        _returnDesc0.setOption("outputPosition","0");
+        _returnDesc0.setOption("partQNameString","{http://warrant.utcourts.gov}ResultWrapper");
+        _returnDesc0.setOption("partName","ResultWrapper");
+        com.ibm.ws.webservices.engine.description.FaultDesc[]  _faults0 = new com.ibm.ws.webservices.engine.description.FaultDesc[] {
+          };
+        warrantExists7Op = new com.ibm.ws.webservices.engine.description.OperationDesc("warrantExists", com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "warrantExists"), _params0, _returnDesc0, _faults0, null);
+        warrantExists7Op.setOption("portTypeQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrant"));
+        warrantExists7Op.setOption("usingAddressing","false");
+        warrantExists7Op.setOption("inputName","warrantExistsRequest");
+        warrantExists7Op.setOption("outputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "warrantExistsResponse"));
+        warrantExists7Op.setOption("ServiceQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "ArrestWarrantService"));
+        warrantExists7Op.setOption("buildNum","cf011133.09");
+        warrantExists7Op.setOption("ResponseNamespace","http://ws.warrant.utcourts.gov");
+        warrantExists7Op.setOption("targetNamespace","http://ws.warrant.utcourts.gov");
+        warrantExists7Op.setOption("outputName","warrantExistsResponse");
+        warrantExists7Op.setOption("ResponseLocalPart","warrantExistsResponse");
+        warrantExists7Op.setOption("inputMessageQName",com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://ws.warrant.utcourts.gov", "warrantExistsRequest"));
+        warrantExists7Op.setStyle(com.ibm.ws.webservices.engine.enumtype.Style.WRAPPED);
+        return warrantExists7Op;
+
+    }
+
+
+    private static void initTypeMappings() {
+        typeMappings = new java.util.HashMap();
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultWrapper"),
+                         gov.utcourts.warrant.ResultWrapper.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ResultArrayWrapper"),
+                         gov.utcourts.warrant.ResultArrayWrapper.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonNameBO"),
+                         gov.utcourts.warrant.dataaccess.PersonNameBO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "AddressBO"),
+                         gov.utcourts.warrant.dataaccess.AddressBO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonVehicleBO"),
+                         gov.utcourts.warrant.dataaccess.PersonVehicleBO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "ChargeBO"),
+                         gov.utcourts.warrant.dataaccess.ChargeBO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ArrayOfXSDAnyType"),
+                         java.lang.Object[].class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ArrayOfArrestWarrantInfo"),
+                         gov.utcourts.warrant.ArrestWarrantInfo[].class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://warrant.utcourts.gov", "ArrestWarrantInfo"),
+                         gov.utcourts.warrant.ArrestWarrantInfo.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonNameVO"),
+                         gov.utcourts.warrant.dataaccess.PersonNameVO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "BaseVO"),
+                         gov.utcourts.warrant.dataaccess.BaseVO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "AddressVO"),
+                         gov.utcourts.warrant.dataaccess.AddressVO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "PersonVehicleVO"),
+                         gov.utcourts.warrant.dataaccess.PersonVehicleVO.class);
+
+        typeMappings.put(com.ibm.ws.webservices.engine.utils.QNameTable.createQName("http://dataaccess.warrant.utcourts.gov", "ChargeVO"),
+                         gov.utcourts.warrant.dataaccess.ChargeVO.class);
+
+        typeMappings = java.util.Collections.unmodifiableMap(typeMappings);
+    }
+
+    public java.util.Map getTypeMappings() {
+        return typeMappings;
+    }
+
+    public Class getJavaType(javax.xml.namespace.QName xmlName) {
+        return (Class) typeMappings.get(xmlName);
+    }
+
+    public java.util.Map getOperationDescriptions(String portName) {
+        return (java.util.Map) operationDescriptions.get(portName);
+    }
+
+    public java.util.List getOperationDescriptions(String portName, String operationName) {
+        java.util.Map map = (java.util.Map) operationDescriptions.get(portName);
+        if (map != null) {
+            return (java.util.List) map.get(operationName);
+        }
+        return null;
+    }
+
+}

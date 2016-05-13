@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="com.ibm.etools.webservice.was.consumption.ui.widgets.WASProxyWidget.wsdlFolderText_">
+	</list>
+	<list key="com.ibm.etools.webservice.was.consumption.ui.widgets.WASProxyWidget.wsdlFileText_">
+		<item value="ArrestWarrant.wsdl"/>
+	</list>
+</section>
